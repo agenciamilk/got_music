@@ -1,135 +1,0 @@
-10
-
-dir
-31
-https://svn.kendoo.com.br/svn/milk-mvp/tags/Milk%201.0.1/got-milk/plugins
-https://svn.kendoo.com.br/svn/milk-mvp
-
-
-
-2015-04-16T13:43:43.319673Z
-28
-filipebarretto
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-972ce66a-3958-44ee-828e-360de9f3bde7
-
-nl.x-services.plugins.launchmyapp
-dir
-
-org.apache.cordova.device
-dir
-
-com.google.playservices
-dir
-
-ios.json
-file
-
-
-
-
-2015-04-16T21:52:35.676064Z
-0305701c53f9c90305eb30fdac97aac6
-2015-04-16T13:43:43.319673Z
-28
-filipebarretto
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-6333
-
-org.apache.cordova.console
-dir
-
-org.apache.cordova.geolocation
-dir
-
-org.apache.cordova.statusbar
-dir
-
-com.danielcwilson.plugins.googleanalytics
-dir
-
-com.oauthio.plugins.oauthio
-dir
-
-org.apache.cordova.inappbrowser
-dir
-
-org.apache.cordova.network-information
-dir
-
-com.gamethrive.plugins.GameThrive
-dir
-
-android.support.v4
-dir
-
-android.json
-file
-
-
-
-
-2015-04-16T21:52:35.676064Z
-faf15e6e2875638936c2b93dd1be1a83
-2015-04-16T13:43:43.319673Z
-28
-filipebarretto
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-10868
-
-com.phonegap.plugins.PushPlugin
-dir
-

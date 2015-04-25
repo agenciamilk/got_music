@@ -1,86 +1,0 @@
-10
-
-dir
-31
-https://svn.kendoo.com.br/svn/milk-mvp/tags/Milk%201.0.1/got-milk/www
-https://svn.kendoo.com.br/svn/milk-mvp
-
-
-
-2015-04-16T13:43:43.319673Z
-28
-filipebarretto
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-972ce66a-3958-44ee-828e-360de9f3bde7
-
-directives
-dir
-
-controllers
-dir
-
-less
-dir
-
-css
-dir
-
-fonts
-dir
-
-index.html
-file
-
-
-
-
-2015-04-16T21:42:07.244067Z
-98f92c96c31b51ae4f92e55c7f86e2d8
-2015-03-30T00:51:20.555769Z
-27
-filipebarretto
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4216
-
-img
-dir
-
-js
-dir
-
-templates
-dir
-
