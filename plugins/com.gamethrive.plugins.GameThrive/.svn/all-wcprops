@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/LICENSE
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/README.md
+END
+plugin.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/plugin.xml
+END
+.fetch.json
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/.fetch.json
+END

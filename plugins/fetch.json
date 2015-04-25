@@ -1,0 +1,15 @@
+{
+    "android.support.v4": {
+        "source": {
+            "type": "registry",
+            "id": "android.support.v4"
+        }
+    },
+    "nl.x-services.plugins.launchmyapp": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/EddyVerbruggen/Custom-URL-scheme.git",
+            "subdir": "."
+        }
+    }
+}

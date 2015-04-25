@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.google.playservices/libs/google-play-services_lib/res/values
+END
+maps_attrs.xml
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.google.playservices/libs/google-play-services_lib/res/values/maps_attrs.xml
+END
+common_strings.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.google.playservices/libs/google-play-services_lib/res/values/common_strings.xml
+END
+wallet_strings.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.google.playservices/libs/google-play-services_lib/res/values/wallet_strings.xml
+END
+version.xml
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.google.playservices/libs/google-play-services_lib/res/values/version.xml
+END
+wallet_attrs.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.google.playservices/libs/google-play-services_lib/res/values/wallet_attrs.xml
+END
+admob_ads_attrs.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.google.playservices/libs/google-play-services_lib/res/values/admob_ads_attrs.xml
+END
+common_colors.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.google.playservices/libs/google-play-services_lib/res/values/common_colors.xml
+END
+wallet_colors.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.google.playservices/libs/google-play-services_lib/res/values/wallet_colors.xml
+END
+admob_iap_style.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.google.playservices/libs/google-play-services_lib/res/values/admob_iap_style.xml
+END
+admob_strings.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.google.playservices/libs/google-play-services_lib/res/values/admob_strings.xml
+END
+wallet_styles.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.google.playservices/libs/google-play-services_lib/res/values/wallet_styles.xml
+END

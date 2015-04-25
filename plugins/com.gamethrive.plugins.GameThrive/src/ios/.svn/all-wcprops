@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/src/ios
+END
+HGTJailbreakDetection.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/src/ios/HGTJailbreakDetection.h
+END
+GTTrackPlayerPurchase.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/src/ios/GTTrackPlayerPurchase.h
+END
+GTHTTPClient.h
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/src/ios/GTHTTPClient.h
+END
+GameThrive.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/src/ios/GameThrive.h
+END
+GameThrivePush.h
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/src/ios/GameThrivePush.h
+END
+HGTJailbreakDetection.m
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/src/ios/HGTJailbreakDetection.m
+END
+GTTrackPlayerPurchase.m
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/src/ios/GTTrackPlayerPurchase.m
+END
+GTHTTPClient.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/src/ios/GTHTTPClient.m
+END
+GameThrive.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/src/ios/GameThrive.m
+END
+GameThrivePush.m
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.gamethrive.plugins.GameThrive/src/ios/GameThrivePush.m
+END

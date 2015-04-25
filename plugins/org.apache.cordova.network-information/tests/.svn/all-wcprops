@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.network-information/tests
+END
+plugin.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.network-information/tests/plugin.xml
+END
+tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.network-information/tests/tests.js
+END

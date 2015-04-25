@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.network-information/src/ubuntu
+END
+network_information.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.network-information/src/ubuntu/network_information.h
+END
+network_information.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.network-information/src/ubuntu/network_information.cpp
+END

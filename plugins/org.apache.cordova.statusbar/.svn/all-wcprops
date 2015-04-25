@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.statusbar
+END
+NOTICE
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.statusbar/NOTICE
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.statusbar/LICENSE
+END
+package.json
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.statusbar/package.json
+END
+CONTRIBUTING.md
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.statusbar/CONTRIBUTING.md
+END
+RELEASENOTES.md
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.statusbar/RELEASENOTES.md
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.statusbar/README.md
+END
+plugin.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.statusbar/plugin.xml
+END
+.fetch.json
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/org.apache.cordova.statusbar/.fetch.json
+END

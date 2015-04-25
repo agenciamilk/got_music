@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios
+END
+GAITracker.h
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAITracker.h
+END
+GAIDictionaryBuilder.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAIDictionaryBuilder.h
+END
+GAITrackedViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAITrackedViewController.h
+END
+GAIEcommerceProductAction.h
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAIEcommerceProductAction.h
+END
+UniversalAnalyticsPlugin.h
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/UniversalAnalyticsPlugin.h
+END
+GAI.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAI.h
+END
+GAILogger.h
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAILogger.h
+END
+GAIEcommerceProduct.h
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAIEcommerceProduct.h
+END
+libAdIdAccess.a
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/libAdIdAccess.a
+END
+UniversalAnalyticsPlugin.m
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/UniversalAnalyticsPlugin.m
+END
+GAIEcommerceFields.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAIEcommerceFields.h
+END
+GAIEcommercePromotion.h
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAIEcommercePromotion.h
+END
+GAIFields.h
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAIFields.h
+END
+libGoogleAnalyticsServices.a
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.danielcwilson.plugins.googleanalytics/ios/libGoogleAnalyticsServices.a
+END

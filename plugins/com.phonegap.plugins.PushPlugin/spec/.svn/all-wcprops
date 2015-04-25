@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.phonegap.plugins.PushPlugin/spec
+END
+genericpush.tests.js
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.phonegap.plugins.PushPlugin/spec/genericpush.tests.js
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.phonegap.plugins.PushPlugin/spec/index.html
+END
+jasmine.css
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.phonegap.plugins.PushPlugin/spec/jasmine.css
+END
+jasmine.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.phonegap.plugins.PushPlugin/spec/jasmine.js
+END
+test-runner.js
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/milk-mvp/!svn/ver/31/tags/Milk%201.0.1/got-milk/plugins/com.phonegap.plugins.PushPlugin/spec/test-runner.js
+END

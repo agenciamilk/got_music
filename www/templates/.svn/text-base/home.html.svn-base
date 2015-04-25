@@ -1,0 +1,21 @@
+<div class="home">
+    <img class="background-home" src="img/gotmusic-background.jpg" />
+    <div class="row home-logo">
+        <div class="col-xs-12 text-center">
+            <img ng-src="img/logos/farfromalaska_main.svg">
+        </div>
+    </div>
+    <div class="bottom-menu">
+        <div class="row">
+            <div class="col-xs-4 button-wrapper text-center">
+                <div class="option-button first-option-button" ng-click="goToNews()">Novidades</div>
+            </div>
+            <div class="col-xs-4 button-wrapper text-center">
+                <div class="option-button" ng-click="goToMusic()">Músicas</div>
+            </div>
+            <div class="col-xs-4 button-wrapper text-center">
+                <div class="option-button last-option-button" ng-click="goToShows()">Shows</div>
+            </div>
+        </div>
+    </div>
+</div>
