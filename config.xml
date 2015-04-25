@@ -22,6 +22,13 @@
     <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
     <preference name="SplashScreen" value="screen" />
 
+    <!-- https://github.com/EddyVerbruggen/Custom-URL-scheme/issues/76 -->
+    <feature name="Custom URL scheme">
+      <param name="id" value="nl.x-services.plugins.launchmyapp" />
+      <param name="url" value="https://github.com/EddyVerbruggen/LaunchMyApp-PhoneGap-Plugin.git" />
+      <variable name="URL_SCHEME" value="farfromalaska" />
+    </feature>
+
     <!-- Icons & Splashscreens -->
     <platform name="ios">
         <!-- iOS 8.0+ -->
