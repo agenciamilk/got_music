@@ -1,0 +1,875 @@
+@import "variables.less";
+
+body {
+    background-color: @artist-color;
+}
+
+.background {
+    //src: @app-background-image;
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    top: @navigation-bar-height + @title-bar-height;
+    right: 0;
+    left: 0;
+}
+
+.background-home {
+    //src: @app-background-image;
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    bottom: @bottom-menu-height;
+    right: 0;
+    left: 0;
+}
+
+
+navigation-tabs {
+    z-index: 100;
+    position: fixed;
+    top: @title-bar-height;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #333333;
+    .menu-border-left {
+        border-left: 1px solid #868686;
+        position: absolute;
+        top: 15%;
+        bottom: 15%;
+    }
+    .menu-border-right {
+        .menu-border-left;
+        right: 0;
+    }
+    .button-wrapper {
+        padding: 0 !important;
+        .option-button {
+            padding: 10px 0px;
+            height: @navigation-bar-height;
+            line-height: 28px;
+            background-color: @third-color;
+            color: @second-color;
+            text-align: center;
+            font-family: 'lato_bold';
+            font-size: 14px;
+            &:first-child {
+                padding-left: 0;
+            }
+            &:last-child {
+                padding-right: 0;
+            }
+            .option-button-text {
+                .menu-icon {
+                    height: 14px;
+                    margin-right: 5px;
+                    vertical-align: baseline;
+                    top: 2px;
+                    position: relative;
+                }
+            }
+            .option-button-first {
+                margin-left: 15px;
+            }
+            .option-button-last {
+                margin-right: 15px;
+            }
+            
+        }
+        .selected {
+            color: @main-color !important;
+        }
+    }  
+}
+
+
+title-bar {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: @main-color;
+    color: @second-color;
+    height: @title-bar-height;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    box-shadow: 0px 1px 10px #000;
+    .artist-name {
+        line-height: @title-bar-height;
+        width: 100%;
+        height: @title-bar-height;
+        font-size: 16px;
+        text-align: center;
+        .artist-logo {
+            height: 25px;
+            margin-top: 10px;
+        }
+    }
+}
+
+.home {
+    .home-logo {
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        img {
+            width: 60%;
+            left: 0;
+            top: 0;
+            bottom: @bottom-menu-height;
+            right: 0;
+            margin: auto;
+            position: fixed
+        }
+    }
+    .home-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #FFF;
+        bottom: 2 * @home-menu-button-padding + @home-menu-bottom + @home-menu-font-size;
+    }
+    .bottom-menu {
+        position: absolute;
+        bottom: @home-menu-bottom;
+        left: 0;
+        width: 100%;
+        overflow-x: hidden;
+        height: @bottom-menu-height;
+        .button-wrapper {
+            padding: 0 !important;
+            .option-button {
+                font-size: @home-menu-font-size;
+                padding: @home-menu-button-padding;
+                background-color: @artist-color;
+                color: @third-color;
+                text-align: center;
+                &:first-child {
+                    &:after {
+                        position: absolute;
+                        top: @home-menu-border-margin;
+                        bottom: @home-menu-border-margin;
+                        left: 0;
+                        content: "";
+                        width: 0;
+                        border-right: 1px solid @home-menu-border-color;
+                    }
+                }
+            }
+            .first-option-button {
+                padding-left: 25px !important;
+            }
+            .last-option-button {
+                padding-right: 30px !important;
+            }
+        }
+    }
+}
+
+.item {
+    margin-top: @item-margin-vertical;
+    //width: 300px;
+    margin-left: @item-margin-horizontal;
+    margin-right: @item-margin-horizontal;
+    #title {
+        background-color: @second-color;
+        color: @main-color;
+        padding: 5px;
+    }  
+}
+
+.section {
+    z-index: 0;
+    top: @title-bar-height + @navigation-bar-height;
+    margin-bottom:10px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow-x: hidden;
+    .module {
+        display: -webkit-box;
+        margin-top: 10px;
+        &:last-child {
+            margin-bottom: 20px;
+        }
+        .item {
+            margin-left: @item-margin;
+            margin-right: @item-margin;
+            border-bottom-left-radius: @item-content-radius;
+            border-bottom-right-radius: @item-content-radius;
+            //box-shadow: 0 0 10px;
+            .title-wrapper {
+                background-color: @bar-title-background-color;
+                .title {
+                    margin-left: 15px;
+                    font-family: 'lato_bold';
+                    color: @third-color;
+                    padding: 5px;
+                    font-size: 18px;
+                    .title-icon {
+                        height: 18px;
+                        margin-right: 5px;
+                        vertical-align: baseline;
+                        top: 2px;
+                        position: relative;
+                    }
+                }
+            }
+            .content {
+                font-family: 'lato_regular';
+                background-color: @bar-body-background-color;
+                color: @item-content-text-color;
+                padding: 15px;
+                border-bottom-left-radius: @item-content-radius;
+                border-bottom-right-radius: @item-content-radius;
+                word-wrap: break-word;
+                overflow-y: hidden;
+                /*
+                -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+                box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+                */
+                -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+                -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+                box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+            }
+        }
+        
+    }
+}
+
+.news {
+    #message {
+        margin-bottom: -10px;
+        .message-item {
+            .content {
+                .message-image {
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    float: left;
+                }
+                .message-content {
+                    margin-left: 60px;
+                    .message-user {
+                        .message-screenname {
+                        font-weight: bold;
+                        }
+                    }
+                }
+                .message-action {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    color: @main-color;
+                    text-transform: uppercase;
+                    font-size: x-small;
+                    background-color: @third-color;
+                }
+            }  
+        }
+    }
+    
+    #facebook {
+        margin-bottom: 30px;
+        .facebook-item {
+            .content {
+                .facebook-profile {
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 2px;
+                    float: left;
+                }
+                .facebook-content {
+                    .facebook-status-photo {
+                        .facebook-photo-message {
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .facebook-status-link {
+                        .facebook-link-description-box {
+                            padding: 15px;
+                            .facebook-link-box-title {
+                                font-size: large;
+                                font-weight: bold;
+                                margin-bottom: 5px;
+                            }
+                            .facebook-link-box-description {
+                            
+                            }
+                        }
+                        .facebook-link-text {
+                            margin-bottom: 10px;
+                        }
+                        .facebook-link-box {
+                            border: 1px solid #FFFFFF;
+                        }
+                        
+                    }
+                    .facebook-status-video {
+                        .facebook-video-message {
+                            margin-bottom: 10px;
+                            padding: 15px;
+                        }
+                        .youtube-thumbnail {
+                            width: 100%;
+                            border-bottom-left-radius: @item-content-radius;
+                            border-bottom-right-radius: @item-content-radius;
+                            -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+                            -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+                            box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+                        }
+                        .youtube-video-title {
+                            background-color: @third-color;
+                            color: @main-color;
+                            height: 30px;
+                            line-height: 30px;
+                            font-size: small;
+                            text-align: center;
+                        }
+                    }
+                }
+
+            }  
+        }
+    }
+    #twitter {
+        .twitter-item {
+            .content {
+                .twitter-login-image {
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 50%;
+                        float: left;
+                    }
+                    .twitter-login-content {
+                        margin-left: 60px;
+                        .twitter-user {
+                            .twitter-screenname {
+                            font-weight: bold;
+                            }
+                        }
+                    }
+                    .twitter-open-button {
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        color: @main-color;
+                        text-transform: uppercase;
+                        font-size: x-small;
+                        background-color: @third-color;
+                    }
+                .twitter-profile {
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 2px;
+                    float: left;
+                }
+                .tweet-content {
+                    margin-left: 60px;
+                    .tweet-user {
+                        .twitter-screenname {
+                        font-weight: bold;
+                        }
+                        .twitter-username {
+                            color: @twitter-username-text-color;
+                            font-size: x-small;
+                        }
+                    }
+
+                    .tweet-time {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        color: @twitter-username-text-color;
+                        font-size: x-small;
+                    }
+
+                    .tweet-text {
+                        color: @twitter-text-color;
+                        overflow-y: hidden;
+                    }
+
+                    .tweet-stats {
+                        color: @twitter-username-text-color;
+                        text-transform: uppercase;
+                        font-size: x-small;
+                    }
+                }
+
+            }  
+        }
+    }
+    #instagram {
+        margin-bottom: 30px;
+        .instagram-item {
+            .content {
+                    .instagram-image {
+                        //height: 100%;
+                        width: 100%;
+                    }
+                    .instagram-content {
+                        margin-top: 10px;
+                        .instagram-header {
+                            .instagram-screenname {
+                                font-weight: bold;
+                                position: absolute;
+                                left: 15px;
+                            }
+                            .instagram-likes {
+                                position: absolute;
+                                left: 15px;
+                                top: 20px;
+                                color: @twitter-username-text-color;
+                                font-size: small;
+                            }
+                            .instagram-relationship {
+                                font-size: x-small;
+                                position: absolute;
+                                right: 15px;
+                                top: 5px;
+                                .follow {
+                                    border: 1px solid @third-color;
+                                    color: @third-color;
+                                    padding: 3px 10px;
+                                    text-transform: uppercase;
+                                }
+                                .following {
+                                    border: 1px solid @third-color;
+                                    background-color: @third-color;
+                                    color: @main-color;
+                                    text-transform: uppercase;
+                                    padding: 3px 10px;
+                                }
+                            }
+                        }
+                        .instagram-text {
+                            margin-top: 40px;
+                            color: @third-color;
+                            overflow-y: hidden;
+                        }
+
+                        .instagram-actions {
+                            color: @twitter-username-text-color;
+                            text-transform: uppercase;
+                            font-size: x-small;
+                            margin-top: 20px;
+                            .instagram-like {
+                                margin-right: 20px;
+                            }
+                        }
+                    }
+
+
+
+            }  
+        }
+    }
+}
+ 
+.music {
+    #deezer {
+        .deezer-item {
+            
+            .embed {
+                padding: 0 !important;
+            }
+            .content {
+                height: 120px !important;
+                .album-cover-wrapper {
+                position: absolute;
+                left: 0;
+                top: 35px;
+                height: 150px;
+            }
+                .album-image {
+                    height: 120px;
+                    width: 120px;
+                    
+                    border-bottom-left-radius: @item-content-radius;
+                }
+                .btn-player {
+                    height: 50px;
+                    width: 50px;
+                    position: absolute;
+                    left: 35px;
+                    top: 35px;
+                    border-radius: 50%;
+                }
+                .col-xs-12 {
+                    padding-left: 0;
+                    border-bottom-left-radius: @item-content-radius;
+                }
+                .deezer-content {
+                    margin-left: 120px;
+                    .deezer-header {
+                        .deezer-track {
+                            font-weight: bold;
+                        }
+                        .deezer-artist {
+                            color: @twitter-username-text-color;
+                            font-size: small;
+                        }
+                    }
+
+
+                    .album-info {
+                        margin-top: 15px;
+                        .album-price {
+                            font-weight: bold;
+                        }
+
+                        .album-release {
+                            font-size: x-small;
+                            color: @twitter-username-text-color;
+                        }
+
+                        .album-copyright {
+                            .album-release;
+                        }
+                    }
+                }
+
+                .dzSlider {
+                    height: 20px;
+                    margin-top: 7px;
+                    background-color: #464646;
+                    border: #000000 solid 5px;
+                    .dzProgress {
+                        height: 10px;
+                        background-color: #FFFFFF;
+                    }
+                }
+                .deezer-logo {
+                    width: 80px;
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                }
+            }
+        }
+        
+    }
+    
+    #youtube {
+        .youtube-item {
+            .content {
+                padding: 0 !important;
+                .youtube-thumbnail {
+                    width: 100%;
+                    border-bottom-left-radius: @item-content-radius;
+                    border-bottom-right-radius: @item-content-radius;
+                    -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+                    -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+                    box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+                }
+                .youtube-video-title {
+                    background-color: @third-color;
+                    color: @main-color;
+                    height: 30px;
+                    line-height: 30px;
+                    font-size: small;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    
+    
+    #itunes {
+        .itunes-item {
+            .content {
+                .album-image {
+                    height: 100px;
+                    width: 100px;
+                    float: left;
+                }
+                .buy-album {
+                    position: absolute;
+                    right: 0;
+                    bottom: -3px;
+                }
+                .itunes-content {
+                    margin-left: 110px;
+                    .itunes-header {
+                        .itunes-artist {
+                            font-weight: bold;
+                        }
+                        .itunes-album {
+                            color: @twitter-username-text-color;
+                            font-size: small;
+                        }
+                    }
+
+                    .album-info {
+                        margin-top: 15px;
+                        .album-price {
+                            font-weight: bold;
+                        }
+
+                        .album-release {
+                            font-size: x-small;
+                            color: @twitter-username-text-color;
+                        }
+
+                        .album-copyright {
+                            .album-release;
+                        }
+                    }
+                }
+            }  
+        }
+    }
+    
+}
+
+
+.video {
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    #yt-quit {
+        z-index: 500;
+        position:absolute;
+        left: 10px;
+        top: 25px;
+    }
+    #ytplayer {
+        background: #000; 
+        position: absolute;
+        left: 0;
+        top: @title-bar-height;
+        z-index: 200;
+    }
+}
+
+.demand-modal-background {
+    position: fixed;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.internet-modal-background {
+    position: fixed;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.shows {
+    #demand {
+        .demand-item {
+            .content {  
+                .demand-text {
+                    margin-top: 10px;
+                    .artist-name {
+                        font-weight: bolder;
+                        font-family: 'lato_bold';
+                    }
+                }
+                .demand-btn {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    background-color: @third-color;
+                    color: @main-color;
+                }
+            }  
+        }
+    }
+    #songkick {
+        .songkick-item {
+            .content {
+                padding: 0 !important;
+                .songkick-event {
+                    padding: 0;
+                    .border-content {
+                        border-left: 1px solid @third-color;
+                        position: absolute;
+                        top: 25%;
+                        bottom: 10%;
+                    }
+                    .border-date {
+                        border-left: 1px solid @main-color;
+                        position: absolute;
+                        top: 4px;
+                        height: 12px;
+                    }
+                    .event-date {
+                        background-color: @third-color;
+                        color: @main-color;
+                    }
+                    .event-city {
+                        margin-top: 10px;
+                        font-weight: bold;
+                    }
+                    .event-btn {
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        background-color: @third-color;
+                        color: @main-color;
+                    }
+                }
+            }  
+            .songkick-logo-wrapper {
+                background-color: @bar-body-background-color;
+                color: @third-color;
+                .songkick-logo{
+                    height: 20px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        
+    }
+    #livestream {
+        .livestream-item {
+            .content {  
+                padding: 0 !important;
+                .livestream-thumbnail {
+                    width: 100%;
+                    border-bottom-left-radius: @item-content-radius;
+                    border-bottom-right-radius: @item-content-radius;
+                    -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+                    -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+                    box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+                }
+                .livestream-video-title {
+                    background-color: @third-color;
+                    color: @main-color;
+                    height: 30px;
+                    line-height: 30px;
+                    font-size: small;
+                    text-align: center;
+                }
+            }  
+        }
+    }
+
+}
+
+// NOTIFICATION
+.notification {
+    position: fixed;
+    top: -100px;
+    z-index: 200;
+    background-color: @second-color;
+    color: @main-color;
+    height: 50px;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    box-shadow: 0px 1px 10px #000;
+    .notification-text {
+        line-height: 50px;
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+        text-align: center;
+    }
+    .notification-close {
+        position: absolute;
+        top: 0;
+        right: 5px;
+        line-height: 50px;
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+// Override Bootstrap
+.form-control {
+    margin-bottom: 10px;
+}
+
+
+#twitter-widget-0 {
+    width: 100% !important;
+}
+
+
+.modal-content {
+    margin-top: 100px;
+    border: 0;
+    //border: 1px solid rgba(0,0,0,.2);
+    border-radius: 0px;
+    .modal-header {
+        background-color: @main-color;
+        padding: 0px !important;
+        .modal-title {
+            margin-left: 15px;
+            font-family: 'lato_bold';
+            color: @third-color;
+            padding: 5px;
+            font-size: 18px;
+            .title-icon {
+                height: 18px;
+                margin-right: 5px;
+                vertical-align: baseline;
+                top: 2px;
+                position: relative;
+            }
+        }
+    }
+    .modal-body {
+        text-align: center;
+        .modal-text {
+            text-align: center;
+            .artist-name {
+                font-weight: bolder;
+                font-family: 'lato_bold';
+            }
+        }
+        .form-control {
+            text-align: center !important;
+            outline: none;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            box-shadow: none !important;
+            &:focus {
+                border-color: @main-color;
+            }
+        }
+        .location-input {
+            background: url('../img/icons/gps.png') no-repeat scroll 5px 6px;
+        }
+        .btn-gotmusic {
+            background-color: @main-color;
+            color: @third-color;
+        }
+    }
+}
+
+
+.loading-wrapper {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: @navigation-bar-height + @title-bar-height;
+    z-index: 1000;
+    .loading-image {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 50px;
+        height: 50px;
+    }
+}

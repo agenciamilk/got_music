@@ -1,0 +1,64 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"browser-package\" value=\"Device\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "android.support.v4": {
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        },
+        "com.danielcwilson.plugins.googleanalytics": {
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        },
+        "com.gamethrive.plugins.GameThrive": {
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        },
+        "com.google.playservices": {
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        },
+        "com.oauthio.plugins.oauthio": {
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        },
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        },
+        "nl.x-services.plugins.launchmyapp": {
+            "URL_SCHEME": "farfromalaska",
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        },
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        },
+        "org.apache.cordova.geolocation": {
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        },
+        "org.apache.cordova.network-information": {
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        },
+        "org.apache.cordova.statusbar": {
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        }
+    },
+    "dependent_plugins": {
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+        }
+    }
+}

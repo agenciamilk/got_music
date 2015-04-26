@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.gotmusic.farfromalaska" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Device">
+        <param name="browser-package" value="Device" />
+    </feature>
+    <name>Far From Alaska</name>
+    <description>
+        Fique por dentro de todas as novidades da banda Far From Alaska
+    </description>
+    <author email="contact@gotmusicapp.com" href="http://www.gotmusicapp.com">
+        Got Music
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="orientation" value="portrait" />
+    <preference name="ios-orientation-iphone" value="portrait" />
+    <preference name="ios-orientation-ipad" value="portrait" />
+    <preference name="BackupWebStorage" value="local" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
+    <preference name="SplashScreen" value="screen" />
+</widget>

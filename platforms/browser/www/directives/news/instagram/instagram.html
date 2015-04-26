@@ -1,0 +1,27 @@
+<div id="instagram" class="item row">
+    <div class="col-xs-12">
+        <div id="title" class="row">
+            <div class="col-xs-12">liltoficial</div>
+        </div>
+        <div id="content" class="row">
+            <div class="col-xs-12">
+                <img class="instagram-image" ng-src="{{instagram.image_url}}">
+                <div class="instagram-content">
+                    <div class="instagram-header">
+                        <div class="instagram-screenname">{{instagram.user.full_name}}</div>
+                        <div class="instagram-likes"><b>{{instagram.likes}}</b> Likes</div>
+                    </div>
+
+                    <div class="tweet-time">{{instagram.time_lapse}}</div>
+                    <div class="instagram-text">
+                        {{instagram.caption}}
+                    </div>
+                    <div class="instagram-actions">
+                        <span class="instagram-like">like</span>
+                        <span class="instagram-comment">comment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
