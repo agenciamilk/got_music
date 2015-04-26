@@ -27,6 +27,24 @@
     <feature name="LaunchMyApp">
         <param name="android-package" value="nl.xservices.plugins.LaunchMyApp" />
     </feature>
+    <icon density="ldpi" src="res/android/ldpi.png" />
+    <icon density="mdpi" src="res/android/mdpi.png" />
+    <icon density="hdpi" src="res/android/hdpi.png" />
+    <icon density="xhdpi" src="res/android/xhdpi.png" />
+    <icon density="xxhdpi" src="res/android/xxhdpi.png" />
+    <icon density="xxxhdpi" src="res/android/xxxhdpi.png" />
+    <splash density="land-hdpi" src="res/android/splash-land-hdpi.png" />
+    <splash density="land-ldpi" src="res/android/splash-land-ldpi.png" />
+    <splash density="land-mdpi" src="res/android/splash-land-mdpi.png" />
+    <splash density="land-xhdpi" src="res/android/splash-land-xhdpi.png" />
+    <splash density="land-xxhdpi" src="res/android/splash-land-xxhdpi.png" />
+    <splash density="land-xxxhdpi" src="res/android/splash-land-xxxhdpi.png" />
+    <splash density="port-hdpi" src="res/android/splash-port-hdpi.png" />
+    <splash density="port-ldpi" src="res/android/splash-port-ldpi.png" />
+    <splash density="port-mdpi" src="res/android/splash-port-mdpi.png" />
+    <splash density="port-xhdpi" src="res/android/splash-port-xhdpi.png" />
+    <splash density="port-xxhdpi" src="res/android/splash-port-xxhdpi.png" />
+    <splash density="port-xxxhdpi" src="res/android/splash-port-xxxhdpi.png" />
     <name>Far From Alaska</name>
     <description>
         Fique por dentro de todas as novidades da banda Far From Alaska
