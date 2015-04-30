@@ -1108,7 +1108,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         $(document).ready(function() {
             $timeout(function() {
                 $scope.loading--;
-                $('.deezer-embed').append('<iframe id="deezer-iframe" scrolling="no" frameborder="0" allowTransparency="true" src="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=album&id=' + DEEZER_ALBUM_ID + '&title=&app_id=' + DEEZER_API_ID + '" width="100%" height="80"></iframe><img class="deezer-logo" src="img/logos/deezer.svg">');
+                $('.deezer-embed').append('<iframe id="deezer-iframe" scrolling="no" frameborder="0" allowTransparency="true" src="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=album&id=' + DEEZER_ALBUM_ID + '&title=&app_id=' + DEEZER_API_ID + '" width="100%" height="100%"></iframe><img class="deezer-logo" src="img/logos/deezer.svg">');
                 $('.deezer-embed').addClass('embed');
                 $('.album-cover-wrapper').hide();
                 $('.deezer-content').hide();
