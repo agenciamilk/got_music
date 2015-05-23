@@ -74,12 +74,12 @@ navigation-tabs {
             .option-button-last {
                 margin-right: 15px;
             }
-            
+
         }
         .selected {
             color: @main-color !important;
         }
-    }  
+    }
 }
 
 
@@ -178,7 +178,7 @@ title-bar {
         background-color: @second-color;
         color: @main-color;
         padding: 5px;
-    }  
+    }
 }
 
 .section {
@@ -237,7 +237,7 @@ title-bar {
                 box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
             }
         }
-        
+
     }
 }
 
@@ -268,10 +268,10 @@ title-bar {
                     font-size: x-small;
                     background-color: @third-color;
                 }
-            }  
+            }
         }
     }
-    
+
     #facebook {
         margin-bottom: 30px;
         .facebook-item {
@@ -297,7 +297,7 @@ title-bar {
                                 margin-bottom: 5px;
                             }
                             .facebook-link-box-description {
-                            
+
                             }
                         }
                         .facebook-link-text {
@@ -306,7 +306,7 @@ title-bar {
                         .facebook-link-box {
                             border: 1px solid #FFFFFF;
                         }
-                        
+
                     }
                     .facebook-status-video {
                         .facebook-video-message {
@@ -332,7 +332,7 @@ title-bar {
                     }
                 }
 
-            }  
+            }
         }
     }
     #twitter {
@@ -398,7 +398,7 @@ title-bar {
                     }
                 }
 
-            }  
+            }
         }
     }
     #instagram {
@@ -463,18 +463,24 @@ title-bar {
 
 
 
-            }  
+            }
         }
     }
 }
- 
+
 .music {
     #deezer {
         .deezer-item {
-            
+
             .embed {
                 padding: 0 !important;
+
+                iframe {
+                    padding-top: 6px;
+                    margin-left: -3px;
+                }
             }
+
             .content {
                 height: 120px !important;
                 .album-cover-wrapper {
@@ -486,7 +492,7 @@ title-bar {
                 .album-image {
                     height: 120px;
                     width: 120px;
-                    
+
                     border-bottom-left-radius: @item-content-radius;
                 }
                 .btn-player {
@@ -541,17 +547,11 @@ title-bar {
                         background-color: #FFFFFF;
                     }
                 }
-                .deezer-logo {
-                    width: 80px;
-                    position: absolute;
-                    bottom: 10px;
-                    right: 10px;
-                }
             }
         }
-        
+
     }
-    
+
     #youtube {
         .youtube-item {
             .content {
@@ -575,8 +575,8 @@ title-bar {
             }
         }
     }
-    
-    
+
+
     #itunes {
         .itunes-item {
             .content {
@@ -618,10 +618,10 @@ title-bar {
                         }
                     }
                 }
-            }  
+            }
         }
     }
-    
+
 }
 
 
@@ -637,7 +637,7 @@ title-bar {
         top: 25px;
     }
     #ytplayer {
-        background: #000; 
+        background: #000;
         position: absolute;
         left: 0;
         top: @title-bar-height;
@@ -670,7 +670,7 @@ title-bar {
 .shows {
     #demand {
         .demand-item {
-            .content {  
+            .content {
                 .demand-text {
                     margin-top: 10px;
                     .artist-name {
@@ -684,7 +684,7 @@ title-bar {
                     background-color: @third-color;
                     color: @main-color;
                 }
-            }  
+            }
         }
     }
     #songkick {
@@ -720,7 +720,7 @@ title-bar {
                         color: @main-color;
                     }
                 }
-            }  
+            }
             .songkick-logo-wrapper {
                 background-color: @bar-body-background-color;
                 color: @third-color;
@@ -731,11 +731,11 @@ title-bar {
                 }
             }
         }
-        
+
     }
     #livestream {
         .livestream-item {
-            .content {  
+            .content {
                 padding: 0 !important;
                 .livestream-thumbnail {
                     width: 100%;
@@ -753,7 +753,7 @@ title-bar {
                     font-size: small;
                     text-align: center;
                 }
-            }  
+            }
         }
     }
 

@@ -14,18 +14,17 @@
                 <div class="title-wrapper row">
                     <div class="title"><img src='img/icons/playlist.svg' class='title-icon'>Playlist</div>
                 </div>
-                
+
                 <div id="deezer-embed" class="content row deezer-embed">
-                    
+
                     <div id="album-cover-wrapper" class="album-cover-wrapper">
                         <img class="album-image" ng-src="{{deezer.get_album_cover(track)}}">
                         <img src="img/icons/play.png" class="btn-player" id="play" ng-click="deezer.play(track, $index)" ng-show="!deezer.playing">
                         <img src="img/icons/pause.png" class="btn-player" id="pause" ng-click="deezer.pause()" ng-show="deezer.playing">
-                    </div>        
-                        
-                    
+                    </div>
+
+
                     <div id="deezer-content" class="deezer-content">
-                            
                         <div class="deezer-header">
                             <div class="deezer-track">{{track.title}}</div>
                             <div class="deezer-artist">{{track.artist.name}}</div>
@@ -34,17 +33,12 @@
                         <div class="dzSlider" ng-click="sliderClicked($event)">
                             <div ng-show="$index==deezer.current_item" class="dzProgress" ng-style="{'width': (deezer.time_current / deezer.time_total * 100) + '%'}"><div class="inline" id="progress_hand"></div></div>
                         </div>
-                            
                     </div>
-
-                    
-                    <img class="deezer-logo" src="img/logos/deezer.svg">
                 </div>
-
             </div>
         </div>
     </div>
-    
+
     <div id="youtube" class="module" ng-style="{'left': youtube.left, 'position': 'relative'}">
         <div class="youtube-item item" ng-repeat="video in youtube.items" ng-init="youtube.set_width()">
             <div class="col-xs-12">
@@ -58,7 +52,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <div id="itunes" class="module" ng-style="{'left': itunes.left, 'position': 'relative'}">
         <div class="itunes-item item" ng-repeat="album in itunes.items" ng-init="itunes.set_width()">
@@ -89,5 +83,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>

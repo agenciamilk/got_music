@@ -413,6 +413,13 @@ title-bar .artist-name .artist-logo {
 .music #deezer .deezer-item .embed {
   padding: 0 !important;
 }
+.music #deezer .deezer-item .embed .deezer-logo {
+  display: none;
+}
+.music #deezer .deezer-item .embed iframe {
+  padding-top: 6px;
+  margin-left: -3px;
+}
 .music #deezer .deezer-item .content {
   height: 120px !important;
 }

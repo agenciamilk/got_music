@@ -41,7 +41,7 @@ var FACEBOOK_CLIENT_SECRET = 'fecc2d553b397e1ee952a08a4085a591';
 
 // TWITTER
 // Trocar por nome de usuário do artista no Twitter
-var TWITTER_USERNAME = 'FarFromAlaska'; 
+var TWITTER_USERNAME = 'FarFromAlaska';
 
 
 // INSTAGRAM
@@ -168,29 +168,29 @@ var HEIGHT;
 
 var handleOpenURL = function(url) {
     setTimeout(function() {
-        
+
         var data = url.split('://')[1];
         var source = data.split('/')[0];
         var params = data.split('/')[1];
-        
+
         /*
         alert('Data: ' + data);
         alert('Source: ' + source);
         alert('Params: ' + params);
         */
-        
+
         // Login to Instagram and Like Photo
         if (source === 'instagram') {
             INSTAGRAM_ACCESS_TOKEN = params.split('access_token=')[1];
             window.localStorage.setItem("INSTAGRAM_ACCESS_TOKEN", INSTAGRAM_ACCESS_TOKEN);
-            
+
             var post_params = 'access_token=' + INSTAGRAM_ACCESS_TOKEN;
             var method = window.localStorage.getItem('INSTAGRAM_METHOD');
-            
-            
+
+
             if (method === 'LIKE') {
                 var photo_id = window.localStorage.getItem('INSTAGRAM_PHOTO_ID');
-            
+
                 $.post('https://api.instagram.com/v1/media/' + photo_id + '/likes', {access_token: INSTAGRAM_ACCESS_TOKEN}, function (data, status) {
                     if (data.meta.code === 200) {
                         //alert('LIKE SUCCESS');
@@ -201,7 +201,7 @@ var handleOpenURL = function(url) {
                 });
             } else if (method === 'FOLLOW') {
                 $.post('https://api.instagram.com/v1/users/' + INSTAGRAM_USER_ID + '/relationship', {access_token: INSTAGRAM_ACCESS_TOKEN, action: 'follow'}, function (data,status) {
-                
+
                     if (data.meta.code === 200) {
                         window.location.hash = '#/news';
                     } else {
@@ -209,11 +209,11 @@ var handleOpenURL = function(url) {
                     }
                 });
             }
-            
-            
-            
+
+
+
         }
-        
+
     }, 0);
 };
 
@@ -248,7 +248,7 @@ gotMusicApp.directive('navigationTabs', function() {
     return {
         templateUrl: 'directives/navigation-tabs/navigation-tabs.html',
         controller: 'NavigationCtrl'
-      
+
   };
 });
 
@@ -256,7 +256,7 @@ gotMusicApp.directive('titleBar', function() {
     return {
         templateUrl: 'directives/title-bar/title-bar-new.html',
         //controller: 'NavigationCtrl'
-      
+
   };
 });
 
@@ -267,18 +267,18 @@ gotMusicApp.service("videoService", function() {
 
 gotMusicApp.service("swipeService", ["$log", "$timeout", function($log, $timeout) {
     this.createSwipe = function(elem, obj, scope) {
-        
+
         var self = this;
         var swipe = new Hammer(document.getElementById(elem), {direction: Hammer.DIRECTION_HORIZONTAL});
-        
+
         obj.left = 0;
         obj.left_start = 0;
         obj.current_item = 0;
         obj.swipping = false;
-        
+
         swipe.on("pan", function(e) {
             if (obj.swipping && (e.velocityX > 0.1 || e.velocityX < -0.1)) {
-                
+
                 // Limit Left
                 if (e.deltaX + obj.left_start > window.innerWidth * SWIPE_MARGIN) {
                     obj.left = window.innerWidth * SWIPE_MARGIN;
@@ -287,7 +287,7 @@ gotMusicApp.service("swipeService", ["$log", "$timeout", function($log, $timeout
                 } else {
                     obj.left = e.deltaX + obj.left_start;
                 }
-                
+
                 scope.$apply();
             }
         });
@@ -299,7 +299,7 @@ gotMusicApp.service("swipeService", ["$log", "$timeout", function($log, $timeout
             }
             obj.left_start = $("#" + elem).offset().left;
         });
-        
+
         swipe.on("panend", function(e) {
             if (obj.swipping) {
                 if ((e.deltaX / e.deltaTime) < -SWIPE_SPEED && e.direction == 2 && obj.current_item < obj.items.length - 1) {
@@ -322,17 +322,17 @@ gotMusicApp.service("swipeService", ["$log", "$timeout", function($log, $timeout
                     return false;
                 }
 
-                self.move(obj, elem);  
+                self.move(obj, elem);
                 scope.$apply();
             }
-            
+
             obj.swipping = false;
         });
     };
-    
+
     this.move = function(obj, elem) {
         var self = this;
-        
+
         if(obj.left > - (obj.current_item * window.innerWidth) && obj.directionChange === "left") {
             obj.left -= obj.left + obj.current_item * window.innerWidth >= DELTA_SWIPE ? DELTA_SWIPE : obj.left + obj.current_item * window.innerWidth;
             $timeout(function() {
@@ -355,7 +355,7 @@ gotMusicApp.service("swipeService", ["$log", "$timeout", function($log, $timeout
             }, 1);
         } else if (obj.left === - (obj.current_item * window.innerWidth)) {
             var elem_children = $($($('#' + elem).children()[obj.current_item]).children()[0]).children();
-        
+
             for (var i = 0; i < elem_children.length; i++) {
                 var child = elem_children[i];
                 if ($(child).hasClass('content')) {
@@ -365,30 +365,30 @@ gotMusicApp.service("swipeService", ["$log", "$timeout", function($log, $timeout
                     }
                     self.resize(obj, current_item_height);
                 }
-            }  
+            }
         }
     };
-    
+
     this.resize = function(obj, current_item_height) {
         var self = this;
 
         if (obj.item_height == null) {
             obj.item_height = current_item_height;
         }
-        
+
         if (obj.height == null) {
             obj.height = current_item_height + (2 * 15);
             if(obj.get_call2action != null) {
                 obj.height += 30;
             }
-            
+
         }
 
-        
+
         if (obj.item_height > current_item_height) {
-            
+
             var delta = obj.item_height - current_item_height >= DELTA_RESIZE ? DELTA_RESIZE : obj.item_height - current_item_height;
-            
+
             obj.item_height -= delta;
             obj.height -= delta;
             $timeout(function() {
@@ -396,21 +396,21 @@ gotMusicApp.service("swipeService", ["$log", "$timeout", function($log, $timeout
             }, 1);
 
         } else if (obj.item_height < current_item_height) {
-            
+
             var delta = current_item_height - obj.item_height >= DELTA_RESIZE ? DELTA_RESIZE : current_item_height - obj.item_height ;
-            
+
             obj.item_height += delta;
             obj.height += delta;
-            
+
             obj.item_height += 5;
             obj.height += 5;
             $timeout(function() {
                 self.resize(obj, current_item_height)
             }, 1);
-            
+
         } else if (obj.item_height === current_item_height) {
             //obj.text_height = current_item_height - 5;
-            
+
             /*
             $timeout(function() {
                 self.resize(obj, current_item_height)
@@ -425,15 +425,15 @@ gotMusicApp.controller('NavigationCtrl', ['$scope', '$log', '$location', functio
     $scope.goToNews = function() {
         $location.path("/news");
     };
-    
+
     $scope.goToMusic = function() {
         $location.path("/music");
     };
-    
+
     $scope.goToShows = function() {
         $location.path("/shows");
     };
-        
+
     switch($location.path()) {
         case '/news':
             $('#btn-news').addClass('selected');
@@ -448,7 +448,7 @@ gotMusicApp.controller('NavigationCtrl', ['$scope', '$log', '$location', functio
             $('#img-shows').attr('src', 'img/icons/menu_shows_selected.svg');
             break;
     }
-    
+
 }]);
 
 gotMusicApp.controller("NotificationCtrl", ["$scope", "$log", "$location", function($scope, $log, $location) {
@@ -456,7 +456,7 @@ gotMusicApp.controller("NotificationCtrl", ["$scope", "$log", "$location", funct
         $scope.close();
         $location.path("/news");
     };
-    
+
     $scope.close = function() {
         $('#notification').animate({top: '-100px'}, 1000);
     };
@@ -466,29 +466,29 @@ gotMusicApp.controller("NotificationCtrl", ["$scope", "$log", "$location", funct
 
 // Home Screen Controller
 gotMusicApp.controller("HomeCtrl", ["$scope", "$log", "$location", function($scope, $log, $location) {
-    
-    // Bottom Menu Navigation   
+
+    // Bottom Menu Navigation
     $scope.goToNews = function() {
         $location.path("/news");
     };
-    
+
     $scope.goToMusic = function() {
         $location.path("/music");
     };
-    
+
     $scope.goToShows = function() {
         $location.path("/shows");
     };
-    
+
     // Analytics
     window.analytics.trackView('Home Screen');
-    
+
     // Home Image
     $scope.getHomeImage = function() {
         var w = window.innerWidth;
         var h = window.innerHeight;
     };
-    
+
 }]);
 
 gotMusicApp.controller('InternetModalInstanceCtrl', ["$scope", "$modalInstance", "$log", "$modal", "$sce", function ($scope, $modalInstance, $log, $modal, $sce) {
@@ -500,8 +500,8 @@ gotMusicApp.controller('InternetModalInstanceCtrl', ["$scope", "$modalInstance",
 
 // News Screen Controller
 gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$interval', '$timeout', '$document', 'swipeService', 'videoService', '$modal', function($scope, $log, $http, $location, $interval, $timeout, $document, swipeService, videoService, $modal) {
-    
-    
+
+
     $scope.openModal = function() {
         $('#internet-modal-background').show();
         var modalInstance = $modal.open({
@@ -532,41 +532,41 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
             }
         }, INTERNET_CHECK_INTERVAL);
     };
-    
-    
+
+
     $scope.start_internet_check();
 
     // Analytics
     window.analytics.trackView('News Screen');
-    
-    
+
+
     // MODULES
     $scope.message = {};
     $scope.facebook = {};
     $scope.twitter = {};
     $scope.instagram = {};
-    
-    
+
+
     // Get From Local Storage
     $scope.message.items = JSON.parse(window.localStorage.getItem("MESSAGE_FEED")) || [];
     $scope.facebook.items = JSON.parse(window.localStorage.getItem("FACEBOOK_FEED")) || [];
     $scope.twitter.items = JSON.parse(window.localStorage.getItem("TWITTER_FEED")) || [];
     $scope.instagram.items = JSON.parse(window.localStorage.getItem("INSTAGRAM_FEED")) || [];
-    
-    
+
+
     // Create Swipe Controllers
     swipeService.createSwipe("message", $scope.message, $scope);
     swipeService.createSwipe("facebook", $scope.facebook, $scope);
     //swipeService.createSwipe("twitter", $scope.twitter, $scope);
     swipeService.createSwipe("instagram", $scope.instagram, $scope);
-    
+
     $scope.loading = LOADING_NEWS;
     $scope.$watch('loading', function(newVal, oldVal) {
         if ($scope.loading == 0) {
             $('#loading-wrapper').hide();
         };
     });
-    
+
     $scope.message.set_initial_height = function() {
         var elem_children = $($($('#message').children()[0]).children()[0]).children();
         for (var i = 0; i < elem_children.length; i++) {
@@ -575,10 +575,10 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 var current_item_height = $($(child).children()[0]).height() + (2 * 15);
                 swipeService.resize($scope.message, current_item_height);
             }
-        } 
+        }
     };
-    
-    $scope.facebook.set_initial_height = function() {   
+
+    $scope.facebook.set_initial_height = function() {
         var elem_children = $($($('#facebook').children()[0]).children()[0]).children();
         for (var i = 0; i < elem_children.length; i++) {
             var child = elem_children[i];
@@ -586,10 +586,10 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 var current_item_height = $($(child).children()[0]).height() + (2 * 15);
                 swipeService.resize($scope.facebook, current_item_height);
             }
-        } 
+        }
     };
-    
-    $scope.instagram.set_initial_height = function() {   
+
+    $scope.instagram.set_initial_height = function() {
         var elem_children = $($($('#instagram').children()[0]).children()[0]).children();
         for (var i = 0; i < elem_children.length; i++) {
             var child = elem_children[i];
@@ -597,37 +597,37 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 var current_item_height = $($(child).children()[0]).height() + $($(child).children()[1]).height() + (2 * 15);
                 swipeService.resize($scope.instagram, current_item_height);
             }
-        } 
+        }
     };
-    
+
     // Set Element Width
     $scope.message.set_width = function() {
         $(".message-item").width(window.innerWidth - ITEM_MARGIN);
     };
-    
+
     $scope.facebook.set_width = function() {
         $(".facebook-item").width(window.innerWidth - ITEM_MARGIN);
     };
-    
+
     $scope.twitter.set_width = function() {
         $(".twitter-item").width(window.innerWidth - ITEM_MARGIN);
     };
-    
+
     $scope.instagram.set_width = function() {
         $(".instagram-item").width(window.innerWidth - ITEM_MARGIN);
     };
-    
-    
+
+
     $scope.artist_name = ARTIST_NAME;
-    
-    
+
+
     // Message API
-    
+
     $http.get('https://spreadsheets.google.com/feeds/worksheets/' + MESSAGE_FORM_ID + '/public/full?alt=json')
         .success(function(e) {
             var worksheet_url = e.feed.entry[0].link[0].href.split('/');
             MESSAGE_WORKSHEET_ID = worksheet_url[worksheet_url.length - 3];
-        
+
         $http.get('https://spreadsheets.google.com/feeds/list/' + MESSAGE_FORM_ID + '/' + MESSAGE_WORKSHEET_ID + '/public/full?alt=json')
             .success(function(e) {
                 $scope.loading--;
@@ -642,9 +642,9 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                         button_title: entry.gsx$buttontitle.$t,
                         app_link: entry.gsx$linkinterno.$t
                     };
-                    
+
                     $scope.message.items.push(item);
-                    
+
                     if (i == entries.length - 1) {
                         $timeout(function() {
                             $scope.message.set_initial_height();
@@ -654,29 +654,29 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                         }, INITIAL_RESIZE_TIMEOUT);
                     }
                 }
-            
+
                 $scope.message.items.reverse();
                 window.localStorage.setItem("MESSAGE_FEED", JSON.stringify($scope.message.items));
             }).error(function(e) {
                 $scope.loading--;
-                $log.info('Error: ' + e);    
+                $log.info('Error: ' + e);
             });
-        
-        
+
+
         })
         .error(function(e) {
             $scope.loading--;
         });
-    
-    
+
+
     $scope.message.get_button = function(msg) {
         return (msg.call2action || msg.app_link);
     };
-    
+
     $scope.message.get_button_title = function(msg) {
         return msg.button_title ? msg.button_title : 'Clique aqui';
     };
-    
+
     $scope.message.get_call2action = function(msg) {
         window.analytics.trackEvent('Message', 'Click', 'Click Message', 1);
         if (msg.app_link) {
@@ -698,12 +698,12 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 navigator.app.loadUrl(msg.call2action, { openExternal: true });
             }
         }
-        
+
     };
-    
-    
+
+
     // Facebook API
-    
+
     $http.get('https://graph.facebook.com/oauth/access_token?grant_type=client_credentials&client_id=' + FACEBOOK_CLIENT_ID + '&client_secret=' + FACEBOOK_CLIENT_SECRET)
         .success(function(e) {
             $scope.facebook.access_token = e;
@@ -724,7 +724,7 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                                 window.localStorage.setItem('FACEBOOK_FEED', JSON.stringify($scope.facebook.items));
                             }, INITIAL_RESIZE_TIMEOUT);
                         }, INITIAL_RESIZE_TIMEOUT);
-                        
+
                     }
                 }
             })
@@ -735,7 +735,7 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
         .error(function(e) {
             $scope.loading--;
         });
-    
+
     $scope.facebook.get_high_res_images = function(item) {
         $http.get('https://graph.facebook.com/v2.2/' + item.id + '?' + $scope.facebook.access_token + '&fields=attachments')
             .success(function(e) {
@@ -745,15 +745,15 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 $log.info(e);
             });
     };
-    
+
     $scope.facebook.filter = function(post) {
         return post.from.id === FACEBOOK_PAGE_ID && ((post.type == 'photo' && (post.status_type == 'added_photos' || post.status_type == 'shared_story')) || (post.type == 'link' && post.status_type == 'shared_story') || (post.type == 'video' && post.status_type == 'shared_story'));
     };
-    
+
     $scope.facebook.show_post = function(post, type) {
         return (post.type == type);
     };
-    
+
     $scope.facebook.go_to_link = function(link) {
         if (IOS) {
                 window.open(link, '_system');
@@ -763,29 +763,29 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 window.open(link, '_system');
             }
     };
-    
+
     $scope.facebook.play_video = function(url) {
         videoService.video_url = url;
         $location.path('/video');
     };
-    
+
     $scope.facebook.artist_name = ARTIST_NAME;
-    
-    
+
+
     // Twitter API
-        
+
     $scope.twitter.open_twitter = function() {
-        
+
         var twitter_timeline = 'https://twitter.com/farfromalaska';
-        
+
         var twitter_window = window.open(twitter_timeline, '_blank', 'location=yes');
     };
-    
+
     $scope.twitter.screen_name = TWITTER_USERNAME;
 
- 
+
     // Instagram API
-    
+
     // Load Instagram Feed
     $http.get('https://api.instagram.com/v1/users/' + INSTAGRAM_USER_ID + '/media/recent?client_id=' + INSTAGRAM_API_KEY)
         .success(function(e) {
@@ -814,30 +814,30 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
             } else {
                 $scope.instagram.following = false;
             }
-            
+
         })
         .error(function() {
             $scope.loading--;
             $log.info("error");
         });
-    
+
     $scope.instagram.username = INSTAGRAM_USERNAME;
-    
+
     // Check if user is logged in to Instagram
     INSTAGRAM_ACCESS_TOKEN = window.localStorage.getItem('INSTAGRAM_ACCESS_TOKEN') || null;
-    
-    
+
+
     // Set Instagram like image
     $scope.$watch('instagram.current_item', function(newVal, oldVal) {
         $scope.instagram.get_photo_liked($scope.instagram.items[newVal]);
         if (newVal < $scope.instagram.items.length) {
             $scope.instagram.get_photo_liked($scope.instagram.items[newVal + 1]);
         }
-        
+
     });
-    
+
     $scope.instagram.get_photo_liked = function(photo) {
-        
+
         if (!INSTAGRAM_ACCESS_TOKEN) {
             photo.liked = false;
         } else if (photo.liked === undefined) {
@@ -853,40 +853,40 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                     photo.liked = false;
                 });
         } else {
-            
+
         }
     };
-    
+
     // Get First Imaged Liked
     $timeout(function() {
         $scope.instagram.get_photo_liked($scope.instagram.items[0]);
     }, 3000);
-    
-    
+
+
     // Follow artist on Instagram
     $scope.instagram.follow_user = function(photo) {
-        if (INSTAGRAM_ACCESS_TOKEN) {    
+        if (INSTAGRAM_ACCESS_TOKEN) {
             //if (!photo.liked) {
             if (!$scope.instagram.following) {
                 $scope.instagram.following = !$scope.instagram.following;
                 $.post('https://api.instagram.com/v1/users/' + INSTAGRAM_USER_ID + '/relationship', {access_token: INSTAGRAM_ACCESS_TOKEN, action: 'follow'}, function (data,status) {
                     if (data.meta.code === 200) {
-                        
+
                     } else {
 
                     }
                 });
-                
+
             } else {
-                
+
             }
-            
+
         } else {
             // Login to Instagram to follow user
             window.localStorage.setItem('INSTAGRAM_METHOD', 'FOLLOW');
 
             var url = 'https://api.instagram.com/oauth/authorize/?client_id=' + INSTAGRAM_API_KEY + '&redirect_uri=' + INSTAGRAM_REDIRECT_URI + '&response_type=token&scope=' + INSTAGRAM_SCOPE;
-            
+
             if (IOS) {
                 window.open(url, '_system');
             } else if (ANDROID) {
@@ -895,19 +895,19 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 window.open(url, '_system');
             }
 
-        } 
-        
+        }
+
     };
-    
+
     // Like photo on Instagram
     $scope.instagram.like_photo = function(photo) {
-        if (INSTAGRAM_ACCESS_TOKEN) {    
+        if (INSTAGRAM_ACCESS_TOKEN) {
             if (!photo.liked) {
                 photo.liked = !photo.liked;
                 photo.likes.count += 1;
-                
+
                 $.post('https://api.instagram.com/v1/media/' + photo.id + '/likes', {access_token: INSTAGRAM_ACCESS_TOKEN}, function (data,status) {
-                
+
                     if (data.meta.code === 200) {
 
                     } else {
@@ -915,7 +915,7 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                     }
                 });
             } else {
-                
+
                 /*
                 $.delete('https://api.instagram.com/v1/media/926333993577337897_32865756/likes?access_token=196213762.3b8448c.88fb74ff5193487fbd587d5b6b6db49a')
                     .success(function(data, status) {
@@ -928,32 +928,32 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                     });
                     */
             }
-            
-            
+
+
         } else {
             // Login to Instagram to like photo
             window.localStorage.setItem('INSTAGRAM_PHOTO_ID', photo.id);
             window.localStorage.setItem('INSTAGRAM_METHOD', 'LIKE');
-            
+
             var url = 'https://api.instagram.com/oauth/authorize/?client_id=' + INSTAGRAM_API_KEY + '&redirect_uri=' + INSTAGRAM_REDIRECT_URI + '&response_type=token&scope=' + INSTAGRAM_SCOPE;
-            
+
             if (IOS) {
                 window.open(url, '_system');
             } else if (ANDROID) {
                 navigator.app.loadUrl(url, { openExternal: true });
             }
 
-        }  
+        }
     };
-    
-    
+
+
     // Translate time since photo was posted on Instagram
     $scope.instagram.getTimeLapse = function(t) {
         t = t * 1000;
         var now = new Date().getTime();
-        
+
         var time_lapse = Math.ceil((now - t) / 1000 / 60);
-        
+
         if (time_lapse < 60) {
             return time_lapse + " m";
         } else if (time_lapse < (60 * 24)) {
@@ -964,46 +964,46 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
             t = new Date(t);
             return t.getDate() + "/" + (t.getMonth() + 1) + "/" + t.getFullYear();
         }
-    }; 
-    
+    };
+
 }]);
 
 
 
 gotMusicApp.controller('VideoCtrl', ['$scope', '$log', '$http', '$sce', '$timeout', '$location', 'videoService', function($scope, $log, $http, $sce, $timeout, $location, videoService) {
-    
+
     $scope.video_url = $sce.trustAsResourceUrl(videoService.video_url);
-    
+
     $scope.update_dimensions = function() {
         $scope.width = window.innerWidth;
         $scope.height = window.innerHeight - 50;
     };
-    
+
     $scope.quit_player = function() {
         //$location.path("/music");
         window.history.back();
     };
-    
-    
+
+
     window.addEventListener('orientationchange', function(e) {
-        
-        switch(window.orientation) {  
+
+        switch(window.orientation) {
             case -90:
             case 90:
                 // Landscape
-                break; 
+                break;
             default:
                 // Portrait
-                break; 
+                break;
         }
-        
+
     });
-    
+
 }]);
 
 // Music Screen Controller
 gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeout', '$location', 'videoService', 'swipeService', '$modal', '$interval', function($scope, $log, $http, $sce, $timeout, $location, videoService, swipeService, $modal, $interval) {
-    
+
     $scope.openModal = function() {
         $('#internet-modal-background').show();
         var modalInstance = $modal.open({
@@ -1025,7 +1025,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         $scope.openModal();
         $interval.cancel($scope.internet_check);
     }
-    
+
     $scope.start_internet_check = function() {
         $scope.internet_check = $interval(function() {
             if (!checkConnection()) {
@@ -1035,19 +1035,19 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
             }
         }, INTERNET_CHECK_INTERVAL);
     };
-    
-    
+
+
     $scope.start_internet_check();
-    
+
     // Analytics
     window.analytics.trackView('Music Screen');
-    
+
     // MODULES
     $scope.deezer = {};
     $scope.youtube = {};
     $scope.itunes = {};
-    
-    
+
+
     // Get From Local Storage
     $scope.youtube.items = JSON.parse(window.localStorage.getItem("YOUTUBE_FEED")) || [];
     $scope.itunes.items = JSON.parse(window.localStorage.getItem("ITUNES_FEED")) || [];
@@ -1058,16 +1058,16 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
             $('#loading-wrapper').hide();
         };
     });
-    
+
     // Set Element Width
     $scope.deezer.set_width = function() {
         $(".deezer-item").width(window.innerWidth - ITEM_MARGIN);
     };
-    
+
     $scope.youtube.set_width = function() {
         $(".youtube-item").width(window.innerWidth - ITEM_MARGIN);
     };
-    
+
     $scope.itunes.set_width = function() {
         $(".itunes-item").width(window.innerWidth - ITEM_MARGIN);
         if ((window.innerWidth - ITEM_MARGIN) < 360) {
@@ -1075,51 +1075,51 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
             $('.buy-album').css('margin-top', '20px');
         }
     };
-    
-    
+
+
     $scope.checkLoaded = function() {
         if ($scope.deezer.loaded && $scope.youtube.loaded && $scope.itunes.loaded) {
             $('#loading-wrapper').hide();
         }
     };
-    
-    
+
+
     // Create Swipe Controllers
-    
+
     if (YOUTUBE_MODE_PLAYLIST) {
         swipeService.createSwipe("youtube", $scope.youtube, $scope);
     }
     swipeService.createSwipe("itunes", $scope.itunes, $scope);
-    
-    
-    
+
+
+
     // Deezer Pause Track on Swipe
     var deezerSwipe = new Hammer(document.getElementById("deezer"));
     deezerSwipe.on("panstart", function(e) {
         $scope.deezer.pause();
     });
-    
-    
+
+
     // Deezer API
     $scope.deezer.embed = false;
-    
+
     if (ANDROID && VERSION[0] != '5') {
         $scope.deezer.items = ['1'];
         $(document).ready(function() {
             $timeout(function() {
                 $scope.loading--;
-                $('.deezer-embed').append('<iframe id="deezer-iframe" scrolling="no" frameborder="0" allowTransparency="true" src="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=album&id=' + DEEZER_ALBUM_ID + '&title=&app_id=' + DEEZER_API_ID + '" width="100%" height="80"></iframe><img class="deezer-logo" src="img/logos/deezer.svg">');
+                $('.deezer-embed').append('<iframe id="deezer-iframe" scrolling="no" frameborder="0" allowTransparency="true" src="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&cover=true&type=album&id=' + DEEZER_ALBUM_ID + '&title=&app_id=' + DEEZER_API_ID + '" width="100%" height="115px"></iframe>');
                 $('.deezer-embed').addClass('embed');
                 $('.album-cover-wrapper').hide();
                 $('.deezer-content').hide();
             }, INITIAL_RESIZE_TIMEOUT);
-            
+
         });
-        
-        
-        
+
+
+
         $scope.deezer.embed = true;
-        
+
     } else {
         $scope.deezer.items = JSON.parse(window.localStorage.getItem("DEEZER_FEED")) || [];
         $('#deezer-iframe').remove();
@@ -1128,9 +1128,9 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         $timeout(function() {
             $scope.deezer.initialize();
         }, INITIAL_RESIZE_TIMEOUT);
-        
+
     }
-    
+
     $scope.deezer.get_iframe_src = function() {
         $timeout(function() {
             if ($scope.deezer.embed) {
@@ -1138,31 +1138,31 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
             } else {
                 return '';
             }
-            
+
         }, 1000);
-        
+
     }
-    
+
     $scope.deezer.play = function() {
         window.analytics.trackEvent('Deezer', 'Click', 'Deezer Play', 1);
         $scope.deezer.playing = true;
         DZ.player.play();
 	};
-    
+
     $scope.deezer.pause = function() {
         $scope.deezer.playing = false;
 		DZ.player.pause();
 	};
-    
+
     $scope.deezer.player_loaded = false;
-    
+
     $scope.$watch('deezer.current_item', function(newVal, oldVal) {
-        
+
         $scope.deezer.time_current = 0.0;
         $scope.deezer.time_total = 100.0;
-        
+
         if (oldVal == null) {
-        
+
         } else if (newVal > oldVal) {
             DZ.player.next();
             DZ.player.next();
@@ -1175,8 +1175,8 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
             $scope.deezer.playing = true;
         }
     });
-    
-    
+
+
     $scope.deezer.get_album_cover = function(track) {
         if (DEEZER_MODE_PLAYLIST) {
             return track.album.cover;
@@ -1184,8 +1184,8 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
             return $scope.deezer.album_cover;
         }
     };
-    
-    
+
+
     $scope.deezer.setup = function() {
         DZ.Event.subscribe('player_position', function(e){
             $scope.deezer.time_current = e[0];
@@ -1202,10 +1202,10 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
             $scope.deezer.player_loaded = true;
             $scope.$apply();
         });
-        
+
     };
-    
-    
+
+
     $scope.deezer.initialize = function() {
         // DEEZER PLAYLIST
         if (DEEZER_MODE_PLAYLIST) {
@@ -1224,7 +1224,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                         player: {
                             onload: $scope.deezer.setup
                         },
-                        
+
                     });
 
                     window.localStorage.setItem("DEEZER_FEED", JSON.stringify($scope.deezer.items));
@@ -1233,7 +1233,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                     $scope.loading--;
                     $log.info("error");
                 });
-        } 
+        }
         // DEEZER ALBUM
         else if (DEEZER_MODE_ALBUM) {
             $http.get("http://api.deezer.com/album/" + DEEZER_ALBUM_ID)
@@ -1244,7 +1244,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                 for (var i = 0; i < $scope.deezer.items.length; i++) {
                     $scope.deezer.track_ids.push($scope.deezer.items[i].id);
                 }
-                
+
                 DZ.init({
                     appId: DEEZER_API_ID,
                     /*
@@ -1258,7 +1258,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                         onload: $scope.deezer.setup
                     }
                 });
-                
+
                 $scope.deezer.album_cover = e.cover;
                 window.localStorage.setItem("DEEZER_FEED", JSON.stringify($scope.deezer.items));
             })
@@ -1267,30 +1267,30 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                 $log.info("error");
             });
         };
-    
+
     }
-    
+
     /*
-    $scope.deezer.login = function() {  
+    $scope.deezer.login = function() {
         var DEEZER_REDIRECT_URI = URL_SCHEME + 'deezer/';
         var DEEZER_ACCESS_TOKEN = 'nye16f6f534d9b2d310764091af94322';
-        
+
         $log.info('dz click');
-        
+
         DZ.login(function(e){
             alert(JSON.stringify(e));
         });
-        
+
         //$log.info('https://connect.deezer.com/oauth/auth.php?app_id=' + DEEZER_API_ID + '&redirect_uri=' + DEEZER_REDIRECT_URI + '&perms=basic_access,email');
-        //$http.get('https://connect.deezer.com/oauth/auth.php?app_id=' + DEEZER_API_ID + '&redirect_uri=' + DEEZER_REDIRECT_URI + '&perms=basic_access,email');  
+        //$http.get('https://connect.deezer.com/oauth/auth.php?app_id=' + DEEZER_API_ID + '&redirect_uri=' + DEEZER_REDIRECT_URI + '&perms=basic_access,email');
     };
     */
-    
-    
+
+
     // YOUTUBE API
-    
+
     $scope.youtube.playlist_index = 0;
-    
+
     // YOUTUBE PLAYLIST
     if (YOUTUBE_MODE_PLAYLIST) {
         $http.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + YOUTUBE_PLAYLIST_ID + '&key=' + YOUTUBE_API_KEY)
@@ -1317,11 +1317,11 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                 $log.info(e);
             });
     }
-    
+
     $scope.youtube.get_video_url = function(id) {
         return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + id + "/?showinfo=0&modestbranding=1");
     };
-    
+
     $scope.youtube.play_video = function(video) {
         window.analytics.trackEvent('YouTube', 'Click', 'YouTube Play', 1);
         if (YOUTUBE_MODE_PLAYLIST) {
@@ -1329,39 +1329,39 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         } else if (YOUTUBE_MODE_VIDEO) {
             videoService.video_url = 'https://www.youtube.com/embed/' + video.id + '/?showinfo=0&modestbranding=1&&autoplay=1&fs=0';
         }
-        
+
         $location.path('/video');
     };
-    
-    
+
+
     $scope.youtube.play_next = function() {
         $scope.youtube.playlist_index += 1;
     };
-    
+
     $scope.youtube.play_previous = function() {
         $scope.youtube.playlist_index -= 1;
     };
-    
 
-    
+
+
     $scope.formatDate = function(t) {
         t = new Date(t);
         return t.getDate() + "/" + (t.getMonth() + 1) + "/" + t.getFullYear();
     };
 
     // ITUNES API
-    
-    $http.get('https://itunes.apple.com/lookup?id=' + ITUNES_USER_ID + '&entity=album')
-        .success(function(e) {        
+
+    $http.get('https://itunes.apple.com/lookup?&country=br&entity=album&id=' + ITUNES_USER_ID)
+        .success(function(e) {
             $scope.loading--;
             $scope.itunes.items = e.results.slice(1, e.results.length);
             window.localStorage.setItem("ITUNES_FEED", JSON.stringify($scope.itunes.items));
         }).error(function() {
             $scope.loading--;
         });
-    
+
     $scope.itunes.getAlbum = function(album) {
-        
+
         if (IOS) {
             window.open(album.collectionViewUrl + '&at=' + ITUNES_AFFILIATE_CODE, '_system');
         } else if (ANDROID) {
@@ -1369,21 +1369,21 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         }
         window.analytics.trackEvent('iTunes', 'Click', 'iTunes Buy Click', 1);
     };
-    
+
 }]);
 
 
 gotMusicApp.controller('ModalInstanceCtrl', ["$scope", "$modalInstance", "$log", "$modal", "$sce", function ($scope, $modalInstance, $log, $modal, $sce) {
-    
+
     $scope.email;
     $scope.city;
-    
+
     $scope.latitude = window.localStorage.getItem("LATITUDE");;
     $scope.longitude = window.localStorage.getItem("LONGITUDE");
-    
+
     var geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng($scope.latitude, $scope.longitude);
-    
+
     geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             if (results[0]) {
@@ -1400,39 +1400,39 @@ gotMusicApp.controller('ModalInstanceCtrl', ["$scope", "$modalInstance", "$log",
             //alert('Geocoder failed due to: ' + status);
         }
     });
-    
+
     // Connect with Google Forms
     $scope.form_url = $sce.trustAsResourceUrl(DEMAND_FORM_URL);
     $scope.email_input = DEMAND_EMAIL_INPUT_ID;
     $scope.city_input = DEMAND_CITY_INPUT_ID;
     $scope.latitude_input = DEMAND_LATITUDE_INPUT_ID;
     $scope.longitude_input = DEMAND_LONGITUDE_INPUT_ID;
-    
+
     $scope.email_input_name = DEMAND_EMAIL_INPUT_ID.replace('_', '.');
     $scope.city_input_name = DEMAND_CITY_INPUT_ID.replace('_', '.');
     $scope.latitude_input_name = DEMAND_LATITUDE_INPUT_ID.replace('_', '.');
     $scope.longitude_input_name = DEMAND_LONGITUDE_INPUT_ID.replace('_', '.');
-    
+
     $scope.$watch('email', function() {
         var email_field  = document.getElementById(DEMAND_EMAIL_INPUT_ID);
         if (email_field != null) {
             email_field.setCustomValidity("");
         }
     });
-    
+
     $scope.$watch('city', function() {
         var city_field  = document.getElementById(DEMAND_CITY_INPUT_ID);
         if (city_field != null) {
             city_field.setCustomValidity("");
         }
     });
-    
-    
-    $scope.validate = function() {   
-        
+
+
+    $scope.validate = function() {
+
         var email_field  = document.getElementById(DEMAND_EMAIL_INPUT_ID);
         var city_field  = document.getElementById(DEMAND_CITY_INPUT_ID);
-        
+
         if (email_field.value === "") {
             email_field.setCustomValidity(DEMAND_EMPTY_EMAIL_MESSAGE);
         } else if (email_field.validity.typeMismatch) {
@@ -1440,15 +1440,15 @@ gotMusicApp.controller('ModalInstanceCtrl', ["$scope", "$modalInstance", "$log",
         } else {
             email_field.setCustomValidity("");
         }
-        
+
         if (city_field.value === "") {
             city_field.setCustomValidity(DEMAND_EMPTY_CITY_MESSAGE);
         } else {
             city_field.setCustomValidity("");
         }
-        
+
     };
-    
+
     // Success API
     $scope.openSuccessModal = function() {
         window.localStorage.setItem("DEMAND_LAST_DEMAND", new Date().getTime());
@@ -1467,7 +1467,7 @@ gotMusicApp.controller('ModalInstanceCtrl', ["$scope", "$modalInstance", "$log",
 
 // Shows Screen Controller
 gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$timeout', 'swipeService', '$modal', '$sce', 'videoService', '$interval', function($scope, $log, $http, $location, $timeout, swipeService, $modal, $sce, videoService, $interval) {
-    
+
     $scope.openInternetModal = function() {
         $('#internet-modal-background').show();
         var modalInstance = $modal.open({
@@ -1498,62 +1498,62 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
             }
         }, INTERNET_CHECK_INTERVAL);
     };
-    
-    
+
+
     $scope.start_internet_check();
-    
+
     // Analytics
     window.analytics.trackView('Shows Screen');
-    
+
     // MODULES
     $scope.demand = {};
     $scope.songkick = {};
     $scope.livestream = {};
-    
+
 
     // Get From Local Storage
     $scope.songkick.items = JSON.parse(window.localStorage.getItem("SONGKICK_FEED")) || [];
     $scope.demand.demanded = Boolean(window.localStorage.getItem("DEMAND_DEMANDED")) || false;
     $scope.demand.last_demand = window.localStorage.getItem("DEMAND_LAST_DEMAND") || [];
-    
+
     $scope.loading = LOADING_SHOWS;
     $scope.$watch('loading', function(newVal, oldVal) {
         if ($scope.loading == 0) {
             $('#loading-wrapper').hide();
         };
     });
-    
+
     if ($scope.demand.demanded) {
         var now = new Date().getTime();
-        
+
         if (now - $scope.demand.last_demand > DEMAND_MINIMUM_INTERVAL) {
             $scope.demand.demanded = false;
-            window.localStorage.setItem("DEMAND_DEMANDED", false);   
+            window.localStorage.setItem("DEMAND_DEMANDED", false);
         }
-        
+
     } else {
         $scope.demand.demanded = false;
         window.localStorage.setItem("DEMAND_DEMANDED", false);
     }
-    
+
     // Set Element Width
     $scope.songkick.set_width = function() {
         $(".songkick-item").width(window.innerWidth - ITEM_MARGIN);
     };
-    
+
     $scope.demand.set_width = function() {
         $(".demand-item").width(window.innerWidth - ITEM_MARGIN);
     };
-    
+
     $scope.livestream.set_width = function() {
         $(".livestream-item").width(window.innerWidth - ITEM_MARGIN);
     };
-    
+
     // Create Swipe Controllers
     swipeService.createSwipe("songkick", $scope.songkick, $scope);
 
-    
-    
+
+
     // DEMAND
     $scope.openModal = function() {
         window.analytics.trackEvent('Demand', 'Click', 'Pedir Show', 1);
@@ -1563,21 +1563,21 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
             controller: 'ModalInstanceCtrl',
             size: "sm"
         });
-        
+
         modalInstance.result.then(function(e) {
             $('#demand-modal-background').hide();
             if (e) {
                 $scope.demand.demanded = Boolean(window.localStorage.getItem("DEMAND_DEMANDED")) || false;
                 $scope.demand.last_demand = window.localStorage.getItem("DEMAND_LAST_DEMAND");
             }
-            
+
         }, function(e) {
             $('#demand-modal-background').hide();
         });
     };
-    
+
     $scope.artist_name = ARTIST_NAME;
-    
+
     // Songkick API
     $http.get("http://api.songkick.com/api/3.0/artists/" + SONGKICK_ARTIST_ID + "/calendar.json?apikey=" + SONGKICK_API_KEY)
         .success(function(e) {
@@ -1587,7 +1587,7 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
                 //$log.info(i);
                 var l = e.resultsPage.results.event[i];
                 var r = e.resultsPage.results.event[i + 1];
-                
+
                 var event = {"left": l, "right": r};
                 $scope.songkick.items.push(event);
             }
@@ -1595,7 +1595,7 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
         }).error(function() {
             $scope.loading--;
         });
-    
+
     $scope.songkick.see_more = function(show) {
         window.analytics.trackEvent('Songkick', 'Click', 'Click Songkick', 1);
         if (IOS) {
@@ -1604,14 +1604,14 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
             navigator.app.loadUrl(show, { openExternal: true });
         }
     };
-    
+
     $scope.songkick.formatDate = function(event) {
         var d = (event.start.date).split('-');;
         return d[2] + '/' + d[1];
     };
-    
+
     // Livestream API
-    
+
     $http.get('https://gdata.youtube.com/feeds/api/users/' + LIVESTREAM_USER_ID + '/live/events?v=2&alt=json')
             .success(function(e) {
                 $scope.loading--;
@@ -1637,29 +1637,29 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
                 } else {
                     $scope.livestream.status = LIVESTREAM_EMPTY_STRING;
                 }
-        
-                
+
+
             })
             .error(function(e) {
                 $scope.loading--;
                 //alert('ERROR');
                 //alert(JSON.stringify(e));
-            });    
-    
+            });
+
     $scope.livestream.play_video = function(url) {
         window.analytics.trackEvent('Livestream', 'Click', 'Livestream Play', 1);
         if ($scope.livestream.status == LIVESTREAM_LIVE_STRING || $scope.livestream.status == LIVESTREAM_COMPLETED_STRING) {
             videoService.video_url = url;
             $location.path('/video');
         }
-        
+
     };
-    
+
     $scope.livestream.get_text = function() {
         return ($scope.livestream.status === LIVESTREAM_EMPTY_STRING) ? LIVESTREAM_EMPTY_STRING : ($scope.livestream.status + ' - ' + $scope.livestream.title);
     };
-    
-    
+
+
     $scope.livestream.get_image = function() {
         switch($scope.livestream.status) {
             case LIVESTREAM_COMPLETED_STRING:
@@ -1703,46 +1703,46 @@ var app = {
                 navigator.app.exitApp()
             }
         }, false);
-        
+
         IOS = (device.platform == 'iOS');
         ANDROID = (device.platform == 'android' || device.platform == 'Android');
-        
+
         VERSION = device.version;
-        
+
 //        alert('READY');
 //        alert('WIDTH: ' + window.innerWidth);
-        
+
         SWIPE_SPEED = window.innerWidth / 1000;
-        
-        
+
+
         SWIPE_MARGIN = 0.1;
         DELTA_SWIPE = window.innerWidth / 50; // Pixels per millisecond
         DELTA_RESIZE = window.innerWidth / 20; // Pixels per millisecond
-        
+
         //alert('SWIPE SPEED: ' + SWIPE_SPEED);
         //alert('DELTA RESIZE: ' + DELTA_RESIZE);
-        
+
         // Google Analytics
         window.analytics.startTrackerWithId('UA-61028835-1');
-        
-        
+
+
         // Geolocation
         navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError);
-               
-        
+
+
         // Register for Push Notification
         var pushNotification = window.plugins.pushNotification;
-        
-        
-        window.plugins.GameThrive.init(GAMETHRIVE_APP_ID, 
+
+
+        window.plugins.GameThrive.init(GAMETHRIVE_APP_ID,
                                        {googleProjectNumber: GCM_SENDER_ID},
                                        function(e) {
                                             didReceiveRemoteNotificationCallBack(e);
                                         });
-        
-        
+
+
         if (device.platform == 'android' || device.platform == 'Android') {
-        
+
             pushNotification.register(
                 app.successHandler,
                 app.errorHandler, {
@@ -1758,12 +1758,12 @@ var app = {
                     "alert":"true",
                     "ecb":"onNotificationAPN"
                 });
-                
+
         }
-               
-        
+
+
         window.location.hash = '#/home';
-        
+
     },
     successHandler: function(result) {
         console.log('result = ' + result);
@@ -1790,7 +1790,7 @@ function didReceiveRemoteNotificationCallBack(jsonData) {
 
 // Geolocation
 function onGeolocationSuccess (e) {
-    
+
     LATITUDE = e.coords.latitude;
     LONGITUDE = e.coords.longitude;
     window.localStorage.setItem("LATITUDE", LATITUDE);
@@ -1803,14 +1803,14 @@ function onGeolocationError (e) {
 
 function registerPushId(platform, key) {
     // Register in Gamethrive
-    
+
     //alert('Registering...');
-    
+
     var geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(window.localStorage.getItem('LATITUDE'), window.localStorage.getItem('LONGITUDE'));
-    
+
     var state;
-    
+
     geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             if (results[0]) {
@@ -1853,14 +1853,14 @@ function showForegroundNotification() {
 // Receive Push Notification
 // iOS
 function onNotificationAPN (event) {
-    
+
     /*
     if (event.foreground) {
         showForegroundNotification();
     } else {
         window.location.hash = '#/news';
     }
-    
+
     if (event.alert) {
         navigator.notification.alert(event.alert);
     }
@@ -1894,10 +1894,10 @@ function tokenHandler (result) {
 // Android
 function onNotificationGCM(e) {
     //$("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
-    
+
     switch(e.event) {
     case 'registered':
-        if ( e.regid.length > 0 ) {    
+        if ( e.regid.length > 0 ) {
             registerPushId('ANDROID', e.regid);
         }
         break;
@@ -1907,15 +1907,15 @@ function onNotificationGCM(e) {
         // you might want to play a sound to get the user's attention, throw up a dialog, etc.
         if ( e.foreground ) {
            // $("#app-status-ul").append('<li>--INLINE NOTIFICATION--' + '</li>');
-            
+
             //showForegroundNotification();
-    
+
             /*
             setTimeout(function() {
                 $('#notification').animate({top: '-100px'}, 1000);
             }, 3000);
             */
-            
+
             // if the notification contains a soundname, play it.
             /*
             var my_media = new Media("/android_asset/www/"+e.soundname);
