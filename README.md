@@ -37,7 +37,7 @@ Lembrando que para iOS, o provisioning profile de desenvolvimento tem que ter si
 
 ## Build and Release
 
-* Compile the CSS with `lessc less/styles.less > css/styles.css`
+* Compile the CSS with `lessc www/less/styles.less > www/css/styles.css`
 
 
 ### Android
