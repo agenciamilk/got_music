@@ -6,6 +6,7 @@
 * Android SDK Tools (Android Studio)
 * XCode
 * [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [splashicon-generator](https://github.com/eberlitz/splashicon-generator) (splash/icons generation, `npm install -g splashicon-generator`)
 
 
 # Development
