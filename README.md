@@ -32,6 +32,7 @@ Lembrando que para iOS, o provisioning profile de desenvolvimento tem que ter si
 * Update `<variable name="URL_SCHEME" value="<artist>" />` at `config.xml`
 * Update `<title>` tag at `www/index.html`
 * Update variables at begin of `www/js/app.js`
+* Update `@artist-color` at `www/less/variables.less`
 
 
 ## Build and Release
