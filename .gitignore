@@ -7,6 +7,9 @@
 npm-debug.log
 /node_modules
 
+# Browser
+platforms/browser/
+
 # iOS
 platforms/ios/build/
 platforms/ios/www/
@@ -38,3 +41,6 @@ platforms/wp8/*.csproj.user
 
 # res
 resources/signing
+
+# plugins
+plugins/*/doc/
