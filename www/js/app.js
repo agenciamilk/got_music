@@ -1,11 +1,11 @@
 // ARTIST
 // Trocar pelo nome do artista
-var ARTIST_NAME = 'Far From Alaska';
+var ARTIST_NAME = 'Cheddars';
 
 
 // APP
 // Trocar por 'gotmusic' + {nome do artista}
-var URL_SCHEME = 'gotmusicfarfromalaska://';
+var URL_SCHEME = 'gotmusiccheddars://';
 
 
 // Geolocation
@@ -15,10 +15,10 @@ var LONGITUDE;
 
 // PUSH NOTIFICATION
 // Trocar por App ID do app criado no Game Thrive
-var GAMETHRIVE_APP_ID = '0089f09c-ce75-11e4-a0dc-337ced8460f8';
+var GAMETHRIVE_APP_ID = 'c49cf132-0322-11e5-aa86-13c267606426';
 
 // Trocar pela ID do Projeto do novo App criado no Google Developers Console
-var GCM_SENDER_ID = '232610257468';
+var GCM_SENDER_ID = '219092378925';
 
 
 // MESSAGE
@@ -30,31 +30,31 @@ var MESSAGE_WORKSHEET_ID;
 // FACEBOOK
 // Trocar pelo id da página do facebook
 // Buscar id pelo usuário: http://findmyfacebookid.com/
-var FACEBOOK_PAGE_ID = '349113845174384';
+var FACEBOOK_PAGE_ID = '169108197649';
 
 // Trocar por Client ID do App criado no Facebook Developers
-var FACEBOOK_CLIENT_ID = '954959894537819';
+var FACEBOOK_CLIENT_ID = '1668427630045662';
 
 // Trocar por Client Secret do App criado no Facebook Developers
-var FACEBOOK_CLIENT_SECRET = 'fecc2d553b397e1ee952a08a4085a591';
+var FACEBOOK_CLIENT_SECRET = '73342b92fd134ded21d6b432b4fa7b6d';
 
 
 // TWITTER
 // Trocar por nome de usuário do artista no Twitter
-var TWITTER_USERNAME = 'FarFromAlaska';
+// var TWITTER_USERNAME = '';
 
 
 // INSTAGRAM
 // Trocar por nome de usuário do artista no Instagram
-var INSTAGRAM_USERNAME = 'farfromalaska';
+var INSTAGRAM_USERNAME = 'thecheddars';
 
 // Trocar pelo id do usuário no Instagram
 // Buscar id pelo usuário: http://jelled.com/instagram/lookup-user-id
-var INSTAGRAM_USER_ID = '313725767';
+var INSTAGRAM_USER_ID = '1982400553';
 var INSTAGRAM_SCOPE = 'likes+relationships';
 
 // Trocar pela API Key do novo App criado no Instagram Developers
-var INSTAGRAM_API_KEY = 'a98b0124631f4cc2b7724b3c0712d14f';
+var INSTAGRAM_API_KEY = '99f5345ec0ad4449bbb1d6b1dfa86860';
 var INSTAGRAM_REDIRECT_URI = URL_SCHEME + 'instagram/';
 var INSTAGRAM_ACCESS_TOKEN;
 
@@ -67,13 +67,13 @@ var DEEZER_MODE_PLAYLIST = false;
 var DEEZER_MODE_ALBUM = true;
 
 // Trocar pela API ID do novo App criado no Deezer Developers
-var DEEZER_API_ID = '153981';
+var DEEZER_API_ID = '158321';
 
 // Trocar pelo id da playlist desejada
 var DEEZER_PLAYLIST_ID = '1054614051';
 
 // Trocar pelo id do álbum desejado
-var DEEZER_ALBUM_ID = '9758022';
+var DEEZER_ALBUM_ID = '10087640';
 var DEEZER_CHANNEL_URL = 'http://vladimir.sh/playground/deezer_light/channel.html';
 
 
@@ -88,21 +88,21 @@ var YOUTUBE_MODE_VIDEO = true;
 var YOUTUBE_PLAYLIST_ID = null;
 
 // Trocar pelo id do video desejado
-var YOUTUBE_VIDEO_ID = 'h6ZzhUqeU90';
+var YOUTUBE_VIDEO_ID = 'CPpi1Q_urT4';
 
 // Trocar pela API Youtube do novo App criado no Google Developers Console
-var YOUTUBE_API_KEY = 'AIzaSyDDSM6JyiBBYbK7Vs0FY10SwZMIhyj2DTY';
+var YOUTUBE_API_KEY = 'AIzaSyBPE84357y17JgAGGW8BfFp68XIowy4V1A';
 
 
 // ITUNES
 // Trocar pelo id do artista no iTunes
-var ITUNES_USER_ID = '591933697';
+var ITUNES_USER_ID = '989467791';
 var ITUNES_AFFILIATE_CODE = '1l3vuS7';
 
 
 // SONGKICK
 // Trocar pelo id do artista no Songkick
-var SONGKICK_ARTIST_ID = '6054394';
+var SONGKICK_ARTIST_ID = '1846107';
 
 // Trocar pela API Key do novo App criado no Songkick Developers
 var SONGKICK_API_KEY = 'LKwWsc81lEc7oDAG';
@@ -110,7 +110,7 @@ var SONGKICK_API_KEY = 'LKwWsc81lEc7oDAG';
 
 // DEMAND
 // Trocar por id do form de mensagens criada no Google Drive para pedir shows
-var DEMAND_FORM_URL = 'https://docs.google.com/forms/d/1HUawFD9klS6nfW64-O-4bkwWsdyxAF98JgqwedZrATc/formResponse';
+var DEMAND_FORM_URL = 'https://docs.google.com/forms/d/1L4XD8OjkEjueWfviW-O8LJx4Uu91Qrhsj7n090wRhM0/formResponse';
 
 // Trocar pelo id do <input> do email
 var DEMAND_EMAIL_INPUT_ID = 'entry_1296407525';
@@ -131,7 +131,7 @@ var DEMAND_EMPTY_CITY_MESSAGE = 'Selecione uma cidade';
 // LIVESTREAM
 // Trocar pelo id do usuário no YouTube
 // Como encontrar o id do usuário: https://support.google.com/youtube/answer/3250431?hl=pt
-var LIVESTREAM_USER_ID = 'MZt1OqN1YuCMU0nBVMt8tw';
+var LIVESTREAM_USER_ID = 'y6muWYnVbmLGeDb-G9A14A';
 var LIVESTREAM_LIVE_STRING = 'AO VIVO';
 var LIVESTREAM_COMPLETED_STRING = 'Arquivo';
 var LIVESTREAM_PENDING_STRING = 'Aguarde';
