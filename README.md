@@ -66,7 +66,7 @@ The `<artista>.apk` should be sent to Google Play.
 
 ### iOS
 
-* No iTunes Developer, é preciso, primeiro criar um identifier "App ID" `com.gotmusic.<artista>`.
+* No [iTunes Developer](https://developer.apple.com/account/ios/identifiers/bundle/bundleList.action), é preciso, primeiro criar um identifier "App ID" `com.gotmusic.<artista>`.
 * Criar um Certificate para Push, seguindo o passo a passo da Apple.
 * Criar Provisioning Profile, selecionando o identificador criado para o app.
 * `cordova build ios --release`
