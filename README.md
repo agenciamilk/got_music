@@ -52,12 +52,14 @@ Save the __generated file__, __password__ and __alias__.
 #### Sign the APK
 
     cordova build android --release
-    
-    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore <key-gerada> <arquivo-apk-unsigned> <alias>
 
-    jarsigner -verify -verbose -certs <apk-gerado>
+    export unsigned_apk=platforms/android/ant-build/MainActivity-release-unsigned.apk
     
-    zipalign -v 4 <apk-gerado> <artista>.apk
+    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore <key-gerada> $unsigned_apk <alias>
+
+    jarsigner -verify -verbose -certs $unsigned_apk
+    
+    zipalign -v 4 $unsigned_apk <artista>.apk
 
 The `<artista>.apk` should be sent to Google Play.
 
