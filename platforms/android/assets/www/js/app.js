@@ -41,7 +41,7 @@ var FACEBOOK_CLIENT_SECRET = '73342b92fd134ded21d6b432b4fa7b6d';
 
 // TWITTER
 // Trocar por nome de usuário do artista no Twitter
-// var TWITTER_USERNAME = '';
+var TWITTER_USERNAME = null;
 
 
 // INSTAGRAM
