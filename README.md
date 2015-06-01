@@ -34,6 +34,7 @@ Lembrando que para iOS, o provisioning profile de desenvolvimento tem que ter si
 * Update `<title>` tag at `www/index.html`
 * Update variables at begin of `www/js/app.js`
 * Update `@artist-color` at `www/less/variables.less`
+* Update artist's name at `www/templates/modal.html`
 
 
 ## Build and Release
