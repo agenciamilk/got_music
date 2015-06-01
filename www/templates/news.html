@@ -131,7 +131,7 @@
         </div>
     </div>
 
-    <div id="twitter" class="module" ng-style="{'left': twitter.left, 'position': 'relative', 'height': twitter.height}">
+    <div ng-if="twitter.screen_name" id="twitter" class="module" ng-style="{'left': twitter.left, 'position': 'relative', 'height': twitter.height}">
         <div class="twitter-item item" ng-init="twitter.set_width()">
             <div class="col-xs-12">
                 <div class="title-wrapper row">
