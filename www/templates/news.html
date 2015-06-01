@@ -7,7 +7,7 @@
 </div>
 
 <div class="news section">
-    
+
     <div id="message" class="module" ng-style="{'left': message.left, 'position': 'relative', 'height': message.height}">
         <div class="message-item item" ng-repeat="msg in message.items" ng-init="message.set_width()">
             <div class="col-xs-12">
@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-        
+
     <div id="facebook" class="module" ng-style="{'left': facebook.left, 'position': 'relative', 'height': facebook.height}">
         <div class="facebook-item item" ng-repeat="post in facebook.items" ng-init="facebook.set_width()">
             <div class="col-xs-12">
@@ -45,13 +45,13 @@
                 <div class="content row" ng-style="{'height': facebook.item_height}">
                     <div class="col-xs-12">
                         <div class="facebook-content">
-                            
+
                             <!-- FACEBOOK PHOTO TYPE POST -->
                             <div class="facebook-status-photo" ng-show="{{facebook.show_post(post, 'photo')}}">
                                 <div class="facebook-photo-message">{{post.message}}</div>
                                 <img class="facebook-photo-image" ng-src="{{post.picture}}" width="100%">
                             </div>
-                            
+
                             <!-- FACEBOOK LINK TYPE POST -->
                             <div class="facebook-status-link" ng-show="{{facebook.show_post(post, 'link')}}">
                                 <div class="facebook-link-text">
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- FACEBOOK VIDEO TYPE POST -->
                             <div class="facebook-status-video" ng-show="{{facebook.show_post(post, 'video')}}">
                                 <div class="facebook-video-message">{{post.message}}</div>
@@ -74,15 +74,15 @@
                     <div class="facebook-video-title">{{post.name}}</div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    
+
+
     <div id="instagram" class="module" ng-style="{'left': instagram.left, 'position': 'relative', 'height': instagram.height}">
         <div class="instagram-item item" ng-repeat="photo in instagram.items" ng-init="instagram.set_width()">
                 <div class="col-xs-12">
@@ -122,47 +122,15 @@
                                     <span class="instagram-like" ng-click="instagram.like_photo(photo)" ng-show="photo.liked">
                                         <img src="img/instagram/photo_liked.svg">
                                     </span>
-                                    
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-        </div>        
-    </div>
-    
-    <!--
-    <div id="twitter" class="module" ng-style="{'left': twitter.left, 'position': 'relative', 'height': twitter.height}">
-        <div class="twitter-item item" ng-repeat="tweet in twitter.items" ng-init="twitter.set_width()">
-            <div class="col-xs-12">
-                <div class="title-wrapper row">
-                    <div class="title">@{{tweet.screen_name.S}}</div>
-                </div>
-                <div class="content row" ng-style="{'height': twitter.item_height}">
-                    <div class="col-xs-12">
-                        <img class="twitter-profile" ng-src="{{tweet.photo_url.S}}">
-                        <div class="tweet-content">
-                            <div class="tweet-user">
-                                <span class="twitter-screenname">{{tweet.user_name.S}}</span>
-                                <span class="twitter-username">@{{tweet.screen_name.S}}</span>
-                            </div>
-
-                            <div class="tweet-time">{{twitter.getTimeLapse(tweet.dt_creation.S)}}</div>
-                            <div class="tweet-text">
-                                {{tweet.tweet.S}}
-                            </div>
-                            <div class="tweet-stats">
-                                <span class="tweet-retweets"><b>{{tweet.retweet_count.N}}</b> retweets</span>
-                                <span class="tweet-favorites"><b>{{tweet.favorite_count.N}}</b> favoritos</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-    -->
-    
+
     <div id="twitter" class="module" ng-style="{'left': twitter.left, 'position': 'relative', 'height': twitter.height}">
         <div class="twitter-item item" ng-init="twitter.set_width()">
             <div class="col-xs-12">
@@ -190,5 +158,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>
