@@ -20,12 +20,10 @@ var GAMETHRIVE_APP_ID = 'c49cf132-0322-11e5-aa86-13c267606426';
 // Trocar pela ID do Projeto do novo App criado no Google Developers Console
 var GCM_SENDER_ID = '219092378925';
 
-
 // MESSAGE
 // Trocar por id da planilha de mensagens (respostas) criada no Google Drive
-var MESSAGE_FORM_ID = null;
+var MESSAGE_FORM_ID = '1PS3SYyItZK8cwjTS0W_vzGrXDZmhHnYTLldfYgSstws';
 var MESSAGE_WORKSHEET_ID;
-
 
 // FACEBOOK
 // Trocar pelo id da página do facebook
