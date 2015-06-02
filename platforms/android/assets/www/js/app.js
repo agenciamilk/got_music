@@ -23,7 +23,7 @@ var GCM_SENDER_ID = '219092378925';
 
 // MESSAGE
 // Trocar por id da planilha de mensagens (respostas) criada no Google Drive
-var MESSAGE_FORM_ID = '1pa7z6C7YtDcYcKWNjIIVFeqlX3X40I-Y-Uu7j6zODGA';
+var MESSAGE_FORM_ID = '1PS3SYyItZK8cwjTS0W_vzGrXDZmhHnYTLldfYgSstws';
 var MESSAGE_WORKSHEET_ID;
 
 
@@ -85,7 +85,7 @@ var YOUTUBE_MODE_PLAYLIST = false;
 var YOUTUBE_MODE_VIDEO = true;
 
 // Trocar pelo id da playlist desejada
-var YOUTUBE_PLAYLIST_ID = 'PLTaRWr5sdDvnO8xeFKJL6WbsbYF07NGxg';
+var YOUTUBE_PLAYLIST_ID = null;
 
 // Trocar pelo id do video desejado
 var YOUTUBE_VIDEO_ID = 'CPpi1Q_urT4';
@@ -635,13 +635,18 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 $scope.message.items.splice(0, $scope.message.items.length)
                 for (var i = 0; i < entries.length; i++) {
                     var entry = entries[i];
-                    var item = {
-                        timestamp: entry.gsx$timestamp.$t,
-                        message: entry.gsx$message.$t,
-                        call2action: entry.gsx$call2action.$t,
-                        button_title: entry.gsx$buttontitle.$t,
-                        app_link: entry.gsx$linkinterno.$t
-                    };
+
+                    try {
+                        var item = {
+                            timestamp: entry.gsx$timestamp.$t,
+                            message: entry.gsx$message.$t,
+                            call2action: entry.gsx$call2action.$t,
+                            button_title: entry.gsx$buttontitle.$t,
+                            app_link: entry.gsx$linkinterno.$t
+                        };
+                    } catch (exception) {
+                        alert('Malformed spreadsheet');
+                    }
 
                     $scope.message.items.push(item);
 
@@ -739,7 +744,9 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
     $scope.facebook.get_high_res_images = function(item) {
         $http.get('https://graph.facebook.com/v2.2/' + item.id + '?' + $scope.facebook.access_token + '&fields=attachments')
             .success(function(e) {
-                item.picture = e.attachments.data[0].media.image.src;
+                if (e.attachments.data[0].media) {
+                    item.picture = e.attachments.data[0].media.image.src;
+                }
             })
             .error(function(e) {
                 $log.info(e);
