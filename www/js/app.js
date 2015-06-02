@@ -85,7 +85,7 @@ var YOUTUBE_MODE_PLAYLIST = false;
 var YOUTUBE_MODE_VIDEO = true;
 
 // Trocar pelo id da playlist desejada
-var YOUTUBE_PLAYLIST_ID = 'PLTaRWr5sdDvnO8xeFKJL6WbsbYF07NGxg';
+var YOUTUBE_PLAYLIST_ID = null;
 
 // Trocar pelo id do video desejado
 var YOUTUBE_VIDEO_ID = 'h6ZzhUqeU90';
@@ -744,7 +744,9 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
     $scope.facebook.get_high_res_images = function(item) {
         $http.get('https://graph.facebook.com/v2.2/' + item.id + '?' + $scope.facebook.access_token + '&fields=attachments')
             .success(function(e) {
-                item.picture = e.attachments.data[0].media.image.src;
+                if (e.attachments.data[0].media) {
+                    item.picture = e.attachments.data[0].media.image.src;
+                }
             })
             .error(function(e) {
                 $log.info(e);
