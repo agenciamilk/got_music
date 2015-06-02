@@ -23,7 +23,7 @@ var GCM_SENDER_ID = '232610257468';
 
 // MESSAGE
 // Trocar por id da planilha de mensagens (respostas) criada no Google Drive
-var MESSAGE_FORM_ID = '1H0YFKpplWjN2oDNFqgombC_MhC6VH1zrEvRCBYB6ao8';
+var MESSAGE_FORM_ID = null;
 var MESSAGE_WORKSHEET_ID;
 
 
@@ -635,13 +635,18 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 $scope.message.items.splice(0, $scope.message.items.length)
                 for (var i = 0; i < entries.length; i++) {
                     var entry = entries[i];
-                    var item = {
-                        timestamp: entry.gsx$timestamp.$t,
-                        message: entry.gsx$message.$t,
-                        call2action: entry.gsx$call2action.$t,
-                        button_title: entry.gsx$buttontitle.$t,
-                        app_link: entry.gsx$linkinterno.$t
-                    };
+
+                    try {
+                        var item = {
+                            timestamp: entry.gsx$timestamp.$t,
+                            message: entry.gsx$message.$t,
+                            call2action: entry.gsx$call2action.$t,
+                            button_title: entry.gsx$buttontitle.$t,
+                            app_link: entry.gsx$linkinterno.$t
+                        };
+                    } catch (exception) {
+                        alert('Malformed spreadsheet');
+                    }
 
                     $scope.message.items.push(item);
 
