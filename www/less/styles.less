@@ -47,6 +47,7 @@ navigation-tabs {
 
     .button-wrapper {
         padding: 0 !important;
+
         .option-button {
             padding: 10px 0px;
             height: @navigation-bar-height;
@@ -67,17 +68,21 @@ navigation-tabs {
                     vertical-align: baseline;
                     top: 2px;
                     position: relative;
-
-                    path {
-                        fill: @menu-button-color;
-                    }
+                    path { fill: @menu-button-color; }
                 }
             }
 
             .option-button-first { margin-left: 15px; }
             .option-button-last { margin-right: 15px; }
         }
-        .selected { color: @main-color !important; }
+
+        .selected {
+            color: @menu-button-color-active;
+
+            svg.menu-icon {
+                path { fill: @menu-button-color-active; }
+            }
+        }
     }
 }
 
