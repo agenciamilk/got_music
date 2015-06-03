@@ -48,8 +48,8 @@ navigation-tabs {
             padding: 10px 0px;
             height: @navigation-bar-height;
             line-height: 28px;
-            background-color: @third-color;
-            color: @second-color;
+            background-color: @menu-button-bg;
+            color: @menu-button-color;
             text-align: center;
             font-family: 'lato_bold';
             font-size: 14px;
@@ -68,17 +68,10 @@ navigation-tabs {
                     position: relative;
                 }
             }
-            .option-button-first {
-                margin-left: 15px;
-            }
-            .option-button-last {
-                margin-right: 15px;
-            }
-
+            .option-button-first { margin-left: 15px; }
+            .option-button-last { margin-right: 15px; }
         }
-        .selected {
-            color: @main-color !important;
-        }
+        .selected { color: @main-color !important; }
     }
 }
 
@@ -94,12 +87,14 @@ title-bar {
     vertical-align: middle;
     text-align: center;
     box-shadow: 0px 1px 10px #000;
+
     .artist-name {
         line-height: @title-bar-height;
         width: 100%;
         height: @title-bar-height;
         font-size: 16px;
         text-align: center;
+
         .artist-logo {
             height: 25px;
             margin-top: 10px;
@@ -132,6 +127,7 @@ title-bar {
         background-color: #FFF;
         bottom: 2 * @home-menu-button-padding + @home-menu-bottom + @home-menu-font-size;
     }
+
     .bottom-menu {
         position: absolute;
         bottom: @home-menu-bottom;
@@ -139,14 +135,17 @@ title-bar {
         width: 100%;
         overflow-x: hidden;
         height: @bottom-menu-height;
+
         .button-wrapper {
             padding: 0 !important;
+
             .option-button {
                 font-size: @home-menu-font-size;
                 padding: @home-menu-button-padding;
-                background-color: @artist-color;
-                color: @third-color;
+                background-color: @home-menu-button-bg-color;
+                color: @home-menu-button-color;
                 text-align: center;
+
                 &:first-child {
                     &:after {
                         position: absolute;
