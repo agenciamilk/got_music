@@ -9,6 +9,7 @@ npm-debug.log
 
 # Browser
 platforms/browser/
+plugins/browser.json
 
 # iOS
 platforms/ios/build/
