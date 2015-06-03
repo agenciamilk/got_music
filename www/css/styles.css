@@ -73,11 +73,15 @@ navigation-tabs .button-wrapper .option-button:last-child {
   padding-right: 0;
 }
 navigation-tabs .button-wrapper .option-button .option-button-text svg.menu-icon {
+  width: auto;
   height: 14px;
   margin-right: 5px;
   vertical-align: baseline;
   top: 2px;
   position: relative;
+}
+navigation-tabs .button-wrapper .option-button .option-button-text svg.menu-icon path {
+  fill: white;
 }
 navigation-tabs .button-wrapper .option-button .option-button-first {
   margin-left: 15px;
