@@ -60,28 +60,23 @@ navigation-tabs {
             &:first-child { padding-left: 0; }
             &:last-child { padding-right: 0; }
 
-            .option-button-text {
-                svg.menu-icon {
-                    width: auto;
-                    height: 14px;
-                    margin-right: 5px;
-                    vertical-align: baseline;
-                    top: 2px;
-                    position: relative;
-                    path { fill: @menu-button-color; }
-                }
+            &.selected {
+                color: @menu-button-color-active;
+                svg.menu-icon { path { fill: @menu-button-color-active; } }
+            }
+
+            svg.menu-icon {
+                width: auto;
+                height: 14px;
+                margin-right: 5px;
+                vertical-align: baseline;
+                top: 2px;
+                position: relative;
+                path { fill: @menu-button-color; }
             }
 
             .option-button-first { margin-left: 15px; }
             .option-button-last { margin-right: 15px; }
-        }
-
-        .selected {
-            color: @menu-button-color-active;
-
-            svg.menu-icon {
-                path { fill: @menu-button-color-active; }
-            }
         }
     }
 }
