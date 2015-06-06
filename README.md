@@ -30,7 +30,7 @@ Lembrando que para iOS, o provisioning profile de desenvolvimento tem que ter si
 # Instructions to create another app
 
 * Update `id="com.gotmusic.<artist>"` at `config.xml`
-* Update `<variable name="URL_SCHEME" value="<artist>" />` at `config.xml`
+* Update `<variable name="URL_SCHEME" value="gotmusic<artist>" />` at `config.xml`
 * Update `<title>` tag at `www/index.html`
 * Update variables at begin of `www/js/app.js`
 * Update `@artist-color` at `www/less/variables.less`
