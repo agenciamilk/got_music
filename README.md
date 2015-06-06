@@ -6,6 +6,7 @@
 * Android SDK Tools (Android Studio)
 * XCode
 * [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [splashicon-generator](https://github.com/eberlitz/splashicon-generator) (splash/icons generation, `npm install -g splashicon-generator`)
 
 
 # Development
@@ -29,12 +30,16 @@ Lembrando que para iOS, o provisioning profile de desenvolvimento tem que ter si
 # Instructions to create another app
 
 * Update `id="com.gotmusic.<artist>"` at `config.xml`
-* Update `<variable name="URL_SCHEME" value="<artist>" />` at `config.xml`
+* Update `<variable name="URL_SCHEME" value="gotmusic<artist>" />` at `config.xml`
+* Update `<title>` tag at `www/index.html`
+* Update variables at begin of `www/js/app.js`
+* Update `@artist-color` at `www/less/variables.less`
+* Update artist's name at `www/templates/modal.html`
 
 
 ## Build and Release
 
-* Compile the CSS with `lessc less/styles.less > css/styles.css`
+* Compile the CSS with `lessc www/less/styles.less > www/css/styles.css`
 
 
 ### Android
@@ -48,19 +53,21 @@ Save the __generated file__, __password__ and __alias__.
 #### Sign the APK
 
     cordova build android --release
-    
-    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore <key-gerada> <arquivo-apk-unsigned> <alias>
 
-    jarsigner -verify -verbose -certs <apk-gerado>
+    export unsigned_apk=platforms/android/ant-build/MainActivity-release-unsigned.apk
     
-    zipalign -v 4 <apk-gerado> <artista>.apk
+    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore <key-gerada> $unsigned_apk <alias>
+
+    jarsigner -verify -verbose -certs $unsigned_apk
+    
+    zipalign -v 4 $unsigned_apk <artista>.apk
 
 The `<artista>.apk` should be sent to Google Play.
 
 
 ### iOS
 
-* No iTunes Developer, é preciso, primeiro criar um identifier "App ID" `com.gotmusic.<artista>`.
+* No [iTunes Developer](https://developer.apple.com/account/ios/identifiers/bundle/bundleList.action), é preciso, primeiro criar um identifier "App ID" `com.gotmusic.<artista>`.
 * Criar um Certificate para Push, seguindo o passo a passo da Apple.
 * Criar Provisioning Profile, selecionando o identificador criado para o app.
 * `cordova build ios --release`

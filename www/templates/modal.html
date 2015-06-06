@@ -2,16 +2,16 @@
     <div class="modal-header">
         <div class="modal-title"><img src='img/icons/shows.svg' class='title-icon'>Pedir Show</div>
     </div>
-    
+
     <form action="{{form_url}}" method="POST" id="ss-form" target="hidden_iframe" onsubmit="submitted=true;" ng-submit="openSuccessModal()">
         <div class="modal-body">
-            
-            <p class="modal-text">Onde você quer ver <br><span class="artist-name">Far From Alaska</span>?</p>
+
+            <p class="modal-text">Onde você quer ver <br><span class="artist-name">artist name</span>?</p>
 
             <input type="text" name="{{city_input_name}}" value="" class="form-control location-input" id="{{city_input}}" dir="auto" aria-label="Cidade  " placeholder="Cidade" aria-required="true" required="" title="" ng-model="city">
-            
+
             <input type="email" name="{{email_input_name}}" value="" class="form-control" id="{{email_input}}" dir="auto" aria-label="Email  " placeholder="Email" aria-required="true" required ng-model="email">
-            
+
             <!-- Hidden -->
             <input type="text" name="{{latitude_input_name}}" value="" class="ss-q-short" id="{{latitude_input}}" dir="auto" aria-label="Latitude  " title="" ng-show="false" ng-model="latitude">
             <input type="text" name="{{longitude_input_name}}" value="" class="ss-q-short" id="{{longitude_input}}" dir="auto" aria-label="Longitude  " title="" ng-show="false" ng-model="longitude">

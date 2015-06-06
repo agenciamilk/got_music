@@ -60,8 +60,8 @@ navigation-tabs .button-wrapper .option-button {
   padding: 10px 0px;
   height: 45px;
   line-height: 28px;
-  background-color: #ffffff;
-  color: #868686;
+  background-color: black;
+  color: white;
   text-align: center;
   font-family: 'lato_bold';
   font-size: 14px;
@@ -72,12 +72,16 @@ navigation-tabs .button-wrapper .option-button:first-child {
 navigation-tabs .button-wrapper .option-button:last-child {
   padding-right: 0;
 }
-navigation-tabs .button-wrapper .option-button .option-button-text .menu-icon {
+navigation-tabs .button-wrapper .option-button .option-button-text svg.menu-icon {
+  width: auto;
   height: 14px;
   margin-right: 5px;
   vertical-align: baseline;
   top: 2px;
   position: relative;
+}
+navigation-tabs .button-wrapper .option-button .option-button-text svg.menu-icon path {
+  fill: white;
 }
 navigation-tabs .button-wrapper .option-button .option-button-first {
   margin-left: 15px;
@@ -149,8 +153,8 @@ title-bar .artist-name .artist-logo {
 .home .bottom-menu .button-wrapper .option-button {
   font-size: 16px;
   padding: 20px;
-  background-color: #22c6ba;
-  color: #ffffff;
+  background-color: black;
+  color: white;
   text-align: center;
 }
 .home .bottom-menu .button-wrapper .option-button:first-child:after {
