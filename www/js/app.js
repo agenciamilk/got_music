@@ -1571,9 +1571,12 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
         }
     };
 
-    $scope.songkick.formatDate = function(event) {
-        var d = (event.start.date).split('-');;
-        return d[2] + '/' + d[1];
+    $scope.songkick.formatDate = function (event) {
+        // TODO: Investigate the reason of 'event' is undefined sometimes
+        if (event) {
+            var d = (event.start.date).split('-');
+            return d[2] + '/' + d[1];
+        }
     };
 
     // Livestream API
