@@ -23,7 +23,7 @@ var GCM_SENDER_ID = '232610257468';
 
 // MESSAGE
 // Trocar por id da planilha de mensagens (respostas) criada no Google Drive
-var MESSAGE_FORM_ID = null;
+var MESSAGE_FORM_ID = '1H0YFKpplWjN2oDNFqgombC_MhC6VH1zrEvRCBYB6ao8';
 var MESSAGE_WORKSHEET_ID;
 
 
