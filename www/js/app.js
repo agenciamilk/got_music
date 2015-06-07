@@ -232,8 +232,18 @@ gotMusicApp.config(['$routeProvider', function($routeProvider) {
         when('/video', {
             templateUrl: 'templates/video.html',
             controller: 'VideoCtrl'
-        })
+        });
 }]);
+
+gotMusicApp.run(function($rootScope) {
+    $rootScope.trackView = function (view) {
+        // TODO: Save trackView in a local variable while analytics not available
+        if (window.analytics) {
+            console.debug('Tracking view:', view);
+            window.analytics.trackView(view);
+        }
+    };
+});
 
 gotMusicApp.directive('navigationTabs', function() {
     return {
@@ -472,7 +482,7 @@ gotMusicApp.controller("HomeCtrl", ["$scope", "$log", "$location", function($sco
     };
 
     // Analytics
-    window.analytics.trackView('Home Screen');
+    $scope.trackView('Home Screen');
 
     // Home Image
     $scope.getHomeImage = function() {
@@ -528,7 +538,7 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
     $scope.start_internet_check();
 
     // Analytics
-    window.analytics.trackView('News Screen');
+    $scope.trackView('News Screen');
 
 
     // MODULES
@@ -1025,7 +1035,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
     $scope.start_internet_check();
 
     // Analytics
-    window.analytics.trackView('Music Screen');
+    $scope.trackView('Music Screen');
 
     // MODULES
     $scope.deezer = {};
@@ -1466,7 +1476,7 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
     $scope.start_internet_check();
 
     // Analytics
-    window.analytics.trackView('Shows Screen');
+    $scope.trackView('Shows Screen');
 
     // MODULES
     $scope.demand = {};
