@@ -23,7 +23,7 @@ var GCM_SENDER_ID = '232610257468';
 
 // MESSAGE
 // Trocar por id da planilha de mensagens (respostas) criada no Google Drive
-var MESSAGE_FORM_ID = null;
+var MESSAGE_FORM_ID = '1H0YFKpplWjN2oDNFqgombC_MhC6VH1zrEvRCBYB6ao8';
 var MESSAGE_WORKSHEET_ID;
 
 
@@ -93,12 +93,10 @@ var YOUTUBE_VIDEO_ID = 'h6ZzhUqeU90';
 // Trocar pela API Youtube do novo App criado no Google Developers Console
 var YOUTUBE_API_KEY = 'AIzaSyDDSM6JyiBBYbK7Vs0FY10SwZMIhyj2DTY';
 
-
 // ITUNES
 // Trocar pelo id do artista no iTunes
 var ITUNES_USER_ID = '591933697';
 var ITUNES_AFFILIATE_CODE = '1l3vuS7';
-
 
 // SONGKICK
 // Trocar pelo id do artista no Songkick
@@ -106,7 +104,6 @@ var SONGKICK_ARTIST_ID = '6054394';
 
 // Trocar pela API Key do novo App criado no Songkick Developers
 var SONGKICK_API_KEY = 'LKwWsc81lEc7oDAG';
-
 
 // DEMAND
 // Trocar por id do form de mensagens criada no Google Drive para pedir shows
@@ -127,7 +124,6 @@ var DEMAND_EMPTY_EMAIL_MESSAGE = 'Preencha o campo com seu email';
 var DEMAND_EMAIL_FORMAT_MESSAGE = 'Email inválido';
 var DEMAND_EMPTY_CITY_MESSAGE = 'Selecione uma cidade';
 
-
 // LIVESTREAM
 // Trocar pelo id do usuário no YouTube
 // Como encontrar o id do usuário: https://support.google.com/youtube/answer/3250431?hl=pt
@@ -136,11 +132,6 @@ var LIVESTREAM_LIVE_STRING = 'AO VIVO';
 var LIVESTREAM_COMPLETED_STRING = 'Arquivo';
 var LIVESTREAM_PENDING_STRING = 'Aguarde';
 var LIVESTREAM_EMPTY_STRING = 'Ainda não há streaming agendado';
-
-// LOADING
-var LOADING_NEWS = 3;
-var LOADING_MUSIC = 3;
-var LOADING_SHOWS = 2;
 
 // SWIPE
 var SWIPE_SPEED = 0.8;
@@ -241,8 +232,18 @@ gotMusicApp.config(['$routeProvider', function($routeProvider) {
         when('/video', {
             templateUrl: 'templates/video.html',
             controller: 'VideoCtrl'
-        })
+        });
 }]);
+
+gotMusicApp.run(function($rootScope) {
+    $rootScope.trackView = function (view) {
+        // TODO: Save trackView in a local variable while analytics not available
+        if (window.analytics) {
+            console.debug('Tracking view:', view);
+            window.analytics.trackView(view);
+        }
+    };
+});
 
 gotMusicApp.directive('navigationTabs', function() {
     return {
@@ -481,7 +482,7 @@ gotMusicApp.controller("HomeCtrl", ["$scope", "$log", "$location", function($sco
     };
 
     // Analytics
-    window.analytics.trackView('Home Screen');
+    $scope.trackView('Home Screen');
 
     // Home Image
     $scope.getHomeImage = function() {
@@ -537,7 +538,7 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
     $scope.start_internet_check();
 
     // Analytics
-    window.analytics.trackView('News Screen');
+    $scope.trackView('News Screen');
 
 
     // MODULES
@@ -560,12 +561,7 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
     //swipeService.createSwipe("twitter", $scope.twitter, $scope);
     swipeService.createSwipe("instagram", $scope.instagram, $scope);
 
-    $scope.loading = LOADING_NEWS;
-    $scope.$watch('loading', function(newVal, oldVal) {
-        if ($scope.loading == 0) {
-            $('#loading-wrapper').hide();
-        };
-    });
+    $('#loading-wrapper').hide();
 
     $scope.message.set_initial_height = function() {
         var elem_children = $($($('#message').children()[0]).children()[0]).children();
@@ -630,7 +626,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
         $http.get('https://spreadsheets.google.com/feeds/list/' + MESSAGE_FORM_ID + '/' + MESSAGE_WORKSHEET_ID + '/public/full?alt=json')
             .success(function(e) {
-                $scope.loading--;
                 var entries = e.feed.entry;
                 $scope.message.items.splice(0, $scope.message.items.length)
                 for (var i = 0; i < entries.length; i++) {
@@ -663,14 +658,12 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 $scope.message.items.reverse();
                 window.localStorage.setItem("MESSAGE_FEED", JSON.stringify($scope.message.items));
             }).error(function(e) {
-                $scope.loading--;
                 $log.info('Error: ' + e);
             });
 
 
         })
         .error(function(e) {
-            $scope.loading--;
         });
 
 
@@ -714,7 +707,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
             $scope.facebook.access_token = e;
             $http.get('https://graph.facebook.com/v2.2/' + FACEBOOK_PAGE_ID + '/posts?' + $scope.facebook.access_token)
             .success(function(e) {
-                $scope.loading--;
                 $scope.facebook.items = [];
                 for (var i = 0; i < e.data.length; i++) {
                     if ($scope.facebook.filter(e.data[i])) {
@@ -734,11 +726,9 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 }
             })
             .error(function(e) {
-                $scope.loading--;
             });
         })
         .error(function(e) {
-            $scope.loading--;
         });
 
     $scope.facebook.get_high_res_images = function(item) {
@@ -798,7 +788,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
         .success(function(e) {
             $scope.instagram.items = e.data;
             window.localStorage.setItem('INSTAGRAM_FEED', JSON.stringify($scope.instagram.items));
-            $scope.loading--;
 
             $timeout(function() {
                 $scope.instagram.set_initial_height();
@@ -824,7 +813,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
         })
         .error(function() {
-            $scope.loading--;
             $log.info("error");
         });
 
@@ -983,7 +971,7 @@ gotMusicApp.controller('VideoCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
 
     $scope.update_dimensions = function() {
         $scope.width = window.innerWidth;
-        $scope.height = window.innerHeight - 50;
+        $scope.height = window.innerHeight - 65;
     };
 
     $scope.quit_player = function() {
@@ -991,6 +979,11 @@ gotMusicApp.controller('VideoCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         window.history.back();
     };
 
+    setInterval(function(){
+        if ($('#ytplayer').length) {
+            $('#ytplayer').contents().find('.ytp-scalable-icon-shrink').css('pointer-events', 'none');
+        }
+    }, 1000);
 
     window.addEventListener('orientationchange', function(e) {
 
@@ -1047,7 +1040,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
     $scope.start_internet_check();
 
     // Analytics
-    window.analytics.trackView('Music Screen');
+    $scope.trackView('Music Screen');
 
     // MODULES
     $scope.deezer = {};
@@ -1059,12 +1052,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
     $scope.youtube.items = JSON.parse(window.localStorage.getItem("YOUTUBE_FEED")) || [];
     $scope.itunes.items = JSON.parse(window.localStorage.getItem("ITUNES_FEED")) || [];
 
-    $scope.loading = LOADING_MUSIC;
-    $scope.$watch('loading', function(newVal, oldVal) {
-        if ($scope.loading == 0) {
-            $('#loading-wrapper').hide();
-        };
-    });
+    $('#loading-wrapper').hide();
 
     // Set Element Width
     $scope.deezer.set_width = function() {
@@ -1080,13 +1068,6 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         if ((window.innerWidth - ITEM_MARGIN) < 360) {
             $('.buy-album').css('position', 'static');
             $('.buy-album').css('margin-top', '20px');
-        }
-    };
-
-
-    $scope.checkLoaded = function() {
-        if ($scope.deezer.loaded && $scope.youtube.loaded && $scope.itunes.loaded) {
-            $('#loading-wrapper').hide();
         }
     };
 
@@ -1114,7 +1095,6 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         $scope.deezer.items = ['1'];
         $(document).ready(function() {
             $timeout(function() {
-                $scope.loading--;
                 $('.deezer-embed').append('<iframe id="deezer-iframe" scrolling="no" frameborder="0" allowTransparency="true" src="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&cover=true&type=album&id=' + DEEZER_ALBUM_ID + '&title=&app_id=' + DEEZER_API_ID + '" width="100%" height="115px"></iframe>');
                 $('.deezer-embed').addClass('embed');
                 $('.album-cover-wrapper').hide();
@@ -1205,7 +1185,6 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
             DZ.player.prev();
         });
         DZ.player.playTracks($scope.deezer.track_ids, false, 0, 0, function(response){
-            $scope.loading--;
             $scope.deezer.player_loaded = true;
             $scope.$apply();
         });
@@ -1237,7 +1216,6 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                     window.localStorage.setItem("DEEZER_FEED", JSON.stringify($scope.deezer.items));
                 })
                 .error(function() {
-                    $scope.loading--;
                     $log.info("error");
                 });
         }
@@ -1270,7 +1248,6 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                 window.localStorage.setItem("DEEZER_FEED", JSON.stringify($scope.deezer.items));
             })
             .error(function() {
-                $scope.loading--;
                 $log.info("error");
             });
         };
@@ -1302,12 +1279,10 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
     if (YOUTUBE_MODE_PLAYLIST) {
         $http.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + YOUTUBE_PLAYLIST_ID + '&key=' + YOUTUBE_API_KEY)
             .success(function(e) {
-                $scope.loading--;
                 $scope.youtube.items = e.items;
                 window.localStorage.setItem('YOUTUBE_FEED', JSON.stringify($scope.youtube.items));
             })
             .error(function(e) {
-                $scope.loading--;
                 $log.info(e);
             });
     }
@@ -1315,12 +1290,10 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
     else if (YOUTUBE_MODE_VIDEO) {
         $http.get('https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + YOUTUBE_VIDEO_ID + '&key=' + YOUTUBE_API_KEY)
             .success(function(e) {
-                $scope.loading--;
                 $scope.youtube.items = e.items;
                 window.localStorage.setItem('YOUTUBE_FEED', JSON.stringify($scope.youtube.items));
             })
             .error(function(e) {
-                $scope.loading--;
                 $log.info(e);
             });
     }
@@ -1360,11 +1333,9 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
 
     $http.get('https://itunes.apple.com/lookup?&country=br&entity=album&id=' + ITUNES_USER_ID)
         .success(function(e) {
-            $scope.loading--;
             $scope.itunes.items = e.results.slice(1, e.results.length);
             window.localStorage.setItem("ITUNES_FEED", JSON.stringify($scope.itunes.items));
         }).error(function() {
-            $scope.loading--;
         });
 
     $scope.itunes.getAlbum = function(album) {
@@ -1510,7 +1481,7 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
     $scope.start_internet_check();
 
     // Analytics
-    window.analytics.trackView('Shows Screen');
+    $scope.trackView('Shows Screen');
 
     // MODULES
     $scope.demand = {};
@@ -1523,12 +1494,7 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
     $scope.demand.demanded = Boolean(window.localStorage.getItem("DEMAND_DEMANDED")) || false;
     $scope.demand.last_demand = window.localStorage.getItem("DEMAND_LAST_DEMAND") || [];
 
-    $scope.loading = LOADING_SHOWS;
-    $scope.$watch('loading', function(newVal, oldVal) {
-        if ($scope.loading == 0) {
-            $('#loading-wrapper').hide();
-        };
-    });
+    $('#loading-wrapper').hide();
 
     if ($scope.demand.demanded) {
         var now = new Date().getTime();
@@ -1588,7 +1554,6 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
     // Songkick API
     $http.get("http://api.songkick.com/api/3.0/artists/" + SONGKICK_ARTIST_ID + "/calendar.json?apikey=" + SONGKICK_API_KEY)
         .success(function(e) {
-            $scope.loading--;
             $scope.songkick.items = [];
             for (var i = 0; i < e.resultsPage.results.event.length; i += 2) {
                 //$log.info(i);
@@ -1600,7 +1565,6 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
             }
             window.localStorage.setItem("SONGKICK_FEED", JSON.stringify($scope.songkick.items));
         }).error(function() {
-            $scope.loading--;
         });
 
     $scope.songkick.see_more = function(show) {
@@ -1612,16 +1576,18 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
         }
     };
 
-    $scope.songkick.formatDate = function(event) {
-        var d = (event.start.date).split('-');;
-        return d[2] + '/' + d[1];
+    $scope.songkick.formatDate = function (event) {
+        // TODO: Investigate the reason of 'event' is undefined sometimes
+        if (event) {
+            var d = (event.start.date).split('-');
+            return d[2] + '/' + d[1];
+        }
     };
 
     // Livestream API
 
     $http.get('https://gdata.youtube.com/feeds/api/users/' + LIVESTREAM_USER_ID + '/live/events?v=2&alt=json')
             .success(function(e) {
-                $scope.loading--;
                 if (e.feed.entry) {
                     var current_stream = e.feed.entry[e.feed.entry.length - 1];
                     var livestream_url = current_stream.content.src;
@@ -1648,7 +1614,6 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
 
             })
             .error(function(e) {
-                $scope.loading--;
                 //alert('ERROR');
                 //alert(JSON.stringify(e));
             });

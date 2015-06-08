@@ -1,27 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
- Licensed to the Apache Software Foundation (ASF) under one
- or more contributor license agreements.  See the NOTICE file
- distributed with this work for additional information
- regarding copyright ownership.  The ASF licenses this file
- to you under the Apache License, Version 2.0 (the
- "License"); you may not use this file except in compliance
- with the License.  You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing,
- software distributed under the License is distributed on an
- "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- KIND, either express or implied.  See the License for the
- specific language governing permissions and limitations
- under the License.
--->
-<widget xmlns     = "http://www.w3.org/ns/widgets"
-        id        = "io.cordova.helloCordova"
-        version   = "2.0.0">
-
-    <!-- Preferences for iOS -->
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.gotmusic.farfromalaska" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="DisallowOverscroll" value="false" />
@@ -31,10 +9,97 @@
     <preference name="SuppressesIncrementalRendering" value="false" />
     <preference name="GapBetweenPages" value="0" />
     <preference name="PageLength" value="0" />
-    <preference name="PaginationBreakingMode" value="page" /> <!-- page, column -->
-    <preference name="PaginationMode" value="unpaginated" /> <!-- unpaginated, leftToRight, topToBottom, bottomToTop, rightToLeft -->
-
+    <preference name="PaginationBreakingMode" value="page" />
+    <preference name="PaginationMode" value="unpaginated" />
     <feature name="LocalStorage">
-        <param name="ios-package" value="CDVLocalStorage"/>
+        <param name="ios-package" value="CDVLocalStorage" />
     </feature>
+    <feature name="UniversalAnalytics">
+        <param name="ios-package" value="UniversalAnalyticsPlugin" />
+    </feature>
+    <feature name="GameThrivePush">
+        <param name="ios-package" value="GameThrivePush" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <access origin="https://oauth.io" />
+    <feature name="PushPlugin">
+        <param name="ios-package" value="PushPlugin" />
+    </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+    </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
+    <feature name="Geolocation">
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="ios-package" value="CDVConnection" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <name>Far From Alaska</name>
+    <description>
+        Fique por dentro de todas as novidades da banda Far From Alaska
+    </description>
+    <author email="contact@gotmusicapp.com" href="http://www.gotmusicapp.com">
+        Got Music
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="orientation" value="portrait" />
+    <preference name="ios-orientation-iphone" value="portrait" />
+    <preference name="ios-orientation-ipad" value="portrait" />
+    <preference name="BackupWebStorage" value="local" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
+    <preference name="SplashScreen" value="screen" />
+    <icon src="icon.png" />
+    <icon height="180" platform="ios" src="res/icons/ios/icon-60@3x.png" width="180" />
+    <icon height="60" platform="ios" src="res/icons/ios/icon-60.png" width="60" />
+    <icon height="120" platform="ios" src="res/icons/ios/icon-60@2x.png" width="120" />
+    <icon height="76" platform="ios" src="res/icons/ios/icon-76.png" width="76" />
+    <icon height="152" platform="ios" src="res/icons/ios/icon-76@2x.png" width="152" />
+    <icon height="40" platform="ios" src="res/icons/ios/icon-40.png" width="40" />
+    <icon height="80" platform="ios" src="res/icons/ios/icon-40@2x.png" width="80" />
+    <icon height="57" platform="ios" src="res/icons/ios/icon.png" width="57" />
+    <icon height="114" platform="ios" src="res/icons/ios/icon@2x.png" width="114" />
+    <icon height="72" platform="ios" src="res/icons/ios/icon-72.png" width="72" />
+    <icon height="144" platform="ios" src="res/icons/ios/icon-72@2x.png" width="144" />
+    <icon height="29" platform="ios" src="res/icons/ios/icon-small.png" width="29" />
+    <icon height="58" platform="ios" src="res/icons/ios/icon-small@2x.png" width="58" />
+    <icon height="50" platform="ios" src="res/icons/ios/icon-50.png" width="50" />
+    <icon height="100" platform="ios" src="res/icons/ios/icon-50@2x.png" width="100" />
+    <icon density="ldpi" platform="android" src="res/icons/android/icon-ldpi.png" />
+    <icon density="mdpi" platform="android" src="res/icons/android/icon-mdpi.png" />
+    <icon density="hdpi" platform="android" src="res/icons/android/icon-hdpi.png" />
+    <icon density="xhdpi" platform="android" src="res/icons/android/icon-xhdpi.png" />
+    <icon density="xxhdpi" platform="android" src="res/icons/android/icon-xxhdpi.png" />
+    <icon density="xxxhdpi" platform="android" src="res/icons/android/icon-xxxhdpi.png" />
+    <splash src="splash.png" />
+    <splash height="480" platform="ios" src="res/splash/ios/Default.png" width="320" />
+    <splash height="960" platform="ios" src="res/splash/ios/Default@2x.png" width="640" />
+    <splash height="1136" platform="ios" src="res/splash/ios/Default-568h@2x.png" width="640" />
+    <splash height="1334" platform="ios" src="res/splash/ios/Default-667h@2x.png" width="750" />
+    <splash height="2208" platform="ios" src="res/splash/ios/Default-Portrait-736h@3x.png" width="1242" />
+    <splash height="1242" platform="ios" src="res/splash/ios/Default-Landscape-736h@3x.png" width="2208" />
+    <splash height="1024" platform="ios" src="res/splash/ios/Default-Portrait.png" width="768" />
+    <splash height="768" platform="ios" src="res/splash/ios/Default-Landscape.png" width="1024" />
+    <splash height="2048" platform="ios" src="res/splash/ios/Default-Portrait@2x.png" width="1536" />
+    <splash height="1536" platform="ios" src="res/splash/ios/Default-Landscape@2x.png" width="2048" />
+    <splash platform="android" src="res/splash/android/ldpi.png" />
+    <splash density="land-ldpi" platform="android" src="res/splash/android/landscape-ldpi.png" />
+    <splash density="mdpi" platform="android" src="res/splash/android/mdpi.png" />
+    <splash density="land-mdpi" platform="android" src="res/splash/android/landscape-mdpi.png" />
+    <splash density="hdpi" platform="android" src="res/splash/android/hdpi.png" />
+    <splash density="land-hdpi" platform="android" src="res/splash/android/landscape-hdpi.png" />
+    <splash density="xhdpi" platform="android" src="res/splash/android/xhdpi.png" />
+    <splash density="land-xhdpi" platform="android" src="res/splash/android/landscape-xhdpi.png" />
 </widget>
