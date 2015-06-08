@@ -971,7 +971,7 @@ gotMusicApp.controller('VideoCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
 
     $scope.update_dimensions = function() {
         $scope.width = window.innerWidth;
-        $scope.height = window.innerHeight - 50;
+        $scope.height = window.innerHeight - 65;
     };
 
     $scope.quit_player = function() {
@@ -979,6 +979,11 @@ gotMusicApp.controller('VideoCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         window.history.back();
     };
 
+    setInterval(function(){
+        if ($('#ytplayer').length) {
+            $('#ytplayer').contents().find('.ytp-scalable-icon-shrink').css('pointer-events', 'none');
+        }
+    }, 1000);
 
     window.addEventListener('orientationchange', function(e) {
 
