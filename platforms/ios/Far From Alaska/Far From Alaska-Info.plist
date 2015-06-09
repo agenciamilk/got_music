@@ -56,29 +56,36 @@
     <string>${PRODUCT_NAME}</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
     <key>CFBundleSignature</key>
     <string>????</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fromfaralaska</string>
+        </array>
+      </dict>
+    </array>
     <key>CFBundleVersion</key>
-    <string>1.0.0</string>
-    <key>CFBundleShortVersionString</key>
     <string>1.0.0</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string></string>
     <key>NSMainNibFile</key>
     <string></string>
     <key>NSMainNibFile~ipad</key>
     <string></string>
-    <key>UISupportedInterfaceOrientations</key>
+    <key>UIBackgroundModes</key>
     <array>
-      <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationPortraitUpsideDown</string>
+      <string>remote-notification</string>
     </array>
-    <key>UISupportedInterfaceOrientations~ipad</key>
+    <key>UIInterfaceOrientation</key>
     <array>
       <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationLandscapeLeft</string>
-      <string>UIInterfaceOrientationPortraitUpsideDown</string>
-      <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
     <key>UILaunchImages</key>
     <array>
@@ -183,24 +190,17 @@
         <string>{768, 1024}</string>
       </dict>
     </array>
-    <key>UIInterfaceOrientation</key>
+    <key>UISupportedInterfaceOrientations</key>
     <array>
       <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationPortraitUpsideDown</string>
     </array>
-    <key>UIBackgroundModes</key>
+    <key>UISupportedInterfaceOrientations~ipad</key>
     <array>
-      <string>remote-notification</string>
+      <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationPortraitUpsideDown</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fromfaralaska</string>
-        </array>
-      </dict>
-    </array>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string></string>
   </dict>
 </plist>
