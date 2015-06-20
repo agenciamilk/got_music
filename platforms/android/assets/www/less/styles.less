@@ -405,68 +405,74 @@ title-bar {
             }
         }
     }
+
     #instagram {
         margin-bottom: 30px;
+
         .instagram-item {
             .content {
-                    .instagram-image {
-                        //height: 100%;
-                        width: 100%;
-                    }
-                    .instagram-content {
-                        margin-top: 10px;
-                        .instagram-header {
-                            .instagram-screenname {
-                                font-weight: bold;
-                                position: absolute;
-                                left: 15px;
-                            }
-                            .instagram-likes {
-                                position: absolute;
-                                left: 15px;
-                                top: 20px;
-                                color: @twitter-username-text-color;
-                                font-size: small;
-                            }
-                            .instagram-relationship {
-                                font-size: x-small;
-                                position: absolute;
-                                right: 15px;
-                                top: 5px;
-                                .follow {
-                                    border: 1px solid @third-color;
-                                    color: @third-color;
-                                    padding: 3px 10px;
-                                    text-transform: uppercase;
-                                }
-                                .following {
-                                    border: 1px solid @third-color;
-                                    background-color: @third-color;
-                                    color: @main-color;
-                                    text-transform: uppercase;
-                                    padding: 3px 10px;
-                                }
-                            }
-                        }
-                        .instagram-text {
-                            margin-top: 40px;
-                            color: @third-color;
-                            overflow-y: hidden;
+                .instagram-image {
+                    //height: 100%;
+                    width: 100%;
+                }
+
+                .instagram-content {
+                    margin-top: 10px;
+                    .instagram-header {
+                        .instagram-screenname {
+                            font-weight: bold;
+                            position: absolute;
+                            left: 15px;
                         }
 
-                        .instagram-actions {
+                        .instagram-likes {
+                            position: absolute;
+                            left: 15px;
+                            top: 20px;
                             color: @twitter-username-text-color;
-                            text-transform: uppercase;
+                            font-size: small;
+                        }
+
+                        .instagram-relationship {
                             font-size: x-small;
-                            margin-top: 20px;
-                            .instagram-like {
-                                margin-right: 20px;
+                            position: absolute;
+                            right: 15px;
+                            top: 5px;
+
+                            .follow {
+                                border: 1px solid @third-color;
+                                color: @third-color;
+                                padding: 3px 10px;
+                                text-transform: uppercase;
+                            }
+
+                            .following {
+                                border: 1px solid @third-color;
+                                background-color: @third-color;
+                                color: @main-color;
+                                text-transform: uppercase;
+                                padding: 3px 10px;
                             }
                         }
                     }
 
+                    .instagram-text {
+                        margin-top: 40px;
+                        color: @third-color;
+                        overflow-y: hidden;
+                    }
 
+                    .instagram-actions {
+                        color: @twitter-username-text-color;
+                        text-transform: uppercase;
+                        font-size: x-small;
+                        margin-top: 20px;
 
+                        .instagram-like {
+                            margin-right: 20px;
+                        }
+                    }
+                }
             }
         }
     }
@@ -474,8 +480,15 @@ title-bar {
 
 .music {
     #deezer {
-        .deezer-item {
+        #deezer-embed {
+            .loading-image {
+                width: 55px;
+                display: block;
+                margin: 15px auto;
+            }
+        }
 
+        .deezer-item {
             .embed {
                 padding: 0 !important;
 
