@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		01CB4165357D47069E61EF0F /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4D768AB47A434CA660FF5E /* libGoogleAnalyticsServices.a */; };
 		1342E7AFB26E4E858C82A466 /* HGTJailbreakDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C2943B9A74F38BEE81C64 /* HGTJailbreakDetection.m */; };
@@ -569,7 +570,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Far From Alaska";
-				PROVISIONING_PROFILE = "f23b61cb-e94e-4dbb-be6a-9320dec0fc97";
+				PROVISIONING_PROFILE = "21bfbae0-5c52-4489-a9ea-0fa218f1a685";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -605,7 +606,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Far From Alaska";
-				PROVISIONING_PROFILE = "f23b61cb-e94e-4dbb-be6a-9320dec0fc97";
+				PROVISIONING_PROFILE = "21bfbae0-5c52-4489-a9ea-0fa218f1a685";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
