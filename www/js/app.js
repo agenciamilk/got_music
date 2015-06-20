@@ -1100,13 +1100,9 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                 $('.album-cover-wrapper').hide();
                 $('.deezer-content').hide();
             }, INITIAL_RESIZE_TIMEOUT);
-
         });
 
-
-
         $scope.deezer.embed = true;
-
     } else {
         $scope.deezer.items = JSON.parse(window.localStorage.getItem("DEEZER_FEED")) || [];
         $('#deezer-iframe').remove();
@@ -1125,16 +1121,16 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
             } else {
                 return '';
             }
-
         }, 1000);
-
-    }
+    };
 
     $scope.deezer.play = function() {
         window.analytics.trackEvent('Deezer', 'Click', 'Deezer Play', 1);
         $scope.deezer.playing = true;
-        DZ.player.play();
-	};
+
+        // Run twice as workaround for iOS. TODO: Find out best solution
+        DZ.player.play(); DZ.player.play();
+    };
 
     $scope.deezer.pause = function() {
         $scope.deezer.playing = false;
@@ -1144,11 +1140,10 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
     $scope.deezer.player_loaded = false;
 
     $scope.$watch('deezer.current_item', function(newVal, oldVal) {
-
         $scope.deezer.time_current = 0.0;
         $scope.deezer.time_total = 100.0;
 
-        if (oldVal == null) {
+        if (oldVal === null) {
 
         } else if (newVal > oldVal) {
             DZ.player.next();

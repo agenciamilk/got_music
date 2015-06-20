@@ -417,6 +417,11 @@ title-bar .artist-name .artist-logo {
 .news #instagram .instagram-item .content .instagram-content .instagram-actions .instagram-like {
   margin-right: 20px;
 }
+.music #deezer #deezer-embed .loading-image {
+  width: 55px;
+  display: block;
+  margin: 15px auto;
+}
 .music #deezer .deezer-item .embed {
   padding: 0 !important;
 }
