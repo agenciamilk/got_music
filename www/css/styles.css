@@ -177,8 +177,6 @@ title-bar .artist-name .artist-logo {
 }
 .item {
   margin-top: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 .item #title {
   background-color: #868686;
@@ -196,14 +194,12 @@ title-bar .artist-name .artist-logo {
 }
 .section .module {
   display: -webkit-box;
-  margin-top: 10px;
+  margin: 10px 5px 0;
 }
 .section .module:last-child {
   margin-bottom: 20px;
 }
 .section .module .item {
-  margin-left: 5px;
-  margin-right: 5px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -417,6 +413,9 @@ title-bar .artist-name .artist-logo {
 .news #instagram .instagram-item .content .instagram-content .instagram-actions .instagram-like {
   margin-right: 20px;
 }
+.music #deezer #deezer-embed {
+  position: relative;
+}
 .music #deezer #deezer-embed .loading-image {
   width: 55px;
   display: block;
@@ -435,7 +434,7 @@ title-bar .artist-name .artist-logo {
 .music #deezer .deezer-item .content .album-cover-wrapper {
   position: absolute;
   left: 0;
-  top: 35px;
+  top: 0;
   height: 150px;
 }
 .music #deezer .deezer-item .content .album-image {

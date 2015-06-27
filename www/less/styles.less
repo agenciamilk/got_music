@@ -175,9 +175,7 @@ title-bar {
 
 .item {
     margin-top: @item-margin-vertical;
-    //width: 300px;
-    margin-left: @item-margin-horizontal;
-    margin-right: @item-margin-horizontal;
+
     #title {
         background-color: @second-color;
         color: @main-color;
@@ -193,15 +191,16 @@ title-bar {
     left: 0;
     width: 100%;
     overflow-x: hidden;
+
     .module {
         display: -webkit-box;
-        margin-top: 10px;
+        margin: 10px @item-margin 0;
+
         &:last-child {
             margin-bottom: 20px;
         }
+
         .item {
-            margin-left: @item-margin;
-            margin-right: @item-margin;
             border-bottom-left-radius: @item-content-radius;
             border-bottom-right-radius: @item-content-radius;
             //box-shadow: 0 0 10px;
@@ -481,6 +480,8 @@ title-bar {
 .music {
     #deezer {
         #deezer-embed {
+            position: relative;
+
             .loading-image {
                 width: 55px;
                 display: block;
@@ -500,18 +501,21 @@ title-bar {
 
             .content {
                 height: 120px !important;
+
                 .album-cover-wrapper {
-                position: absolute;
-                left: 0;
-                top: 35px;
-                height: 150px;
-            }
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 150px;
+                }
+
                 .album-image {
                     height: 120px;
                     width: 120px;
 
                     border-bottom-left-radius: @item-content-radius;
                 }
+
                 .btn-player {
                     height: 50px;
                     width: 50px;

@@ -9,31 +9,35 @@
 <div class="music section">
     <div id="deezer" class="module" ng-style="{'left': deezer.left, 'position': 'relative'}">
         <div id="dz-root"></div>
-        <div class="deezer-item item" ng-repeat="track in deezer.items" ng-init="deezer.set_width()">
-            <div class="col-xs-12">
-                <div class="title-wrapper row">
-                    <div class="title"><img src='img/icons/playlist.svg' class='title-icon'>Playlist</div>
-                </div>
 
-                <div id="deezer-embed" class="content row deezer-embed">
-                    <div id="album-cover-wrapper" ng-show="deezer.player_loaded" class="album-cover-wrapper">
-                        <img class="album-image" ng-src="{{deezer.get_album_cover(track)}}">
-                        <img src="img/icons/play.png" class="btn-player" id="play" ng-click="deezer.play()" ng-show="!deezer.playing">
-                        <img src="img/icons/pause.png" class="btn-player" id="pause" ng-click="deezer.pause()" ng-show="deezer.playing">
+        <div id="deezer-carousel" class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="deezer-item item swiper-slide" ng-repeat="track in deezer.items"> <!-- ng-init="deezer.set_width()" -->
+
+                    <div class="title-wrapper">
+                        <div class="title"><img src='img/icons/playlist.svg' class='title-icon'>Playlist</div>
                     </div>
 
-                    <div id="deezer-content" ng-show="deezer.player_loaded" class="deezer-content">
-                        <div class="deezer-header">
-                            <div class="deezer-track">{{track.title}}</div>
-                            <div class="deezer-artist">{{track.artist.name}}</div>
+                    <div id="deezer-embed" class="content deezer-embed">
+                        <div id="album-cover-wrapper" ng-show="deezer.player_loaded" class="album-cover-wrapper">
+                            <img class="album-image" ng-src="{{deezer.get_album_cover(track)}}">
+                            <img src="img/icons/play.png" class="btn-player" id="play" ng-click="deezer.play()" ng-show="!deezer.playing">
+                            <img src="img/icons/pause.png" class="btn-player" id="pause" ng-click="deezer.pause()" ng-show="deezer.playing">
                         </div>
 
-                        <div class="dzSlider" ng-click="sliderClicked($event)">
-                            <div ng-show="$index==deezer.current_item" class="dzProgress" ng-style="{'width': (deezer.time_current / deezer.time_total * 100) + '%'}"><div class="inline" id="progress_hand"></div></div>
+                        <div id="deezer-content" ng-show="deezer.player_loaded" class="deezer-content">
+                            <div class="deezer-header">
+                                <div class="deezer-track">{{track.title}}</div>
+                                <div class="deezer-artist">{{track.artist.name}}</div>
+                            </div>
+
+                            <div class="dzSlider" ng-click="sliderClicked($event)">
+                                <div ng-show="$index == deezer.current_item" class="dzProgress" ng-style="{'width': (deezer.time_current / deezer.time_total * 100) + '%'}"><div class="inline" id="progress_hand"></div></div>
+                            </div>
                         </div>
+
+                        <img class="loading-image" src="img/loading.gif" ng-hide="deezer.player_loaded">
                     </div>
-
-                    <img class="loading-image" src="img/loading.gif" ng-hide="deezer.player_loaded">
                 </div>
             </div>
         </div>

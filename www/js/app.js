@@ -239,7 +239,6 @@ gotMusicApp.run(function($rootScope) {
     $rootScope.trackView = function (view) {
         // TODO: Save trackView in a local variable while analytics not available
         if (window.analytics) {
-            console.debug('Tracking view:', view);
             window.analytics.trackView(view);
         }
     };
@@ -1021,11 +1020,13 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         });
     };
 
+    // TODO: Move this to an appropriate place
     if (!checkConnection()) {
         $scope.openModal();
         $interval.cancel($scope.internet_check);
     }
 
+    // TODO: Move this to an appropriate place
     $scope.start_internet_check = function() {
         $scope.internet_check = $interval(function() {
             if (!checkConnection()) {
@@ -1036,9 +1037,10 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         }, INTERNET_CHECK_INTERVAL);
     };
 
-
+    // TODO: Move this to an appropriate place
     $scope.start_internet_check();
 
+    // TODO: Move this to an appropriate place like routing scripts
     // Analytics
     $scope.trackView('Music Screen');
 
@@ -1046,7 +1048,6 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
     $scope.deezer = {};
     $scope.youtube = {};
     $scope.itunes = {};
-
 
     // Get From Local Storage
     $scope.youtube.items = JSON.parse(window.localStorage.getItem("YOUTUBE_FEED")) || [];
@@ -1071,28 +1072,27 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         }
     };
 
-
     // Create Swipe Controllers
-
     if (YOUTUBE_MODE_PLAYLIST) {
         swipeService.createSwipe("youtube", $scope.youtube, $scope);
     }
     swipeService.createSwipe("itunes", $scope.itunes, $scope);
 
-
-
     // Deezer Pause Track on Swipe
-    var deezerSwipe = new Hammer(document.getElementById("deezer"));
-    deezerSwipe.on("panstart", function(e) {
-        $scope.deezer.pause();
-    });
+    // var deezerSwipe = new Hammer(document.getElementById("deezer"));
+    // deezerSwipe.on("panstart", function(e) {
+    //     $scope.deezer.pause();
+    // });
 
+    $('#deezer-carousel').css({height: 175, width: window.innerWidth - ITEM_MARGIN});
+    var deezerCarousel = new Swiper('#deezer-carousel');
 
     // Deezer API
     $scope.deezer.embed = false;
 
     if (ANDROID && VERSION[0] != '5') {
         $scope.deezer.items = ['1'];
+
         $(document).ready(function() {
             $timeout(function() {
                 $('.deezer-embed').append('<iframe id="deezer-iframe" scrolling="no" frameborder="0" allowTransparency="true" src="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&cover=true&type=album&id=' + DEEZER_ALBUM_ID + '&title=&app_id=' + DEEZER_API_ID + '" width="100%" height="115px"></iframe>');
@@ -1107,11 +1107,11 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         $scope.deezer.items = JSON.parse(window.localStorage.getItem("DEEZER_FEED")) || [];
         $('#deezer-iframe').remove();
         $scope.deezer.embed = false;
-        swipeService.createSwipe("deezer", $scope.deezer, $scope);
+
         $timeout(function() {
             $scope.deezer.initialize();
+            deezerCarousel.init();
         }, INITIAL_RESIZE_TIMEOUT);
-
     }
 
     $scope.deezer.get_iframe_src = function() {
@@ -1134,30 +1134,24 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
 
     $scope.deezer.pause = function() {
         $scope.deezer.playing = false;
-		DZ.player.pause();
-	};
+        DZ.player.pause();
+    };
 
     $scope.deezer.player_loaded = false;
 
-    $scope.$watch('deezer.current_item', function(newVal, oldVal) {
+    deezerCarousel.on('onSlideChangeEnd', function (swiper) {
+        $scope.deezer.current_item = swiper.activeIndex;
         $scope.deezer.time_current = 0.0;
         $scope.deezer.time_total = 100.0;
 
-        if (oldVal === null) {
-
-        } else if (newVal > oldVal) {
+        if (swiper.touches.diff < 0) {
             DZ.player.next();
-            DZ.player.next();
-            DZ.player.prev();
             $scope.deezer.playing = true;
-        } else if (newVal < oldVal) {
+        } else {
             DZ.player.prev();
-            DZ.player.prev();
-            DZ.player.next();
             $scope.deezer.playing = true;
         }
     });
-
 
     $scope.deezer.get_album_cover = function(track) {
         if (DEEZER_MODE_PLAYLIST) {
@@ -1166,7 +1160,6 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
             return $scope.deezer.album_cover;
         }
     };
-
 
     $scope.deezer.setup = function() {
         DZ.Event.subscribe('player_position', function(e){
@@ -1183,9 +1176,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
             $scope.deezer.player_loaded = true;
             $scope.$apply();
         });
-
     };
-
 
     $scope.deezer.initialize = function() {
         // DEEZER PLAYLIST
@@ -1205,7 +1196,6 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                         player: {
                             onload: $scope.deezer.setup
                         },
-
                     });
 
                     window.localStorage.setItem("DEEZER_FEED", JSON.stringify($scope.deezer.items));
@@ -1240,14 +1230,13 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                 });
 
                 $scope.deezer.album_cover = e.cover;
-                window.localStorage.setItem("DEEZER_FEED", JSON.stringify($scope.deezer.items));
+                window.localStorage.setItem('DEEZER_FEED', JSON.stringify($scope.deezer.items));
             })
             .error(function() {
                 $log.info("error");
             });
-        };
-
-    }
+        }
+    };
 
     /*
     $scope.deezer.login = function() {
