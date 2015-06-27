@@ -8,53 +8,7 @@
 
 <div class="news section">
   <ng-include src="'templates/news/messages.html'"></ng-include>
-
-  <div id="facebook" class="module" ng-style="{'left': facebook.left, 'position': 'relative', 'height': facebook.height}">
-      <div class="facebook-item item" ng-repeat="post in facebook.items" ng-init="facebook.set_width()">
-          <div class="col-xs-12">
-              <div class="title-wrapper row">
-                  <div class="title"><img src='img/icons/facebook.svg' class='title-icon'>{{facebook.artist_name}}</div>
-              </div>
-              <div class="content row" ng-style="{'height': facebook.item_height}">
-                  <div class="col-xs-12">
-                      <div class="facebook-content">
-
-                          <!-- FACEBOOK PHOTO TYPE POST -->
-                          <div class="facebook-status-photo" ng-show="{{facebook.show_post(post, 'photo')}}">
-                              <div class="facebook-photo-message">{{post.message}}</div>
-                              <img class="facebook-photo-image" ng-src="{{post.picture}}" width="100%">
-                          </div>
-
-                          <!-- FACEBOOK LINK TYPE POST -->
-                          <div class="facebook-status-link" ng-show="{{facebook.show_post(post, 'link')}}">
-                              <div class="facebook-link-text">
-                                  {{post.message}}
-                              </div>
-                              <div class="facebook-link-box" ng-click="facebook.go_to_link(post.link)">
-                                  <img ng-src="{{post.picture}}" class="facebook-link-box-image" width="100%">
-                                  <div class="facebook-link-description-box">
-                                      <div class="facebook-link-box-title">{{post.name}}</div>
-                                      <div class="facebook-link-box-description">{{post.description}}</div>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <!-- FACEBOOK VIDEO TYPE POST -->
-                          <div class="facebook-status-video" ng-show="{{facebook.show_post(post, 'video')}}">
-                              <div class="facebook-video-message">{{post.message}}</div>
-                              <div class="col-xs-12 text-center">
-                                  <img class="facebook-thumbnail" ng-src="{{post.picture}}" ng-click="facebook.play_video(post.source)" width="100%">
-                  <div class="facebook-video-title">{{post.name}}</div>
-                              </div>
-                          </div>
-
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
+  <ng-include src="'templates/news/facebook.html'"></ng-include>
 
     <div id="instagram" class="module" ng-style="{'left': instagram.left, 'position': 'relative', 'height': instagram.height}">
         <div class="instagram-item item" ng-repeat="photo in instagram.items" ng-init="instagram.set_width()">

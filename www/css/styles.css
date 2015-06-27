@@ -221,6 +221,7 @@ title-bar .artist-name .artist-logo {
   position: relative;
 }
 .section .module .item .content {
+  height: 100%;
   font-family: 'lato_regular';
   background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;

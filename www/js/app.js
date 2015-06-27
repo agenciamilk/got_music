@@ -267,7 +267,13 @@ gotMusicApp.directive('swiper', ['$timeout', function($timeout) {
       function init() {
         $timeout(function(){
           element.css({width: window.innerWidth - ITEM_MARGIN});
-          new Swiper(element);
+          new Swiper(element, {
+            onInit: function (swiper) {
+              swiperWrapper = element.find('.swiper-wrapper');
+              swiperSlides = element.find('.swiper-slide');
+              swiperSlides.css('height', swiperWrapper.height());
+            }
+          });
         });
       }
 
@@ -566,14 +572,11 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
     // Get From Local Storage
     $scope.message.items = [];
-    $scope.facebook.items = JSON.parse(window.localStorage.getItem("FACEBOOK_FEED")) || [];
     $scope.twitter.items = JSON.parse(window.localStorage.getItem("TWITTER_FEED")) || [];
     $scope.instagram.items = JSON.parse(window.localStorage.getItem("INSTAGRAM_FEED")) || [];
 
 
     // Create Swipe Controllers
-    // swipeService.createSwipe("message", $scope.message, $scope);
-    swipeService.createSwipe("facebook", $scope.facebook, $scope);
     //swipeService.createSwipe("twitter", $scope.twitter, $scope);
     swipeService.createSwipe("instagram", $scope.instagram, $scope);
 
@@ -610,10 +613,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 swipeService.resize($scope.instagram, current_item_height);
             }
         }
-    };
-
-    $scope.facebook.set_width = function() {
-        $(".facebook-item").width(window.innerWidth - ITEM_MARGIN);
     };
 
     $scope.twitter.set_width = function() {
@@ -701,7 +700,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
 
     // Facebook API
-
     $http.get('https://graph.facebook.com/oauth/access_token?grant_type=client_credentials&client_id=' + FACEBOOK_CLIENT_ID + '&client_secret=' + FACEBOOK_CLIENT_SECRET)
         .success(function(e) {
             $scope.facebook.access_token = e;
@@ -718,7 +716,8 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                             $scope.facebook.set_initial_height();
                             $timeout(function() {
                                 $scope.facebook.set_initial_height();
-                                window.localStorage.setItem('FACEBOOK_FEED', JSON.stringify($scope.facebook.items));
+                                window.localStorage.setItem('FACEBOOK_FEED', JSON.stringify($scope.facebook.items)); // TODO: Take advantage of this data
+                                $scope.$broadcast('newsFacebookLoad');
                             }, INITIAL_RESIZE_TIMEOUT);
                         }, INITIAL_RESIZE_TIMEOUT);
 
@@ -787,7 +786,7 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
     $http.get('https://api.instagram.com/v1/users/' + INSTAGRAM_USER_ID + '/media/recent?client_id=' + INSTAGRAM_API_KEY)
         .success(function(e) {
             $scope.instagram.items = e.data;
-            window.localStorage.setItem('INSTAGRAM_FEED', JSON.stringify($scope.instagram.items));
+            window.localStorage.setItem('INSTAGRAM_FEED', JSON.stringify($scope.instagram.items)); // TODO: Take advantage of this data
 
             $timeout(function() {
                 $scope.instagram.set_initial_height();
@@ -1199,7 +1198,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                         },
                     });
 
-                    window.localStorage.setItem("DEEZER_FEED", JSON.stringify($scope.deezer.items));
+                    window.localStorage.setItem("DEEZER_FEED", JSON.stringify($scope.deezer.items)); // TODO: Take advantage of this data
                 })
                 .error(function() {
                     $log.info("error");
@@ -1231,7 +1230,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                 });
 
                 $scope.deezer.album_cover = e.cover;
-                window.localStorage.setItem('DEEZER_FEED', JSON.stringify($scope.deezer.items));
+                window.localStorage.setItem('DEEZER_FEED', JSON.stringify($scope.deezer.items)); // TODO: Take advantage of this data
             })
             .error(function() {
                 $log.info("error");
