@@ -240,6 +240,7 @@ title-bar .artist-name .artist-logo {
 }
 .news #message {
   margin-bottom: -10px;
+  min-height: 125px;
 }
 .news #message .message-item .content .message-image {
   height: 50px;

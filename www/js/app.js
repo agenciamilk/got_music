@@ -260,6 +260,23 @@ gotMusicApp.directive('titleBar', function() {
   };
 });
 
+gotMusicApp.directive('swiper', ['$timeout', function($timeout) {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      function init() {
+        $timeout(function(){
+          element.css({width: window.innerWidth - ITEM_MARGIN});
+          new Swiper(element);
+        });
+      }
+
+      if (attrs.swiperAutoinit) { init(); }
+      if (attrs.swiperInitOn) { scope.$on(attrs.swiperInitOn, init); }
+    }
+  };
+}]);
+
 gotMusicApp.service("videoService", function() {
     this.video_id = '';
     this.video_url = '';
@@ -548,14 +565,14 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
 
     // Get From Local Storage
-    $scope.message.items = JSON.parse(window.localStorage.getItem("MESSAGE_FEED")) || [];
+    $scope.message.items = [];
     $scope.facebook.items = JSON.parse(window.localStorage.getItem("FACEBOOK_FEED")) || [];
     $scope.twitter.items = JSON.parse(window.localStorage.getItem("TWITTER_FEED")) || [];
     $scope.instagram.items = JSON.parse(window.localStorage.getItem("INSTAGRAM_FEED")) || [];
 
 
     // Create Swipe Controllers
-    swipeService.createSwipe("message", $scope.message, $scope);
+    // swipeService.createSwipe("message", $scope.message, $scope);
     swipeService.createSwipe("facebook", $scope.facebook, $scope);
     //swipeService.createSwipe("twitter", $scope.twitter, $scope);
     swipeService.createSwipe("instagram", $scope.instagram, $scope);
@@ -595,11 +612,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
         }
     };
 
-    // Set Element Width
-    $scope.message.set_width = function() {
-        $(".message-item").width(window.innerWidth - ITEM_MARGIN);
-    };
-
     $scope.facebook.set_width = function() {
         $(".facebook-item").width(window.innerWidth - ITEM_MARGIN);
     };
@@ -617,7 +629,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
 
     // Message API
-
     $http.get('https://spreadsheets.google.com/feeds/worksheets/' + MESSAGE_FORM_ID + '/public/full?alt=json')
         .success(function(e) {
             var worksheet_url = e.feed.entry[0].link[0].href.split('/');
@@ -626,7 +637,7 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
         $http.get('https://spreadsheets.google.com/feeds/list/' + MESSAGE_FORM_ID + '/' + MESSAGE_WORKSHEET_ID + '/public/full?alt=json')
             .success(function(e) {
                 var entries = e.feed.entry;
-                $scope.message.items.splice(0, $scope.message.items.length)
+
                 for (var i = 0; i < entries.length; i++) {
                     var entry = entries[i];
 
@@ -643,24 +654,14 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                     }
 
                     $scope.message.items.push(item);
-
-                    if (i == entries.length - 1) {
-                        $timeout(function() {
-                            $scope.message.set_initial_height();
-                            $timeout(function() {
-                                $scope.message.set_initial_height();
-                            }, INITIAL_RESIZE_TIMEOUT);
-                        }, INITIAL_RESIZE_TIMEOUT);
-                    }
                 }
 
                 $scope.message.items.reverse();
                 window.localStorage.setItem("MESSAGE_FEED", JSON.stringify($scope.message.items));
+                $scope.$broadcast('newsMessagesLoad');
             }).error(function(e) {
                 $log.info('Error: ' + e);
             });
-
-
         })
         .error(function(e) {
         });

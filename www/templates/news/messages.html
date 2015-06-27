@@ -1,0 +1,29 @@
+<div id="message" class="module">
+  <div class="swiper-container" swiper swiper-init-on="newsMessagesLoad">
+    <div class="swiper-wrapper">
+      <div class="message-item item swiper-slide" ng-repeat="msg in message.items">
+        <div class="title-wrapper">
+          <div class="title"><img src='img/icons/messages.svg' class='title-icon'>Mensagens</div>
+        </div>
+
+        <div class="content">
+          <img class="message-image" src="img/profile_picture.png">
+
+          <div class="message-content">
+            <div class="message-user">
+              <span class="message-screenname">{{artist_name}}:</span>
+            </div>
+
+            <div class="message-text">{{msg.message}}</div>
+          </div>
+
+          <div class="text-center">
+            <div class="message-action btn" ng-click="message.get_call2action(msg)" ng-show="message.get_button(msg)">
+              {{message.get_button_title(msg)}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

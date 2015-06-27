@@ -7,7 +7,7 @@
     <img class="loading-image" src="img/loading.gif">
 </div>
 
-<div class="shows section">    
+<div class="shows section">
     <div id="demand" class="module">
         <div class="demand-item item" ng-init="demand.set_width()">
             <div class="col-xs-12">
@@ -23,10 +23,8 @@
                 </div>
             </div>
         </div>
-        
     </div>
-    
-    
+
     <div id="songkick" class="module" ng-style="{'left': songkick.left, 'position': 'relative'}">
         <div class="songkick-item item" ng-repeat="event in songkick.items" ng-init="songkick.set_width()">
             <div class="col-xs-12">
@@ -53,10 +51,10 @@
                     <div class="col-xs-12 text-center"><img class="songkick-logo" src="img/logos/songkick.png"></div>
                 </div>
             </div>
-            
+
         </div>
     </div>
-    
+
     <!--
 <div class="content row">
                     <img class="youtube-thumbnail" ng-src="{{video.snippet.thumbnails.medium.url}}" ng-click="youtube.playVideo(video.snippet.resourceId.videoId)">
@@ -81,7 +79,7 @@
         </div>
     </div>
     -->
-    
+
     <div id="livestream" class="module">
         <div class="livestream-item item" ng-init="livestream.set_width()">
             <div class="col-xs-12">
@@ -90,7 +88,7 @@
                 </div>
                 <div class="content row">
                     <img class="livestream-thumbnail" ng-src="{{livestream.get_image()}}" ng-click="livestream.play_video(livestream.stream_url)">
-                    
+
                     <!--
                     <img class="livestream-thumbnail" ng-src="{{video.snippet.thumbnails.medium.url}}" ng-click="youtube.playVideo(video.snippet.resourceId.videoId)">
                     -->
@@ -104,5 +102,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>
