@@ -9,54 +9,7 @@
 <div class="news section">
   <ng-include src="'templates/news/messages.html'"></ng-include>
   <ng-include src="'templates/news/facebook.html'"></ng-include>
-
-    <div id="instagram" class="module" ng-style="{'left': instagram.left, 'position': 'relative', 'height': instagram.height}">
-        <div class="instagram-item item" ng-repeat="photo in instagram.items" ng-init="instagram.set_width()">
-                <div class="col-xs-12">
-                    <div class="title-wrapper row">
-                        <div class="title"><img src='img/icons/instagram.svg' class='title-icon'>{{instagram.username}}</div>
-                    </div>
-                    <div class="content row" ng-style="{'height': instagram.item_height}">
-                        <div class="col-xs-12 text-center">
-                            <img class="instagram-image" ng-src="{{photo.images.low_resolution.url}}">
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="instagram-content">
-                                <div class="instagram-header row">
-                                    <div class="col-xs-6">
-                                        <div class="instagram-screenname">{{photo.user.full_name}}</div>
-                                        <div class="instagram-likes"><b>{{photo.likes.count}}</b> Likes - {{instagram.getTimeLapse(photo.created_time)}}</div>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        <div class="instagram-relationship">
-                                            <span class="instagram-follow" ng-click="instagram.follow_user(photo)" ng-show="!instagram.following">
-                                                <span class="follow">+Seguir</span>
-                                            </span>
-                                            <span class="instagram-follow" ng-click="instagram.follow_user(photo)" ng-show="instagram.following">
-                                                <span class="following">✓Seguindo</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="instagram-text">
-                                    {{photo.caption.text}}
-                                </div>
-                                <div class="instagram-actions">
-                                    <span class="instagram-like" ng-click="instagram.like_photo(photo)" ng-show="!photo.liked">
-                                        <img src="img/instagram/photo_unliked.svg">
-                                    </span>
-                                    <span class="instagram-like" ng-click="instagram.like_photo(photo)" ng-show="photo.liked">
-                                        <img src="img/instagram/photo_liked.svg">
-                                    </span>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </div>
+  <ng-include src="'templates/news/instagram.html'"></ng-include>
 
     <div ng-if="twitter.screen_name" id="twitter" class="module" ng-style="{'left': twitter.left, 'position': 'relative', 'height': twitter.height}">
         <div class="twitter-item item" ng-init="twitter.set_width()">

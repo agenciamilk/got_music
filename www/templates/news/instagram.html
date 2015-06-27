@@ -1,0 +1,51 @@
+<div id="instagram" class="module">
+  <div class="swiper-container" swiper swiper-init-on="newsInstagramLoad">
+    <div class="swiper-wrapper">
+      <div class="instagram-item item swiper-slide" ng-repeat="photo in instagram.items">
+        <div class="title-wrapper">
+          <div class="title"><img src='img/icons/instagram.svg' class='title-icon'>{{instagram.username}}</div>
+        </div>
+        <div class="content" ng-style="{'height': instagram.item_height}">
+          <div class="text-center">
+            <img class="instagram-image" ng-src="{{photo.images.low_resolution.url}}">
+          </div>
+
+          <div class="instagram-content">
+            <div class="instagram-header">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="instagram-screenname">{{photo.user.full_name}}</div>
+                  <div class="instagram-likes"><b>{{photo.likes.count}}</b> Likes - {{instagram.getTimeLapse(photo.created_time)}}</div>
+                </div>
+
+                <div class="col-xs-6">
+                  <div class="instagram-relationship text-right">
+                    <span class="instagram-follow" ng-click="instagram.follow_user(photo)" ng-show="!instagram.following">
+                      <span class="follow">+Seguir</span>
+                    </span>
+
+                    <span class="instagram-follow" ng-click="instagram.follow_user(photo)" ng-show="instagram.following">
+                      <span class="following">✓Seguindo</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="instagram-text">{{photo.caption.text}}</div>
+
+            <div class="instagram-actions">
+              <span class="instagram-like" ng-click="instagram.like_photo(photo)" ng-show="!photo.liked">
+                <img src="img/instagram/photo_unliked.svg">
+              </span>
+
+              <span class="instagram-like" ng-click="instagram.like_photo(photo)" ng-show="photo.liked">
+                <img src="img/instagram/photo_liked.svg">
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -256,7 +256,6 @@ gotMusicApp.directive('titleBar', function() {
     return {
         templateUrl: 'directives/title-bar/title-bar-new.html',
         //controller: 'NavigationCtrl'
-
   };
 });
 
@@ -271,7 +270,7 @@ gotMusicApp.directive('swiper', ['$timeout', function($timeout) {
             onInit: function (swiper) {
               swiperWrapper = element.find('.swiper-wrapper');
               swiperSlides = element.find('.swiper-slide');
-              swiperSlides.css('height', swiperWrapper.height());
+              swiperSlides.css('min-height', swiperWrapper.height());
             }
           });
         });
@@ -578,7 +577,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
     // Create Swipe Controllers
     //swipeService.createSwipe("twitter", $scope.twitter, $scope);
-    swipeService.createSwipe("instagram", $scope.instagram, $scope);
 
     $('#loading-wrapper').hide();
 
@@ -619,13 +617,7 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
         $(".twitter-item").width(window.innerWidth - ITEM_MARGIN);
     };
 
-    $scope.instagram.set_width = function() {
-        $(".instagram-item").width(window.innerWidth - ITEM_MARGIN);
-    };
-
-
     $scope.artist_name = ARTIST_NAME;
-
 
     // Message API
     $http.get('https://spreadsheets.google.com/feeds/worksheets/' + MESSAGE_FORM_ID + '/public/full?alt=json')
@@ -698,7 +690,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
     };
 
-
     // Facebook API
     $http.get('https://graph.facebook.com/oauth/access_token?grant_type=client_credentials&client_id=' + FACEBOOK_CLIENT_ID + '&client_secret=' + FACEBOOK_CLIENT_SECRET)
         .success(function(e) {
@@ -769,7 +760,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
 
     // Twitter API
-
     $scope.twitter.open_twitter = function() {
 
         var twitter_timeline = 'https://twitter.com/farfromalaska';
@@ -781,12 +771,12 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
 
     // Instagram API
-
     // Load Instagram Feed
     $http.get('https://api.instagram.com/v1/users/' + INSTAGRAM_USER_ID + '/media/recent?client_id=' + INSTAGRAM_API_KEY)
         .success(function(e) {
             $scope.instagram.items = e.data;
             window.localStorage.setItem('INSTAGRAM_FEED', JSON.stringify($scope.instagram.items)); // TODO: Take advantage of this data
+            $scope.$broadcast('newsInstagramLoad');
 
             $timeout(function() {
                 $scope.instagram.set_initial_height();
@@ -798,7 +788,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
             // Get if user follows artist
             //INSTAGRAM_ACCESS_TOKEN = '196213762.a98b012.8fcd3182e6f34989865a0a45a9f4d884';
             if (INSTAGRAM_ACCESS_TOKEN) {
-
                 $http.get('https://api.instagram.com/v1/users/' + INSTAGRAM_USER_ID + '/relationship?access_token=' + INSTAGRAM_ACCESS_TOKEN)
                     .success(function(e) {
                         $scope.instagram.following = (e.data.outgoing_status === 'follows');
