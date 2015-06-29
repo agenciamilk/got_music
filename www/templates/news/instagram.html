@@ -1,5 +1,5 @@
 <div id="instagram" class="module">
-  <div class="swiper-container" swiper swiper-init-on="newsInstagramLoad">
+  <div class="swiper-container" swiper swiper-init-on="newsInstagramLoad" on-slide-change-end="onInstagramSlideChangeEnd">
     <div class="swiper-wrapper">
       <div class="instagram-item item swiper-slide" ng-repeat="photo in instagram.items">
         <div class="title-wrapper">

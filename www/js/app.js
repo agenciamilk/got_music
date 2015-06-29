@@ -266,13 +266,19 @@ gotMusicApp.directive('swiper', ['$timeout', function($timeout) {
       function init() {
         $timeout(function(){
           element.css({width: window.innerWidth - ITEM_MARGIN});
-          new Swiper(element, {
-            onInit: function (swiper) {
-              swiperWrapper = element.find('.swiper-wrapper');
-              swiperSlides = element.find('.swiper-slide');
-              swiperSlides.css('min-height', swiperWrapper.height());
-            }
-          });
+
+          var params = {};
+
+          params.onInit = function (swiper) {
+            swiperWrapper = element.find('.swiper-wrapper');
+            swiperSlides = element.find('.swiper-slide');
+          };
+
+          if (attrs.onSlideChangeEnd) {
+            params.onSlideChangeEnd = scope[attrs.onSlideChangeEnd];
+          }
+
+          new Swiper(element, params);
         });
       }
 
@@ -809,15 +815,15 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
     // Check if user is logged in to Instagram
     INSTAGRAM_ACCESS_TOKEN = window.localStorage.getItem('INSTAGRAM_ACCESS_TOKEN') || null;
 
-
     // Set Instagram like image
-    $scope.$watch('instagram.current_item', function(newVal, oldVal) {
-        $scope.instagram.get_photo_liked($scope.instagram.items[newVal]);
-        if (newVal < $scope.instagram.items.length) {
-            $scope.instagram.get_photo_liked($scope.instagram.items[newVal + 1]);
-        }
+    $scope.onInstagramSlideChangeEnd = function (swiper) {
+      console.debug(swiper.activeIndex);
+      $scope.instagram.get_photo_liked($scope.instagram.items[swiper.activeIndex]);
 
-    });
+      if (swiper.activeIndex < $scope.instagram.items.length) {
+        $scope.instagram.get_photo_liked($scope.instagram.items[swiper.activeIndex + 1]);
+      }
+    };
 
     $scope.instagram.get_photo_liked = function(photo) {
 
