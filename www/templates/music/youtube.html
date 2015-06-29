@@ -1,14 +1,16 @@
-<div id="youtube" class="module" ng-style="{'left': youtube.left, 'position': 'relative'}">
-  <div class="youtube-item item" ng-repeat="video in youtube.items" ng-init="youtube.set_width()">
-    <div class="col-xs-12">
-      <div class="title-wrapper row">
-        <div class="title"><img src='img/icons/youtube.svg' class='title-icon'>Videos</div>
-      </div>
-      <div class="content row">
-        <img class="youtube-thumbnail" ng-src="{{video.snippet.thumbnails.medium.url}}" ng-click="youtube.play_video(video)">
-        <div class="youtube-video-title">{{video.snippet.title}}</div>
+<div id="youtube" class="module">
+  <div class="swiper-container" swiper swiper-init-on="youtubeLoad">
+    <div class="swiper-wrapper">
+      <div class="youtube-item item swiper-slide" ng-repeat="video in youtube.items">
+        <div class="title-wrapper">
+          <div class="title"><img src='img/icons/youtube.svg' class='title-icon'>Videos</div>
+        </div>
+
+        <div class="content">
+          <img class="youtube-thumbnail" ng-src="{{video.snippet.thumbnails.medium.url}}" ng-click="youtube.play_video(video)">
+          <div class="youtube-video-title">{{video.snippet.title}}</div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
