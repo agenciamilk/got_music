@@ -264,15 +264,26 @@ gotMusicApp.directive('swiper', ['$timeout', function($timeout) {
     restrict: 'A',
     link: function(scope, element, attrs) {
       function init() {
+        var params = {};
+
+        function adjustWrapperHeight() {
+          var nextSlide = $(this.slides[this.activeIndex]);
+          var newHeight = $('.content', nextSlide).outerHeight() +
+                          $('.title-wrapper', nextSlide).outerHeight();
+
+          $(this.wrapper[0]).height(newHeight);
+        }
+
+        params.onInit = function (swiper) {
+          adjustWrapperHeight.apply(swiper);
+        };
+
+        params.onSlideChangeStart = function (swiper) {
+          adjustWrapperHeight.apply(swiper);
+        };
+
         $timeout(function(){
           element.css({width: window.innerWidth - ITEM_MARGIN});
-
-          var params = {};
-
-          params.onInit = function (swiper) {
-            swiperWrapper = element.find('.swiper-wrapper');
-            swiperSlides = element.find('.swiper-slide');
-          };
 
           if (attrs.onSlideChangeEnd) {
             params.onSlideChangeEnd = scope[attrs.onSlideChangeEnd];
@@ -807,7 +818,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
     // Set Instagram like image
     $scope.onInstagramSlideChangeEnd = function (swiper) {
-      console.debug(swiper.activeIndex);
       $scope.instagram.get_photo_liked($scope.instagram.items[swiper.activeIndex]);
 
       if (swiper.activeIndex < $scope.instagram.items.length) {

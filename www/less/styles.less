@@ -174,8 +174,6 @@ title-bar {
 }
 
 .item {
-    margin-top: @item-margin-vertical;
-
     #title {
         background-color: @second-color;
         color: @main-color;
@@ -194,18 +192,16 @@ title-bar {
 
     .module {
         display: -webkit-box;
-        margin: 10px @item-margin 0;
-
-        &:last-child {
-            margin-bottom: 20px;
-        }
+        margin: 15px @item-margin;
 
         .item {
             border-bottom-left-radius: @item-content-radius;
             border-bottom-right-radius: @item-content-radius;
             //box-shadow: 0 0 10px;
+
             .title-wrapper {
                 background-color: @bar-title-background-color;
+
                 .title {
                     margin-left: 15px;
                     font-family: 'lato_bold';
@@ -223,7 +219,6 @@ title-bar {
             }
 
             .content {
-                height: 100%;
                 font-family: 'lato_regular';
                 background-color: @bar-body-background-color;
                 color: @item-content-text-color;
@@ -248,9 +243,6 @@ title-bar {
 
 .news {
     #message {
-        margin-bottom: -10px;
-        min-height: 125px;
-
         .message-item {
             .content {
                 .message-image {
@@ -280,7 +272,6 @@ title-bar {
     }
 
     #facebook {
-        margin-bottom: 30px;
         .facebook-item {
             .content {
                 .facebook-profile {
@@ -342,6 +333,7 @@ title-bar {
             }
         }
     }
+
     #twitter {
         .twitter-item {
             .content {
@@ -410,8 +402,6 @@ title-bar {
     }
 
     #instagram {
-        margin-bottom: 30px;
-
         .instagram-item {
             .content {
                 .instagram-image {

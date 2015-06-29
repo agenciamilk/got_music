@@ -175,9 +175,6 @@ title-bar .artist-name .artist-logo {
 .home .bottom-menu .button-wrapper .last-option-button {
   padding-right: 30px !important;
 }
-.item {
-  margin-top: 20px;
-}
 .item #title {
   background-color: #868686;
   color: #000000;
@@ -194,10 +191,7 @@ title-bar .artist-name .artist-logo {
 }
 .section .module {
   display: -webkit-box;
-  margin: 10px 5px 0;
-}
-.section .module:last-child {
-  margin-bottom: 20px;
+  margin: 15px 5px;
 }
 .section .module .item {
   border-bottom-left-radius: 0px;
@@ -221,7 +215,6 @@ title-bar .artist-name .artist-logo {
   position: relative;
 }
 .section .module .item .content {
-  height: 100%;
   font-family: 'lato_regular';
   background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
@@ -238,10 +231,6 @@ title-bar .artist-name .artist-logo {
   -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-}
-.news #message {
-  margin-bottom: -10px;
-  min-height: 125px;
 }
 .news #message .message-item .content .message-image {
   height: 50px;
@@ -262,9 +251,6 @@ title-bar .artist-name .artist-logo {
   text-transform: uppercase;
   font-size: x-small;
   background-color: #ffffff;
-}
-.news #facebook {
-  margin-bottom: 30px;
 }
 .news #facebook .facebook-item .content .facebook-profile {
   height: 50px;
@@ -360,9 +346,6 @@ title-bar .artist-name .artist-logo {
   color: #888888;
   text-transform: uppercase;
   font-size: x-small;
-}
-.news #instagram {
-  margin-bottom: 30px;
 }
 .news #instagram .instagram-item .content .instagram-image {
   width: 100%;
