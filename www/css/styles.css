@@ -192,6 +192,8 @@ title-bar .artist-name .artist-logo {
 .section .module {
   display: -webkit-box;
   margin: 15px 5px;
+  position: relative;
+  z-index: 0;
 }
 .section .module .item {
   border-bottom-left-radius: 0px;
@@ -398,13 +400,17 @@ title-bar .artist-name .artist-logo {
 .news #instagram .instagram-item .content .instagram-content .instagram-actions .instagram-like {
   margin-right: 20px;
 }
+.music #deezer .loading-image {
+  display: block;
+  width: 55px;
+  margin: -12px 0 0 -27px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+}
 .music #deezer #deezer-embed {
   position: relative;
-}
-.music #deezer #deezer-embed .loading-image {
-  width: 55px;
-  display: block;
-  margin: 15px auto;
 }
 .music #deezer .deezer-item .embed {
   padding: 0 !important;

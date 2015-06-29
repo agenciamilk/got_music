@@ -193,6 +193,8 @@ title-bar {
     .module {
         display: -webkit-box;
         margin: 15px @item-margin;
+        position: relative;
+        z-index: 0;
 
         .item {
             border-bottom-left-radius: @item-content-radius;
@@ -474,14 +476,18 @@ title-bar {
 
 .music {
     #deezer {
+        .loading-image {
+            display: block;
+            width: 55px;
+            margin: (-27px + 15px) 0 0 -27px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+        }
+
         #deezer-embed {
             position: relative;
-
-            .loading-image {
-                width: 55px;
-                display: block;
-                margin: 15px auto;
-            }
         }
 
         .deezer-item {

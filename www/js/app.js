@@ -1069,9 +1069,9 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
 
     // Create Swipe Controllers
     if (YOUTUBE_MODE_PLAYLIST) {
-        swipeService.createSwipe("youtube", $scope.youtube, $scope);
+        // swipeService.createSwipe("youtube", $scope.youtube, $scope);
     }
-    swipeService.createSwipe("itunes", $scope.itunes, $scope);
+    // swipeService.createSwipe("itunes", $scope.itunes, $scope);
 
     // Deezer Pause Track on Swipe
     // var deezerSwipe = new Hammer(document.getElementById("deezer"));
@@ -1080,7 +1080,6 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
     // });
 
     $('#deezer-carousel').css({height: 175, width: window.innerWidth - ITEM_MARGIN});
-    var deezerCarousel = new Swiper('#deezer-carousel');
 
     // Deezer API
     $scope.deezer.embed = false;
@@ -1094,6 +1093,8 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
                 $('.deezer-embed').addClass('embed');
                 $('.album-cover-wrapper').hide();
                 $('.deezer-content').hide();
+                $scope.deezer.player_loaded = true;
+                $scope.$broadcast('deezerLoad');
             }, INITIAL_RESIZE_TIMEOUT);
         });
 
@@ -1105,7 +1106,6 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
 
         $timeout(function() {
             $scope.deezer.initialize();
-            deezerCarousel.init();
         }, INITIAL_RESIZE_TIMEOUT);
     }
 
@@ -1134,7 +1134,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
 
     $scope.deezer.player_loaded = false;
 
-    deezerCarousel.on('onSlideChangeEnd', function (swiper) {
+    $scope.onDeezerSlideChangeEnd = function (swiper) {
         $scope.deezer.current_item = swiper.activeIndex;
         $scope.deezer.time_current = 0.0;
         $scope.deezer.time_total = 100.0;
@@ -1148,7 +1148,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
             DZ.player.prev();
             $scope.deezer.playing = true;
         }
-    });
+    };
 
     $scope.deezer.get_album_cover = function(track) {
         if (DEEZER_MODE_PLAYLIST) {
@@ -1171,6 +1171,7 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         });
         DZ.player.playTracks($scope.deezer.track_ids, false, 0, 0, function(response){
             $scope.deezer.player_loaded = true;
+            $scope.$broadcast('deezerLoad');
             $scope.$apply();
         });
     };
