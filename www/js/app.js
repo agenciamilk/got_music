@@ -263,6 +263,8 @@ gotMusicApp.directive('swiper', ['$timeout', function($timeout) {
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
+      element.css({width: window.innerWidth - ITEM_MARGIN});
+
       function init() {
         var params = {};
 
@@ -283,8 +285,6 @@ gotMusicApp.directive('swiper', ['$timeout', function($timeout) {
         };
 
         $timeout(function(){
-          element.css({width: window.innerWidth - ITEM_MARGIN});
-
           if (attrs.onSlideChangeEnd) {
             params.onSlideChangeEnd = scope[attrs.onSlideChangeEnd];
           }
