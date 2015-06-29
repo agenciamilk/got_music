@@ -577,12 +577,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
     // Get From Local Storage
     $scope.message.items = [];
-    $scope.twitter.items = JSON.parse(window.localStorage.getItem("TWITTER_FEED")) || [];
-    $scope.instagram.items = JSON.parse(window.localStorage.getItem("INSTAGRAM_FEED")) || [];
-
-
-    // Create Swipe Controllers
-    //swipeService.createSwipe("twitter", $scope.twitter, $scope);
 
     $('#loading-wrapper').hide();
 
@@ -617,10 +611,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                 swipeService.resize($scope.instagram, current_item_height);
             }
         }
-    };
-
-    $scope.twitter.set_width = function() {
-        $(".twitter-item").width(window.innerWidth - ITEM_MARGIN);
     };
 
     $scope.artist_name = ARTIST_NAME;

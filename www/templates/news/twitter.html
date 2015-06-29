@@ -1,0 +1,31 @@
+<div ng-if="twitter.screen_name" id="twitter" class="module">
+  <div class="swiper-container" swiper swiper-init-on="newsTwitterLoad">
+    <div class="swiper-wrapper">
+      <div class="twitter-item item swiper-slide">
+        <div class="title-wrapper">
+          <div class="title"><img src='img/icons/twitter.svg' class='title-icon'>@{{twitter.screen_name}}</div>
+        </div>
+
+        <div class="content">
+          <img class="twitter-login-image" src="img/profile_picture.png">
+
+          <div class="twitter-login-content">
+            <div class="twitter-login-user">
+              <span class="message-screenname">{{artist_name}}:</span>
+            </div>
+
+            <div class="twitter-login-text">
+              É necessário fazer login no Twitter para ver o feed.
+            </div>
+          </div>
+
+          <div class="text-center">
+            <div class="twitter-open-button btn" ng-click="twitter.open_twitter()">
+              Ver Twitter
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

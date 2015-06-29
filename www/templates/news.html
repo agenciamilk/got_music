@@ -10,33 +10,5 @@
   <ng-include src="'templates/news/messages.html'"></ng-include>
   <ng-include src="'templates/news/facebook.html'"></ng-include>
   <ng-include src="'templates/news/instagram.html'"></ng-include>
-
-    <div ng-if="twitter.screen_name" id="twitter" class="module" ng-style="{'left': twitter.left, 'position': 'relative', 'height': twitter.height}">
-        <div class="twitter-item item" ng-init="twitter.set_width()">
-            <div class="col-xs-12">
-                <div class="title-wrapper row">
-                    <div class="title"><img src='img/icons/twitter.svg' class='title-icon'>@{{twitter.screen_name}}</div>
-                </div>
-                <div class="content row" ng-style="{'height': twitter.item_height}">
-                    <div class="col-xs-12">
-                        <img class="twitter-login-image" src="img/profile_picture.png">
-                        <div class="twitter-login-content">
-                            <div class="twitter-login-user">
-                                <span class="message-screenname">{{artist_name}}:</span>
-                            </div>
-                            <div class="twitter-login-text">
-                                É necessário fazer login no Twitter para ver o feed.
-                            </div>
-                        </div>
-                        <div class="col-xs-12 text-center">
-                            <div class="twitter-open-button btn" ng-click="twitter.open_twitter()">
-                                Ver Twitter
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+  <ng-include src="'templates/news/twitter.html'"></ng-include>
 </div>
