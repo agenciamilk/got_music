@@ -44,7 +44,7 @@ Lembrando que para iOS, o provisioning profile de desenvolvimento tem que ter si
 
 ### Android
 
-#### Generate a keystore  
+#### Generate a keystore
 
     keytool -genkey -v -keystore <artista>.keystore -alias <artista> -keyalg RSA -keysize 2048 -validity 10000
 
@@ -55,11 +55,11 @@ Save the __generated file__, __password__ and __alias__.
     cordova build android --release
 
     export unsigned_apk=platforms/android/ant-build/MainActivity-release-unsigned.apk
-    
+
     jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore <key-gerada> $unsigned_apk <alias>
 
     jarsigner -verify -verbose -certs $unsigned_apk
-    
+
     zipalign -v 4 $unsigned_apk <artista>.apk
 
 The `<artista>.apk` should be sent to Google Play.
@@ -79,5 +79,5 @@ The `<artista>.apk` should be sent to Google Play.
 * Validade
 * Desmarcar o checkbox "include app symbols [...]"
 * Sendo validado, "Submit" seguindo os mesmos passos.
-* Gerar `.p12` para notificação iOS  
-    No programa Key Chain Access, achar o certificado gerado de notificação e clicar com o direito do mouse para exportar e gerar o `.p12`. Lembrando que é preciso gerar um diferente para teste e outro para produção.
+* Gerar `.p12` para notificação iOS
+    * No programa Key Chain Access, achar o certificado gerado de notificação e clicar com o direito do mouse para exportar e gerar o `.p12`. Lembrando que é preciso gerar um diferente para teste e outro para produção.
