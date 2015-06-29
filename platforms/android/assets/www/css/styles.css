@@ -175,11 +175,6 @@ title-bar .artist-name .artist-logo {
 .home .bottom-menu .button-wrapper .last-option-button {
   padding-right: 30px !important;
 }
-.item {
-  margin-top: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
 .item #title {
   background-color: #868686;
   color: #000000;
@@ -196,14 +191,11 @@ title-bar .artist-name .artist-logo {
 }
 .section .module {
   display: -webkit-box;
-  margin-top: 10px;
-}
-.section .module:last-child {
-  margin-bottom: 20px;
+  margin: 15px 5px;
+  position: relative;
+  z-index: 0;
 }
 .section .module .item {
-  margin-left: 5px;
-  margin-right: 5px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -242,9 +234,6 @@ title-bar .artist-name .artist-logo {
   -moz-box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
-.news #message {
-  margin-bottom: -10px;
-}
 .news #message .message-item .content .message-image {
   height: 50px;
   width: 50px;
@@ -264,9 +253,6 @@ title-bar .artist-name .artist-logo {
   text-transform: uppercase;
   font-size: x-small;
   background-color: #ffffff;
-}
-.news #facebook {
-  margin-bottom: 30px;
 }
 .news #facebook .facebook-item .content .facebook-profile {
   height: 50px;
@@ -363,9 +349,6 @@ title-bar .artist-name .artist-logo {
   text-transform: uppercase;
   font-size: x-small;
 }
-.news #instagram {
-  margin-bottom: 30px;
-}
 .news #instagram .instagram-item .content .instagram-image {
   width: 100%;
 }
@@ -417,10 +400,17 @@ title-bar .artist-name .artist-logo {
 .news #instagram .instagram-item .content .instagram-content .instagram-actions .instagram-like {
   margin-right: 20px;
 }
-.music #deezer #deezer-embed .loading-image {
-  width: 55px;
+.music #deezer .loading-image {
   display: block;
-  margin: 15px auto;
+  width: 55px;
+  margin: -12px 0 0 -27px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+}
+.music #deezer #deezer-embed {
+  position: relative;
 }
 .music #deezer .deezer-item .embed {
   padding: 0 !important;
@@ -435,7 +425,7 @@ title-bar .artist-name .artist-logo {
 .music #deezer .deezer-item .content .album-cover-wrapper {
   position: absolute;
   left: 0;
-  top: 35px;
+  top: 0;
   height: 150px;
 }
 .music #deezer .deezer-item .content .album-image {
