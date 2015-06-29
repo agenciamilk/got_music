@@ -1140,9 +1140,11 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         $scope.deezer.time_total = 100.0;
 
         if (swiper.touches.diff < 0) {
+            DZ.player.play(); // Workaround to avoid the previous music continues playing after user skips after pausess it.
             DZ.player.next();
             $scope.deezer.playing = true;
         } else {
+            DZ.player.play(); // Workaround to avoid the previous music continues playing after user skips after pausess it.
             DZ.player.prev();
             $scope.deezer.playing = true;
         }
