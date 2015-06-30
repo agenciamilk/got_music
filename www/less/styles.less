@@ -196,6 +196,13 @@ title-bar {
         position: relative;
         z-index: 0;
 
+        .swiper-wrapper {
+            -webkit-transition-property: all;
+            -moz-transition-property: all;
+            -ms-transition-property: all;
+            transition-property: all;
+        }
+
         .item {
             border-bottom-left-radius: @item-content-radius;
             border-bottom-right-radius: @item-content-radius;

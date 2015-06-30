@@ -192,7 +192,6 @@ var handleOpenURL = function(url) {
                 });
             } else if (method === 'FOLLOW') {
                 $.post('https://api.instagram.com/v1/users/' + INSTAGRAM_USER_ID + '/relationship', {access_token: INSTAGRAM_ACCESS_TOKEN, action: 'follow'}, function (data,status) {
-
                     if (data.meta.code === 200) {
                         window.location.hash = '#/news';
                     } else {
@@ -200,11 +199,7 @@ var handleOpenURL = function(url) {
                     }
                 });
             }
-
-
-
         }
-
     }, 0);
 };
 
@@ -296,7 +291,7 @@ gotMusicApp.directive('swiper', ['$timeout', function($timeout) {
       }
 
       if (attrs.swiperAutoinit) { init(); }
-      if (attrs.swiperInitOn) { console.debug(attrs); scope.$on(attrs.swiperInitOn, init); }
+      if (attrs.swiperInitOn) { scope.$on(attrs.swiperInitOn, init); }
     }
   };
 }]);
