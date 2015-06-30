@@ -266,7 +266,9 @@ gotMusicApp.directive('swiper', ['$timeout', function($timeout) {
       element.css({width: window.innerWidth - ITEM_MARGIN});
 
       function init() {
-        var params = {};
+        var params = {
+          spaceBetween: 5
+        };
 
         function adjustWrapperHeight() {
           var nextSlide = $(this.slides[this.activeIndex]);
