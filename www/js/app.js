@@ -588,17 +588,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
     $('#loading-wrapper').hide();
 
-    $scope.facebook.set_initial_height = function() {
-        var elem_children = $($($('#facebook').children()[0]).children()[0]).children();
-        for (var i = 0; i < elem_children.length; i++) {
-            var child = elem_children[i];
-            if ($(child).hasClass('content')) {
-                var current_item_height = $($(child).children()[0]).height() + (2 * 15);
-                swipeService.resize($scope.facebook, current_item_height);
-            }
-        }
-    };
-
     $scope.instagram.set_initial_height = function() {
         var elem_children = $($($('#instagram').children()[0]).children()[0]).children();
         for (var i = 0; i < elem_children.length; i++) {
@@ -697,14 +686,9 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
                     }
                     if (i == e.data.length - 1) {
                         $timeout(function() {
-                            $scope.facebook.set_initial_height();
-                            $timeout(function() {
-                                $scope.facebook.set_initial_height();
-                                window.localStorage.setItem('FACEBOOK_FEED', JSON.stringify($scope.facebook.items)); // TODO: Take advantage of this data
-                                $scope.$broadcast('newsFacebookLoad');
-                            }, INITIAL_RESIZE_TIMEOUT);
+                            window.localStorage.setItem('FACEBOOK_FEED', JSON.stringify($scope.facebook.items)); // TODO: Take advantage of this data
+                            $scope.$broadcast('newsFacebookLoad');
                         }, INITIAL_RESIZE_TIMEOUT);
-
                     }
                 }
             })
