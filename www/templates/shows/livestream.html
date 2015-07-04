@@ -1,0 +1,22 @@
+<div id="livestream" class="module">
+    <div class="livestream-item item" ng-init="livestream.set_width()">
+        <div class="col-xs-12">
+            <div class="title-wrapper row">
+                <div class="title"><img src='img/icons/youtube.svg' class='title-icon'>Ao Vivo</div>
+            </div>
+            <div class="content row">
+                <img class="livestream-thumbnail" ng-src="{{livestream.get_image()}}" ng-click="livestream.play_video(livestream.stream_url)">
+
+                <!--
+                <img class="livestream-thumbnail" ng-src="{{video.snippet.thumbnails.medium.url}}" ng-click="youtube.playVideo(video.snippet.resourceId.videoId)">
+            -->
+                <!--
+                <iframe width="100%" ng-src="{{livestream.stream_url}}" frameborder="0" allowfullscreen></iframe>
+            -->
+                <!--
+                <div class="livestream-video-title">{{livestream.get_text()}}</div>
+            -->
+        </div>
+    </div>
+</div>
+</div>

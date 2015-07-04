@@ -1,0 +1,28 @@
+<div id="songkick" class="module" ng-style="{'left': songkick.left, 'position': 'relative'}">
+    <div class="songkick-item item" ng-repeat="event in songkick.items" ng-init="songkick.set_width()">
+        <div class="col-xs-12">
+            <div class="title-wrapper row">
+                <div class="title"><img src='img/icons/agenda.svg' class='title-icon'>Agenda de Eventos</div>
+            </div>
+            <div class="content row">
+                <div class="songkick-event col-xs-6 text-center" ng-show="{{event.left}}">
+                    <div class="event-date">{{songkick.formatDate(event.left)}}</div>
+                    <div class="event-city">{{event.left.location.city}}</div>
+                    <div class="event-place">{{event.left.venue.displayName}}</div>
+                    <div class="btn event-btn" ng-click="songkick.see_more(event.left.uri)">Saiba Mais</div>
+                </div>
+                <div class="songkick-event col-xs-6 text-center" ng-show="{{event.right}}">
+                    <div class="border-date"></div>
+                    <div class="border-content"></div>
+                    <div class="event-date">{{songkick.formatDate(event.right)}}</div>
+                    <div class="event-city">{{event.right.location.city}}</div>
+                    <div class="event-place">{{event.right.venue.displayName}}</div>
+                    <div class="btn event-btn" ng-click="songkick.see_more(event.right.uri)">Saiba Mais</div>
+                </div>
+            </div>
+            <div class="row songkick-logo-wrapper">
+                <div class="col-xs-12 text-center"><img class="songkick-logo" src="img/logos/songkick.png"></div>
+            </div>
+        </div>
+    </div>
+</div>

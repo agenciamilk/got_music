@@ -1,0 +1,16 @@
+<div id="demand" class="module">
+    <div class="demand-item item" ng-init="demand.set_width()">
+        <div class="col-xs-12">
+            <div class="title-wrapper row">
+                <div class="title"><img src='img/icons/shows.svg' class='title-icon'>Pedir Show</div>
+            </div>
+            <div class="content row">
+                <div class="col-xs-12 text-center">
+                    <div class="demand-text" ng-show="{{!demand.demanded}}">Quer ver um show do <span class="artist-name">{{artist_name}}</span> na sua Cidade?</div>
+                    <div class="demand-text" ng-show="{{demand.demanded}}">Obrigado pelo pedido!</div>
+                    <button class="btn demand-btn" ng-show="{{!demand.demanded}}" ng-click="openModal()">Pedir Show</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
