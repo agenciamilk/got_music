@@ -588,17 +588,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
     $('#loading-wrapper').hide();
 
-    $scope.message.set_initial_height = function() {
-        var elem_children = $($($('#message').children()[0]).children()[0]).children();
-        for (var i = 0; i < elem_children.length; i++) {
-            var child = elem_children[i];
-            if ($(child).hasClass('content')) {
-                var current_item_height = $($(child).children()[0]).height() + (2 * 15);
-                swipeService.resize($scope.message, current_item_height);
-            }
-        }
-    };
-
     $scope.facebook.set_initial_height = function() {
         var elem_children = $($($('#facebook').children()[0]).children()[0]).children();
         for (var i = 0; i < elem_children.length; i++) {
