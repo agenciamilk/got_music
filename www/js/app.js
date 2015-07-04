@@ -588,17 +588,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
 
     $('#loading-wrapper').hide();
 
-    $scope.instagram.set_initial_height = function() {
-        var elem_children = $($($('#instagram').children()[0]).children()[0]).children();
-        for (var i = 0; i < elem_children.length; i++) {
-            var child = elem_children[i];
-            if ($(child).hasClass('content')) {
-                var current_item_height = $($(child).children()[0]).height() + $($(child).children()[1]).height() + (2 * 15);
-                swipeService.resize($scope.instagram, current_item_height);
-            }
-        }
-    };
-
     $scope.artist_name = ARTIST_NAME;
 
     // Message API
@@ -754,13 +743,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
             $scope.instagram.items = e.data;
             window.localStorage.setItem('INSTAGRAM_FEED', JSON.stringify($scope.instagram.items)); // TODO: Take advantage of this data
             $scope.$broadcast('newsInstagramLoad');
-
-            $timeout(function() {
-                $scope.instagram.set_initial_height();
-                $timeout(function() {
-                    $scope.instagram.set_initial_height();
-                }, INITIAL_RESIZE_TIMEOUT);
-            }, INITIAL_RESIZE_TIMEOUT);
 
             // Get if user follows artist
             //INSTAGRAM_ACCESS_TOKEN = '196213762.a98b012.8fcd3182e6f34989865a0a45a9f4d884';
