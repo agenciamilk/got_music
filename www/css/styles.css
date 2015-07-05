@@ -490,6 +490,7 @@ title-bar .artist-name .artist-logo {
 }
 .music #youtube .youtube-item .content .youtube-thumbnail {
   width: 100%;
+  min-height: 240px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.5);

@@ -229,7 +229,6 @@ angular.module('gotMusicApp')
     };
     */
 
-
     // YOUTUBE API
     $scope.youtube.playlist_index = 0;
 
@@ -240,6 +239,7 @@ angular.module('gotMusicApp')
                 $scope.youtube.items = e.items;
                 window.localStorage.setItem('YOUTUBE_FEED', JSON.stringify($scope.youtube.items));  // TODO: Take advantage of this data
                 $scope.$broadcast('youtubeLoad');
+                $scope.youtubeLoad = true;
             })
             .error(function(e) {
                 $log.info(e);
@@ -249,9 +249,10 @@ angular.module('gotMusicApp')
     else if (YOUTUBE_MODE_VIDEO) {
         $http.get('https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + YOUTUBE_VIDEO_ID + '&key=' + YOUTUBE_API_KEY)
             .success(function(e) {
-                $scope.youtube.items = e.items[0];
+                $scope.youtube.items = [e.items[0]];
                 window.localStorage.setItem('YOUTUBE_FEED', JSON.stringify($scope.youtube.items));  // TODO: Take advantage of this data
                 $scope.$broadcast('youtubeLoad');
+                $scope.youtubeLoad = true;
             })
             .error(function(e) {
                 $log.info(e);
@@ -273,7 +274,6 @@ angular.module('gotMusicApp')
         $location.path('/video');
     };
 
-
     $scope.youtube.play_next = function() {
         $scope.youtube.playlist_index += 1;
     };
@@ -282,15 +282,13 @@ angular.module('gotMusicApp')
         $scope.youtube.playlist_index -= 1;
     };
 
-
-
+    // Move this to a suitable module
     $scope.formatDate = function(t) {
         t = new Date(t);
         return t.getDate() + "/" + (t.getMonth() + 1) + "/" + t.getFullYear();
     };
 
     // ITUNES API
-
     $http.get('https://itunes.apple.com/lookup?&country=br&entity=album&id=' + ITUNES_USER_ID)
         .success(function(e) {
             $scope.itunes.items = e.results.slice(1, e.results.length);
