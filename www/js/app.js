@@ -124,12 +124,6 @@ var LIVESTREAM_COMPLETED_STRING = 'Arquivo';
 var LIVESTREAM_PENDING_STRING = 'Aguarde';
 var LIVESTREAM_EMPTY_STRING = 'Ainda não há streaming agendado';
 
-// SWIPE
-var SWIPE_SPEED = 0.8;
-var SWIPE_MARGIN = 0.1;
-var DELTA_SWIPE = 10; // Pixels per millisecond
-var DELTA_RESIZE = 6; // Pixels per millisecond
-
 // GLOBALS
 var MODAL_TIMEOUT = 2000;
 var MINUTES = 60 * 1000;
@@ -1303,30 +1297,14 @@ var app = {
 
         VERSION = device.version;
 
-        // alert('READY');
-        // alert('WIDTH: ' + window.innerWidth);
-
-        SWIPE_SPEED = window.innerWidth / 1000;
-
-
-        SWIPE_MARGIN = 0.1;
-        DELTA_SWIPE = window.innerWidth / 50; // Pixels per millisecond
-        DELTA_RESIZE = window.innerWidth / 20; // Pixels per millisecond
-
-        //alert('SWIPE SPEED: ' + SWIPE_SPEED);
-        //alert('DELTA RESIZE: ' + DELTA_RESIZE);
-
         // Google Analytics
         window.analytics.startTrackerWithId('UA-61028835-1');
-
 
         // Geolocation
         navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError);
 
-
         // Register for Push Notification
         var pushNotification = window.plugins.pushNotification;
-
 
         window.plugins.GameThrive.init(GAMETHRIVE_APP_ID,
                                        {googleProjectNumber: GCM_SENDER_ID},
@@ -1334,9 +1312,7 @@ var app = {
                                             didReceiveRemoteNotificationCallBack(e);
                                         });
 
-
         if (device.platform == 'android' || device.platform == 'Android') {
-
             pushNotification.register(
                 app.successHandler,
                 app.errorHandler, {
