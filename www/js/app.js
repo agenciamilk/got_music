@@ -2,16 +2,13 @@
 // Trocar pelo nome do artista
 var ARTIST_NAME = 'Far From Alaska';
 
-
 // APP
 // Trocar por 'gotmusic' + {nome do artista}
 var URL_SCHEME = 'gotmusicfarfromalaska://';
 
-
 // Geolocation
 var LATITUDE;
 var LONGITUDE;
-
 
 // PUSH NOTIFICATION
 // Trocar por App ID do app criado no Game Thrive
@@ -20,12 +17,10 @@ var GAMETHRIVE_APP_ID = '0089f09c-ce75-11e4-a0dc-337ced8460f8';
 // Trocar pela ID do Projeto do novo App criado no Google Developers Console
 var GCM_SENDER_ID = '232610257468';
 
-
 // MESSAGE
 // Trocar por id da planilha de mensagens (respostas) criada no Google Drive
 var MESSAGE_FORM_ID = '1H0YFKpplWjN2oDNFqgombC_MhC6VH1zrEvRCBYB6ao8';
 var MESSAGE_WORKSHEET_ID;
-
 
 // FACEBOOK
 // Trocar pelo id da página do facebook
@@ -38,11 +33,9 @@ var FACEBOOK_CLIENT_ID = '954959894537819';
 // Trocar por Client Secret do App criado no Facebook Developers
 var FACEBOOK_CLIENT_SECRET = 'fecc2d553b397e1ee952a08a4085a591';
 
-
 // TWITTER
 // Trocar por nome de usuário do artista no Twitter
 var TWITTER_USERNAME = 'FarFromAlaska';
-
 
 // INSTAGRAM
 // Trocar por nome de usuário do artista no Instagram
@@ -57,7 +50,6 @@ var INSTAGRAM_SCOPE = 'likes+relationships';
 var INSTAGRAM_API_KEY = 'a98b0124631f4cc2b7724b3c0712d14f';
 var INSTAGRAM_REDIRECT_URI = URL_SCHEME + 'instagram/';
 var INSTAGRAM_ACCESS_TOKEN;
-
 
 // DEEZER
 // [IMPORTANTE] APENAS UMA DAS OPÇÕES PODE SER TRUE
@@ -75,7 +67,6 @@ var DEEZER_PLAYLIST_ID = '1054614051';
 // Trocar pelo id do álbum desejado
 var DEEZER_ALBUM_ID = '9758022';
 var DEEZER_CHANNEL_URL = 'http://vladimir.sh/playground/deezer_light/channel.html';
-
 
 // YOUTUBE
 // [IMPORTANTE] APENAS UMA DAS OPÇÕES PODE SER TRUE
@@ -153,7 +144,6 @@ var ANDROID;
 var VERSION;
 var WIDTH;
 var HEIGHT;
-
 
 // Handle Open From Url
 
@@ -240,17 +230,16 @@ gotMusicApp.run(function($rootScope) {
 });
 
 gotMusicApp.directive('navigationTabs', function() {
-    return {
-        templateUrl: 'directives/navigation-tabs/navigation-tabs.html',
-        controller: 'NavigationCtrl'
-
+  return {
+    templateUrl: 'directives/navigation-tabs/navigation-tabs.html',
+    controller: 'NavigationCtrl'
   };
 });
 
 gotMusicApp.directive('titleBar', function() {
-    return {
-        templateUrl: 'directives/title-bar/title-bar-new.html',
-        //controller: 'NavigationCtrl'
+  return {
+    templateUrl: 'directives/title-bar/title-bar-new.html',
+    //controller: 'NavigationCtrl'
   };
 });
 
@@ -262,7 +251,7 @@ gotMusicApp.directive('swiper', ['$timeout', function($timeout) {
 
       function init() {
         var params = {
-          spaceBetween: 5
+          spaceBetween: ITEM_MARGIN / 2
         };
 
         function adjustWrapperHeight() {
@@ -297,8 +286,8 @@ gotMusicApp.directive('swiper', ['$timeout', function($timeout) {
 }]);
 
 gotMusicApp.service("videoService", function() {
-    this.video_id = '';
-    this.video_url = '';
+  this.video_id = '';
+  this.video_url = '';
 });
 
 gotMusicApp.service("swipeService", ["$log", "$timeout", function($log, $timeout) {
@@ -417,9 +406,7 @@ gotMusicApp.service("swipeService", ["$log", "$timeout", function($log, $timeout
             if(obj.get_call2action != null) {
                 obj.height += 30;
             }
-
         }
-
 
         if (obj.item_height > current_item_height) {
 
@@ -456,88 +443,79 @@ gotMusicApp.service("swipeService", ["$log", "$timeout", function($log, $timeout
     };
 }]);
 
-
 gotMusicApp.controller('NavigationCtrl', ['$scope', '$log', '$location', function($scope, $log, $location) {
-    $scope.goToNews = function() {
-        $location.path("/news");
-    };
+  $scope.goToNews = function() {
+    $location.path("/news");
+  };
 
-    $scope.goToMusic = function() {
-        $location.path("/music");
-    };
+  $scope.goToMusic = function() {
+    $location.path("/music");
+  };
 
-    $scope.goToShows = function() {
-        $location.path("/shows");
-    };
+  $scope.goToShows = function() {
+    $location.path("/shows");
+  };
 
-    switch($location.path()) {
-        case '/news':
-            $('#btn-news').addClass('selected');
-            $('#img-news').attr('src', 'img/icons/menu_news_selected.svg');
-            break;
-        case '/music':
-            $('#btn-music').addClass('selected');
-            $('#img-music').attr('src', 'img/icons/menu_music_selected.svg');
-            break;
-        case '/shows':
-            $('#btn-shows').addClass('selected');
-            $('#img-shows').attr('src', 'img/icons/menu_shows_selected.svg');
-            break;
+  switch($location.path()) {
+    case '/news':
+      $('#btn-news').addClass('selected');
+      $('#img-news').attr('src', 'img/icons/menu_news_selected.svg');
+      break;
+    case '/music':
+      $('#btn-music').addClass('selected');
+      $('#img-music').attr('src', 'img/icons/menu_music_selected.svg');
+      break;
+    case '/shows':
+      $('#btn-shows').addClass('selected');
+      $('#img-shows').attr('src', 'img/icons/menu_shows_selected.svg');
+      break;
     }
-
 }]);
 
 gotMusicApp.controller("NotificationCtrl", ["$scope", "$log", "$location", function($scope, $log, $location) {
-    $scope.goToNews = function() {
-        $scope.close();
-        $location.path("/news");
-    };
+  $scope.goToNews = function() {
+    $scope.close();
+    $location.path("/news");
+  };
 
-    $scope.close = function() {
-        $('#notification').animate({top: '-100px'}, 1000);
-    };
+  $scope.close = function() {
+    $('#notification').animate({top: '-100px'}, 1000);
+  };
 }]);
-
-
 
 // Home Screen Controller
 gotMusicApp.controller("HomeCtrl", ["$scope", "$log", "$location", function($scope, $log, $location) {
+  // Bottom Menu Navigation
+  $scope.goToNews = function() {
+    $location.path("/news");
+  };
 
-    // Bottom Menu Navigation
-    $scope.goToNews = function() {
-        $location.path("/news");
-    };
+  $scope.goToMusic = function() {
+    $location.path("/music");
+  };
 
-    $scope.goToMusic = function() {
-        $location.path("/music");
-    };
+  $scope.goToShows = function() {
+    $location.path("/shows");
+  };
 
-    $scope.goToShows = function() {
-        $location.path("/shows");
-    };
+  // Analytics
+  $scope.trackView('Home Screen');
 
-    // Analytics
-    $scope.trackView('Home Screen');
-
-    // Home Image
-    $scope.getHomeImage = function() {
-        var w = window.innerWidth;
-        var h = window.innerHeight;
-    };
-
+  // Home Image
+  $scope.getHomeImage = function() {
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+  };
 }]);
 
 gotMusicApp.controller('InternetModalInstanceCtrl', ["$scope", "$modalInstance", "$log", "$modal", "$sce", function ($scope, $modalInstance, $log, $modal, $sce) {
-    $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
-    };
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
 }]);
-
 
 // News Screen Controller
 gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$interval', '$timeout', '$document', 'swipeService', 'videoService', '$modal', function($scope, $log, $http, $location, $interval, $timeout, $document, swipeService, videoService, $modal) {
-
-
     $scope.openModal = function() {
         $('#internet-modal-background').show();
         var modalInstance = $modal.open({
@@ -757,7 +735,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
             } else {
                 $scope.instagram.following = false;
             }
-
         })
         .error(function() {
             $log.info("error");
@@ -778,7 +755,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
     };
 
     $scope.instagram.get_photo_liked = function(photo) {
-
         if (!INSTAGRAM_ACCESS_TOKEN) {
             photo.liked = false;
         } else if (photo.liked === undefined) {
@@ -802,7 +778,6 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
     $timeout(function() {
         $scope.instagram.get_photo_liked($scope.instagram.items[0]);
     }, 3000);
-
 
     // Follow artist on Instagram
     $scope.instagram.follow_user = function(photo) {
@@ -835,9 +810,7 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
             } else {
                 window.open(url, '_system');
             }
-
         }
-
     };
 
     // Like photo on Instagram
@@ -883,10 +856,8 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
             } else if (ANDROID) {
                 navigator.app.loadUrl(url, { openExternal: true });
             }
-
         }
     };
-
 
     // Translate time since photo was posted on Instagram
     $scope.instagram.getTimeLapse = function(t) {
@@ -906,13 +877,9 @@ gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$in
             return t.getDate() + "/" + (t.getMonth() + 1) + "/" + t.getFullYear();
         }
     };
-
 }]);
 
-
-
 gotMusicApp.controller('VideoCtrl', ['$scope', '$log', '$http', '$sce', '$timeout', '$location', 'videoService', function($scope, $log, $http, $sce, $timeout, $location, videoService) {
-
     $scope.video_url = $sce.trustAsResourceUrl(videoService.video_url);
 
     $scope.update_dimensions = function() {
@@ -932,7 +899,6 @@ gotMusicApp.controller('VideoCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
     }, 1000);
 
     window.addEventListener('orientationchange', function(e) {
-
         switch(window.orientation) {
             case -90:
             case 90:
@@ -944,12 +910,10 @@ gotMusicApp.controller('VideoCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         }
 
     });
-
 }]);
 
 // Music Screen Controller
 gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeout', '$location', 'videoService', 'swipeService', '$modal', '$interval', function($scope, $log, $http, $sce, $timeout, $location, videoService, swipeService, $modal, $interval) {
-
     $scope.openModal = function() {
         $('#internet-modal-background').show();
         var modalInstance = $modal.open({
@@ -1257,12 +1221,9 @@ gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
         }
         window.analytics.trackEvent('iTunes', 'Click', 'iTunes Buy Click', 1);
     };
-
 }]);
 
-
 gotMusicApp.controller('ModalInstanceCtrl', ["$scope", "$modalInstance", "$log", "$modal", "$sce", function ($scope, $modalInstance, $log, $modal, $sce) {
-
     $scope.email;
     $scope.city;
 
@@ -1349,13 +1310,10 @@ gotMusicApp.controller('ModalInstanceCtrl', ["$scope", "$modalInstance", "$log",
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
-
 }]);
-
 
 // Shows Screen Controller
 gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$timeout', 'swipeService', '$modal', '$sce', 'videoService', '$interval', function($scope, $log, $http, $location, $timeout, swipeService, $modal, $sce, videoService, $interval) {
-
     $scope.openInternetModal = function() {
         $('#internet-modal-background').show();
         var modalInstance = $modal.open({
@@ -1378,6 +1336,7 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
         $interval.cancel($scope.internet_check);
     }
 
+    // TODO: Move this to a suitable module
     $scope.start_internet_check = function() {
         $scope.internet_check = $interval(function() {
             if (!checkConnection()) {
@@ -1386,7 +1345,6 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
             }
         }, INTERNET_CHECK_INTERVAL);
     };
-
 
     $scope.start_internet_check();
 
@@ -1398,9 +1356,7 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
     $scope.songkick = {};
     $scope.livestream = {};
 
-
     // Get From Local Storage
-    $scope.songkick.items = JSON.parse(window.localStorage.getItem("SONGKICK_FEED")) || [];
     $scope.demand.demanded = Boolean(window.localStorage.getItem("DEMAND_DEMANDED")) || false;
     $scope.demand.last_demand = window.localStorage.getItem("DEMAND_LAST_DEMAND") || [];
 
@@ -1419,11 +1375,6 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
         window.localStorage.setItem("DEMAND_DEMANDED", false);
     }
 
-    // Set Element Width
-    $scope.songkick.set_width = function() {
-        $(".songkick-item").width(window.innerWidth - ITEM_MARGIN);
-    };
-
     $scope.demand.set_width = function() {
         $(".demand-item").width(window.innerWidth - ITEM_MARGIN);
     };
@@ -1431,11 +1382,6 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
     $scope.livestream.set_width = function() {
         $(".livestream-item").width(window.innerWidth - ITEM_MARGIN);
     };
-
-    // Create Swipe Controllers
-    swipeService.createSwipe("songkick", $scope.songkick, $scope);
-
-
 
     // DEMAND
     $scope.openModal = function() {
@@ -1465,24 +1411,27 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
     $http.get("http://api.songkick.com/api/3.0/artists/" + SONGKICK_ARTIST_ID + "/calendar.json?apikey=" + SONGKICK_API_KEY)
         .success(function(e) {
             $scope.songkick.items = [];
+
             for (var i = 0; i < e.resultsPage.results.event.length; i += 2) {
-                //$log.info(i);
                 var l = e.resultsPage.results.event[i];
                 var r = e.resultsPage.results.event[i + 1];
 
                 var event = {"left": l, "right": r};
                 $scope.songkick.items.push(event);
             }
-            window.localStorage.setItem("SONGKICK_FEED", JSON.stringify($scope.songkick.items));
+            window.localStorage.setItem('SONGKICK_FEED', JSON.stringify($scope.songkick.items)); // TODO: Take advantage of this data
+            $scope.$broadcast('songkickLoad');
         }).error(function() {
+          // TODO: Handle errors.
         });
 
     $scope.songkick.see_more = function(show) {
         window.analytics.trackEvent('Songkick', 'Click', 'Click Songkick', 1);
+
         if (IOS) {
-            window.open(show, '_system');
+          window.open(show, '_system');
         } else if (ANDROID) {
-            navigator.app.loadUrl(show, { openExternal: true });
+          navigator.app.loadUrl(show, { openExternal: true });
         }
     };
 
@@ -1495,7 +1444,6 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
     };
 
     // Livestream API
-
     $http.get('https://gdata.youtube.com/feeds/api/users/' + LIVESTREAM_USER_ID + '/live/events?v=2&alt=json')
             .success(function(e) {
                 if (e.feed.entry) {
@@ -1520,12 +1468,9 @@ gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$t
                 } else {
                     $scope.livestream.status = LIVESTREAM_EMPTY_STRING;
                 }
-
-
             })
             .error(function(e) {
-                //alert('ERROR');
-                //alert(JSON.stringify(e));
+                // TODO: Handle errors.
             });
 
     $scope.livestream.play_video = function(url) {
@@ -1591,8 +1536,8 @@ var app = {
 
         VERSION = device.version;
 
-//        alert('READY');
-//        alert('WIDTH: ' + window.innerWidth);
+        // alert('READY');
+        // alert('WIDTH: ' + window.innerWidth);
 
         SWIPE_SPEED = window.innerWidth / 1000;
 
@@ -1657,8 +1602,6 @@ var app = {
 };
 
 app.initialize();
-
-
 
 function didReceiveRemoteNotificationCallBack(jsonData) {
     //alert("Notification received:\n" + JSON.stringify(jsonData));

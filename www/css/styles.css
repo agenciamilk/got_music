@@ -593,20 +593,26 @@ title-bar .artist-name .artist-logo {
 .shows #songkick .songkick-item .content {
   padding: 0 !important;
 }
+.shows #songkick .songkick-item .content .content-events {
+  overflow: auto;
+  clear: both;
+}
 .shows #songkick .songkick-item .content .songkick-event {
   padding: 0;
-}
-.shows #songkick .songkick-item .content .songkick-event .border-content {
-  border-left: 1px solid #ffffff;
-  position: absolute;
-  top: 25%;
-  bottom: 10%;
+  width: 50%;
+  float: left;
 }
 .shows #songkick .songkick-item .content .songkick-event .border-date {
   border-left: 1px solid #000000;
   position: absolute;
-  top: 4px;
+  top: 39px;
   height: 12px;
+}
+.shows #songkick .songkick-item .content .songkick-event .border-content {
+  border-left: 1px solid #ffffff;
+  position: absolute;
+  top: 65px;
+  bottom: 45px;
 }
 .shows #songkick .songkick-item .content .songkick-event .event-date {
   background-color: #ffffff;
@@ -614,7 +620,11 @@ title-bar .artist-name .artist-logo {
 }
 .shows #songkick .songkick-item .content .songkick-event .event-city {
   margin-top: 10px;
+  padding: 0 5px;
   font-weight: bold;
+}
+.shows #songkick .songkick-item .content .songkick-event .event-place {
+  padding: 0 5px;
 }
 .shows #songkick .songkick-item .content .songkick-event .event-btn {
   margin-top: 10px;
@@ -623,8 +633,7 @@ title-bar .artist-name .artist-logo {
   color: #000000;
 }
 .shows #songkick .songkick-item .songkick-logo-wrapper {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
+  margin-top: 10px;
 }
 .shows #songkick .songkick-item .songkick-logo-wrapper .songkick-logo {
   height: 20px;
