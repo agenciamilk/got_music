@@ -196,30 +196,6 @@ var handleOpenURL = function(url) {
 
 var gotMusicApp = angular.module('gotMusicApp', ['ngRoute', 'ui.bootstrap']);
 
-gotMusicApp.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.
-        when('/home', {
-            templateUrl: 'templates/home.html',
-            controller: 'HomeCtrl'
-        }).
-        when('/news', {
-            templateUrl: 'templates/news.html',
-            controller: 'NewsCtrl'
-        }).
-        when('/music', {
-            templateUrl: 'templates/music.html',
-            controller: 'MusicCtrl'
-        }).
-        when('/shows', {
-            templateUrl: 'templates/shows.html',
-            controller: 'ShowsCtrl'
-        }).
-        when('/video', {
-            templateUrl: 'templates/video.html',
-            controller: 'VideoCtrl'
-        });
-}]);
-
 gotMusicApp.run(function($rootScope) {
     $rootScope.trackView = function (view) {
         // TODO: Save trackView in a local variable while analytics not available
