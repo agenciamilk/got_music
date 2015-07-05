@@ -290,159 +290,6 @@ gotMusicApp.service("videoService", function() {
   this.video_url = '';
 });
 
-gotMusicApp.service("swipeService", ["$log", "$timeout", function($log, $timeout) {
-    this.createSwipe = function(elem, obj, scope) {
-
-        var self = this;
-        var swipe = new Hammer(document.getElementById(elem), {direction: Hammer.DIRECTION_HORIZONTAL});
-
-        obj.left = 0;
-        obj.left_start = 0;
-        obj.current_item = 0;
-        obj.swipping = false;
-
-        swipe.on("pan", function(e) {
-            if (obj.swipping && (e.velocityX > 0.1 || e.velocityX < -0.1)) {
-
-                // Limit Left
-                if (e.deltaX + obj.left_start > window.innerWidth * SWIPE_MARGIN) {
-                    obj.left = window.innerWidth * SWIPE_MARGIN;
-                } else if (e.deltaX + obj.left_start < - window.innerWidth * (obj.items.length - (1.0 - SWIPE_MARGIN))) {
-                    obj.left = - window.innerWidth * (obj.items.length - (1.0 - SWIPE_MARGIN));
-                } else {
-                    obj.left = e.deltaX + obj.left_start;
-                }
-
-                scope.$apply();
-            }
-        });
-
-        swipe.on("panstart", function(e) {
-            //alert('PAN START');
-            if (e.direction === Hammer.DIRECTION_LEFT || e.direction === Hammer.DIRECTION_RIGHT) {
-                obj.swipping = true;
-            }
-            obj.left_start = $("#" + elem).offset().left;
-        });
-
-        swipe.on("panend", function(e) {
-            if (obj.swipping) {
-                if ((e.deltaX / e.deltaTime) < -SWIPE_SPEED && e.direction == 2 && obj.current_item < obj.items.length - 1) {
-                    obj.directionChange = "right";
-                    obj.current_item += 1;
-                } else if ((e.deltaX / e.deltaTime) > SWIPE_SPEED && e.direction == 1 && obj.current_item > 0) {
-                    obj.directionChange = "left";
-                    obj.current_item -= 1;
-                } else if (e.deltaX / $("#" + elem).width() > 0.5 && obj.current_item > 0) {
-                    obj.directionChange = "left";
-                    obj.current_item -= 1;
-                } else if(e.deltaX > 0) {
-                    obj.directionChange = "left";
-                } else if (e.deltaX / $("#" + elem).width() < -0.5 && obj.current_item < obj.items.length - 1) {
-                    obj.directionChange = "right";
-                    obj.current_item += 1;
-                } else if (e.deltaX < 0) {
-                    obj.directionChange = "right";
-                } else {
-                    return false;
-                }
-
-                self.move(obj, elem);
-                scope.$apply();
-            }
-
-            obj.swipping = false;
-        });
-    };
-
-    this.move = function(obj, elem) {
-        var self = this;
-
-        if(obj.left > - (obj.current_item * window.innerWidth) && obj.directionChange === "left") {
-            obj.left -= obj.left + obj.current_item * window.innerWidth >= DELTA_SWIPE ? DELTA_SWIPE : obj.left + obj.current_item * window.innerWidth;
-            $timeout(function() {
-                self.move(obj, elem);
-            }, 1);
-        } else if(obj.left < - (obj.current_item * window.innerWidth) && obj.directionChange === "left") {
-            obj.left += DELTA_SWIPE;
-            $timeout(function() {
-                self.move(obj, elem);
-            }, 1);
-        } else if (obj.left < - (obj.current_item * window.innerWidth) && obj.directionChange === "right") {
-            obj.left += DELTA_SWIPE;
-            $timeout(function() {
-                self.move(obj, elem);
-            }, 1);
-        } else if (obj.left > - (obj.current_item * window.innerWidth) && obj.directionChange === "right") {
-            obj.left -= obj.left + obj.current_item * window.innerWidth >= DELTA_SWIPE ? DELTA_SWIPE : obj.left + obj.current_item * window.innerWidth;
-            $timeout(function() {
-                self.move(obj, elem);
-            }, 1);
-        } else if (obj.left === - (obj.current_item * window.innerWidth)) {
-            var elem_children = $($($('#' + elem).children()[obj.current_item]).children()[0]).children();
-
-            for (var i = 0; i < elem_children.length; i++) {
-                var child = elem_children[i];
-                if ($(child).hasClass('content')) {
-                    var current_item_height = $($(child).children()[0]).height() + (2 * 15);
-                    if (elem == 'instagram') {
-                        current_item_height += $($(child).children()[1]).height();
-                    }
-                    self.resize(obj, current_item_height);
-                }
-            }
-        }
-    };
-
-    this.resize = function(obj, current_item_height) {
-        var self = this;
-
-        if (obj.item_height == null) {
-            obj.item_height = current_item_height;
-        }
-
-        if (obj.height == null) {
-            obj.height = current_item_height + (2 * 15);
-            if(obj.get_call2action != null) {
-                obj.height += 30;
-            }
-        }
-
-        if (obj.item_height > current_item_height) {
-
-            var delta = obj.item_height - current_item_height >= DELTA_RESIZE ? DELTA_RESIZE : obj.item_height - current_item_height;
-
-            obj.item_height -= delta;
-            obj.height -= delta;
-            $timeout(function() {
-                self.resize(obj, current_item_height)
-            }, 1);
-
-        } else if (obj.item_height < current_item_height) {
-
-            var delta = current_item_height - obj.item_height >= DELTA_RESIZE ? DELTA_RESIZE : current_item_height - obj.item_height ;
-
-            obj.item_height += delta;
-            obj.height += delta;
-
-            obj.item_height += 5;
-            obj.height += 5;
-            $timeout(function() {
-                self.resize(obj, current_item_height)
-            }, 1);
-
-        } else if (obj.item_height === current_item_height) {
-            //obj.text_height = current_item_height - 5;
-
-            /*
-            $timeout(function() {
-                self.resize(obj, current_item_height)
-            }, 1);
-            */
-        }
-    };
-}]);
-
 gotMusicApp.controller('NavigationCtrl', ['$scope', '$log', '$location', function($scope, $log, $location) {
   $scope.goToNews = function() {
     $location.path("/news");
@@ -515,7 +362,7 @@ gotMusicApp.controller('InternetModalInstanceCtrl', ["$scope", "$modalInstance",
 }]);
 
 // News Screen Controller
-gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$interval', '$timeout', '$document', 'swipeService', 'videoService', '$modal', function($scope, $log, $http, $location, $interval, $timeout, $document, swipeService, videoService, $modal) {
+gotMusicApp.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$interval', '$timeout', '$document', 'videoService', '$modal', function($scope, $log, $http, $location, $interval, $timeout, $document, videoService, $modal) {
     $scope.openModal = function() {
         $('#internet-modal-background').show();
         var modalInstance = $modal.open({
@@ -913,7 +760,7 @@ gotMusicApp.controller('VideoCtrl', ['$scope', '$log', '$http', '$sce', '$timeou
 }]);
 
 // Music Screen Controller
-gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeout', '$location', 'videoService', 'swipeService', '$modal', '$interval', function($scope, $log, $http, $sce, $timeout, $location, videoService, swipeService, $modal, $interval) {
+gotMusicApp.controller('MusicCtrl', ['$scope', '$log', '$http', '$sce', '$timeout', '$location', 'videoService', '$modal', '$interval', function($scope, $log, $http, $sce, $timeout, $location, videoService, $modal, $interval) {
     $scope.openModal = function() {
         $('#internet-modal-background').show();
         var modalInstance = $modal.open({
@@ -1313,7 +1160,7 @@ gotMusicApp.controller('ModalInstanceCtrl', ["$scope", "$modalInstance", "$log",
 }]);
 
 // Shows Screen Controller
-gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$timeout', 'swipeService', '$modal', '$sce', 'videoService', '$interval', function($scope, $log, $http, $location, $timeout, swipeService, $modal, $sce, videoService, $interval) {
+gotMusicApp.controller('ShowsCtrl', ['$scope', '$log', '$http', '$location', '$timeout', '$modal', '$sce', 'videoService', '$interval', function($scope, $log, $http, $location, $timeout, $modal, $sce, videoService, $interval) {
     $scope.openInternetModal = function() {
         $('#internet-modal-background').show();
         var modalInstance = $modal.open({
