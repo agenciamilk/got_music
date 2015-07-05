@@ -48,8 +48,13 @@ angular.module('gotMusicApp')
           });
         }
 
-        if (attrs.swiperAutoinit) { init(); }
-        if (attrs.swiperInitOn) { scope.$on(attrs.swiperInitOn, init); }
+        if (attrs.swiperInitOn) {
+          if (scope[attrs.swiperInitOn]) { // Event already broadcasted but directive was not ready yet
+            init();
+          } else {
+            scope.$on(attrs.swiperInitOn, init);
+          }
+        }
       }
     };
   }]);
