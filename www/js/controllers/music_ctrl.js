@@ -48,14 +48,6 @@ angular.module('gotMusicApp')
 
     $('#loading-wrapper').hide();
 
-    $scope.itunes.set_width = function() {
-        $(".itunes-item").width(window.innerWidth - ITEM_MARGIN);
-        if ((window.innerWidth - ITEM_MARGIN) < 360) {
-            $('.buy-album').css('position', 'static');
-            $('.buy-album').css('margin-top', '20px');
-        }
-    };
-
     $('#deezer-carousel').css({height: 175, width: window.innerWidth - ITEM_MARGIN});
 
     // Deezer API
@@ -293,11 +285,13 @@ angular.module('gotMusicApp')
         .success(function(e) {
             $scope.itunes.items = e.results.slice(1, e.results.length);
             window.localStorage.setItem("ITUNES_FEED", JSON.stringify($scope.itunes.items));
+            $scope.$broadcast('itunesLoad');
+            $scope.itunesLoad = true;
         }).error(function() {
+            // TODO: Handle errors.
         });
 
     $scope.itunes.getAlbum = function(album) {
-
         if (IOS) {
             window.open(album.collectionViewUrl + '&at=' + ITUNES_AFFILIATE_CODE, '_system');
         } else if (ANDROID) {

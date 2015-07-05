@@ -482,176 +482,178 @@ title-bar {
 }
 
 .music {
-    #deezer {
-        .loading-image {
-            display: block;
-            width: 55px;
-            margin: (-27px + 15px) 0 0 -27px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            z-index: 1;
-        }
-
-        #deezer-embed {
-            position: relative;
-        }
-
-        .deezer-item {
-            .embed {
-                padding: 0 !important;
-
-                iframe {
-                    padding-top: 6px;
-                    margin-left: -3px;
-                }
-            }
-
-            .content {
-                height: 120px !important;
-
-                .album-cover-wrapper {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    height: 150px;
-                }
-
-                .album-image {
-                    height: 120px;
-                    width: 120px;
-
-                    border-bottom-left-radius: @item-content-radius;
-                }
-
-                .btn-player {
-                    height: 50px;
-                    width: 50px;
-                    position: absolute;
-                    left: 35px;
-                    top: 35px;
-                    border-radius: 50%;
-                }
-                .col-xs-12 {
-                    padding-left: 0;
-                    border-bottom-left-radius: @item-content-radius;
-                }
-                .deezer-content {
-                    margin-left: 120px;
-                    .deezer-header {
-                        .deezer-track {
-                            font-weight: bold;
-                        }
-                        .deezer-artist {
-                            color: @twitter-username-text-color;
-                            font-size: small;
-                        }
-                    }
-
-
-                    .album-info {
-                        margin-top: 15px;
-                        .album-price {
-                            font-weight: bold;
-                        }
-
-                        .album-release {
-                            font-size: x-small;
-                            color: @twitter-username-text-color;
-                        }
-
-                        .album-copyright {
-                            .album-release;
-                        }
-                    }
-                }
-
-                .dzSlider {
-                    height: 20px;
-                    margin-top: 7px;
-                    background-color: #464646;
-                    border: #000000 solid 5px;
-                    .dzProgress {
-                        height: 10px;
-                        background-color: #FFFFFF;
-                    }
-                }
-            }
-        }
-
+  #deezer {
+    .loading-image {
+      display: block;
+      width: 55px;
+      margin: (-27px + 15px) 0 0 -27px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 1;
     }
 
-    #youtube {
-        .youtube-item {
-            .content {
-                padding: 0 !important;
-                .youtube-thumbnail {
-                    width: 100%;
-                    min-height: 240px;
-                    border-bottom-left-radius: @item-content-radius;
-                    border-bottom-right-radius: @item-content-radius;
-                    -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
-                    -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
-                    box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
-                }
-                .youtube-video-title {
-                    background-color: @third-color;
-                    color: @main-color;
-                    height: 30px;
-                    line-height: 30px;
-                    font-size: small;
-                    text-align: center;
-                }
-            }
-        }
+    #deezer-embed {
+      position: relative;
     }
 
+    .deezer-item {
+      .embed {
+        padding: 0 !important;
 
-    #itunes {
-        .itunes-item {
-            .content {
-                .album-image {
-                    height: 100px;
-                    width: 100px;
-                    float: left;
-                }
-                .buy-album {
-                    position: absolute;
-                    right: 0;
-                    bottom: -3px;
-                }
-                .itunes-content {
-                    margin-left: 110px;
-                    .itunes-header {
-                        .itunes-artist {
-                            font-weight: bold;
-                        }
-                        .itunes-album {
-                            color: @twitter-username-text-color;
-                            font-size: small;
-                        }
-                    }
-
-                    .album-info {
-                        margin-top: 15px;
-                        .album-price {
-                            font-weight: bold;
-                        }
-
-                        .album-release {
-                            font-size: x-small;
-                            color: @twitter-username-text-color;
-                        }
-
-                        .album-copyright {
-                            .album-release;
-                        }
-                    }
-                }
-            }
+        iframe {
+          padding-top: 6px;
+          margin-left: -3px;
         }
-    }
+      }
 
+      .content {
+        height: 120px !important;
+
+        .album-cover-wrapper {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 150px;
+        }
+
+        .album-image {
+          height: 120px;
+          width: 120px;
+
+          border-bottom-left-radius: @item-content-radius;
+        }
+
+        .btn-player {
+          height: 50px;
+          width: 50px;
+          position: absolute;
+          left: 35px;
+          top: 35px;
+          border-radius: 50%;
+        }
+        .col-xs-12 {
+          padding-left: 0;
+          border-bottom-left-radius: @item-content-radius;
+        }
+        .deezer-content {
+          margin-left: 120px;
+          .deezer-header {
+            .deezer-track {
+              font-weight: bold;
+            }
+            .deezer-artist {
+              color: @twitter-username-text-color;
+              font-size: small;
+            }
+          }
+
+
+          .album-info {
+            margin-top: 15px;
+            .album-price {
+              font-weight: bold;
+            }
+
+            .album-release {
+              font-size: x-small;
+              color: @twitter-username-text-color;
+            }
+
+            .album-copyright {
+              .album-release;
+            }
+          }
+        }
+
+        .dzSlider {
+          height: 20px;
+          margin-top: 7px;
+          background-color: #464646;
+          border: #000000 solid 5px;
+          .dzProgress {
+            height: 10px;
+            background-color: #FFFFFF;
+          }
+        }
+      }
+    }
+  }
+
+  #youtube {
+    .youtube-item {
+      .content {
+        padding: 0 !important;
+        .youtube-thumbnail {
+          width: 100%;
+          min-height: 240px;
+          border-bottom-left-radius: @item-content-radius;
+          border-bottom-right-radius: @item-content-radius;
+          -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+          -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+          box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+        }
+        .youtube-video-title {
+          background-color: @third-color;
+          color: @main-color;
+          height: 30px;
+          line-height: 30px;
+          font-size: small;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  #itunes {
+    .itunes-item {
+      .content {
+        .album-image {
+          height: 100px;
+          width: 100px;
+          float: left;
+        }
+
+        .itunes-content {
+          margin-left: 110px;
+
+          .itunes-header {
+            .itunes-artist {
+              font-weight: bold;
+            }
+
+            .itunes-album {
+              color: @twitter-username-text-color;
+              font-size: small;
+            }
+          }
+
+          .album-info {
+            margin-top: 15px;
+
+            .album-price {
+              font-weight: bold;
+            }
+
+            .album-release {
+              font-size: x-small;
+              color: @twitter-username-text-color;
+            }
+
+            .album-copyright {
+              .album-release;
+            }
+          }
+        }
+
+        .buy-album {
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+        }
+      }
+    }
+  }
 }
 
 

@@ -1,13 +1,14 @@
-<div id="itunes" class="module" ng-style="{'left': itunes.left, 'position': 'relative'}">
-  <div class="itunes-item item" ng-repeat="album in itunes.items" ng-init="itunes.set_width()">
-    <div class="col-xs-12">
-      <div class="title-wrapper row">
-        <div class="title"><img src='img/icons/albuns.svg' class='title-icon'>Álbuns</div>
-      </div>
+<div id="itunes" class="module">
+  <div class="swiper-container" swiper swiper-init-on="itunesLoad">
+    <div class="swiper-wrapper">
+      <div class="itunes-item item swiper-slide" ng-repeat="album in itunes.items">
+        <div class="title-wrapper">
+          <div class="title"><img src='img/icons/albuns.svg' class='title-icon'>Álbuns</div>
+        </div>
 
-      <div class="content row">
-        <div class="col-xs-12">
+        <div class="content">
           <img class="album-image" ng-src="{{album.artworkUrl100}}">
+
           <div class="itunes-content">
             <div class="itunes-header">
               <div class="itunes-artist">{{album.artistName}}</div>
@@ -20,6 +21,7 @@
               <div class="album-copyright">{{album.copyright}}</div>
             </div>
           </div>
+
           <div class="buy-album">
             <div style="display:inline-block;overflow:hidden;background:url(img/itunes_button_100.png) no-repeat;width:100px;height:36px;@media only screen{background-image:url(img/itunes_button_200.svg);}" ng-click="itunes.getAlbum(album)"></div>
           </div>

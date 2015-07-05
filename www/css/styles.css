@@ -510,11 +510,6 @@ title-bar .artist-name .artist-logo {
   width: 100px;
   float: left;
 }
-.music #itunes .itunes-item .content .buy-album {
-  position: absolute;
-  right: 0;
-  bottom: -3px;
-}
 .music #itunes .itunes-item .content .itunes-content {
   margin-left: 110px;
 }
@@ -538,6 +533,11 @@ title-bar .artist-name .artist-logo {
 .music #itunes .itunes-item .content .itunes-content .album-info .album-copyright {
   font-size: x-small;
   color: #888888;
+}
+.music #itunes .itunes-item .content .buy-album {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
 .video {
   position: fixed;
