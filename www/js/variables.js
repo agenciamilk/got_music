@@ -15,7 +15,7 @@ var LONGITUDE;
 
 // PUSH NOTIFICATION
 // Trocar por App ID do app criado no Game Thrive
-var GAMETHRIVE_APP_ID = '0089f09c-ce75-11e4-a0dc-337ced8460f8';
+var GAMETHRIVE_APP_ID = '37e5cd9c-1793-11e5-b426-7383d04b8837';
 
 // Trocar pela ID do Projeto do novo App criado no Google Developers Console
 var GCM_SENDER_ID = '232610257468';
