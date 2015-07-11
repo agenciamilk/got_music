@@ -26,59 +26,68 @@ body {
 
 
 navigation-tabs {
-    z-index: 100;
-    position: fixed;
-    top: @title-bar-height;
-    left: 0;
-    width: 100%;
-    border-bottom: 1px solid #333333;
+  z-index: 100;
+  position: fixed;
+  top: @title-bar-height;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #333333;
 
-    .menu-border-left {
-        border-left: 1px solid #868686;
-        position: absolute;
-        top: 15%;
-        bottom: 15%;
+  .menu-border-left {
+    border-left: 1px solid #868686;
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+  }
+
+  .menu-border-right {
+    .menu-border-left;
+    right: 0;
+  }
+
+  .button-wrapper {
+    padding: 0 !important;
+    width: 32%;
+    float: left;
+    position: relative;
+
+    &:first-child {
+      width: 36%;
     }
 
-    .menu-border-right {
-        .menu-border-left;
-        right: 0;
+    .option-button {
+      padding: 10px 0px;
+      height: @navigation-bar-height;
+      line-height: 28px;
+      background-color: @menu-button-bg-color;
+      color: @menu-button-color;
+      text-align: center;
+      font-family: 'lato_bold';
+      font-size: 13px;
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+
+      &.selected {
+        color: @menu-button-color-active;
+        svg.menu-icon { path { fill: @menu-button-color-active; } }
+      }
+
+      .menu-icon-wrapper {
+        width: 14px;
+        display: inline-block;
+        margin-right: 4px;
+      }
+
+      svg.menu-icon {
+        width: auto;
+        height: 14px;
+        vertical-align: baseline;
+        top: 2px;
+        position: relative;
+        path { fill: @menu-button-color; }
+      }
     }
-
-    .button-wrapper {
-        padding: 0 !important;
-
-        .option-button {
-            padding: 10px 0px;
-            height: @navigation-bar-height;
-            line-height: 28px;
-            background-color: @menu-button-bg-color;
-            color: @menu-button-color;
-            text-align: center;
-            font-family: 'lato_bold';
-            font-size: 14px;
-            &:first-child { padding-left: 0; }
-            &:last-child { padding-right: 0; }
-
-            &.selected {
-                color: @menu-button-color-active;
-                svg.menu-icon { path { fill: @menu-button-color-active; } }
-            }
-
-            svg.menu-icon {
-                width: auto;
-                height: 14px;
-                margin-right: 5px;
-                vertical-align: baseline;
-                top: 2px;
-                position: relative;
-                path { fill: @menu-button-color; }
-            }
-
-            .option-button-first { margin-left: 15px; }
-            .option-button-last { margin-right: 15px; }
-        }
-    }
+  }
 }
 
 title-bar {
@@ -122,6 +131,7 @@ title-bar {
             position: fixed
         }
     }
+
     .home-img {
         position: absolute;
         top: 0;
@@ -130,7 +140,7 @@ title-bar {
         height: 100%;
         width: 100%;
         background-color: #FFF;
-        bottom: 2 * @home-menu-button-padding + @home-menu-bottom + @home-menu-font-size;
+        bottom: 2 * @home-menu-button-vertical-padding + @home-menu-bottom + @home-menu-font-size;
     }
 
     .bottom-menu {
@@ -143,10 +153,17 @@ title-bar {
 
         .button-wrapper {
             padding: 0 !important;
+            width: 32%;
+            float: left;
+            position: relative;
+
+            &:first-child {
+                width: 36%;
+            }
 
             .option-button {
                 font-size: @home-menu-font-size;
-                padding: @home-menu-button-padding;
+                padding: @home-menu-button-vertical-padding 0;
                 background-color: @home-menu-button-bg-color;
                 color: @home-menu-button-color;
                 text-align: center;
@@ -162,12 +179,6 @@ title-bar {
                         border-right: 1px solid @home-menu-border-color;
                     }
                 }
-            }
-            .first-option-button {
-                padding-left: 25px !important;
-            }
-            .last-option-button {
-                padding-right: 30px !important;
             }
         }
     }
