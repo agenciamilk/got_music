@@ -117,79 +117,79 @@ title-bar {
 }
 
 .home {
-    .home-logo {
-        position: absolute;
-        top: 50px;
-        width: 100%;
-        img {
-            width: 60%;
-            left: 0;
-            top: 0;
-            bottom: @bottom-menu-height;
-            right: 0;
-            margin: auto;
-            position: fixed
+  .home-logo {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+
+    img {
+      width: 60%;
+      left: 0;
+      top: 0;
+      bottom: @bottom-menu-height;
+      right: 0;
+      margin: auto;
+      position: fixed
+    }
+  }
+
+  .home-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #FFF;
+    bottom: 2 * @home-menu-button-vertical-padding + @home-menu-bottom + @home-menu-font-size;
+  }
+
+  .bottom-menu {
+    position: absolute;
+    bottom: @home-menu-bottom;
+    left: 0;
+    width: 100%;
+    overflow-x: hidden;
+    height: @bottom-menu-height;
+
+    .button-wrapper {
+      padding: 0 !important;
+      width: 32%;
+      float: left;
+      position: relative;
+
+      &:first-child {
+        width: 36%;
+        .option-button:after { display: none }
+      }
+
+      .option-button {
+        font-size: @home-menu-font-size;
+        padding: @home-menu-button-vertical-padding 0;
+        background-color: @home-menu-button-bg-color;
+        color: @home-menu-button-color;
+        text-align: center;
+
+        &:after {
+          position: absolute;
+          top: @home-menu-border-margin;
+          bottom: @home-menu-border-margin;
+          left: 0;
+          content: "";
+          width: 0;
+          border-right: 1px solid @home-menu-border-color;
         }
+      }
     }
-
-    .home-img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 100%;
-        background-color: #FFF;
-        bottom: 2 * @home-menu-button-vertical-padding + @home-menu-bottom + @home-menu-font-size;
-    }
-
-    .bottom-menu {
-        position: absolute;
-        bottom: @home-menu-bottom;
-        left: 0;
-        width: 100%;
-        overflow-x: hidden;
-        height: @bottom-menu-height;
-
-        .button-wrapper {
-            padding: 0 !important;
-            width: 32%;
-            float: left;
-            position: relative;
-
-            &:first-child {
-                width: 36%;
-            }
-
-            .option-button {
-                font-size: @home-menu-font-size;
-                padding: @home-menu-button-vertical-padding 0;
-                background-color: @home-menu-button-bg-color;
-                color: @home-menu-button-color;
-                text-align: center;
-
-                &:first-child {
-                    &:after {
-                        position: absolute;
-                        top: @home-menu-border-margin;
-                        bottom: @home-menu-border-margin;
-                        left: 0;
-                        content: "";
-                        width: 0;
-                        border-right: 1px solid @home-menu-border-color;
-                    }
-                }
-            }
-        }
-    }
+  }
 }
 
 .item {
-    #title {
-        background-color: @second-color;
-        color: @main-color;
-        padding: 5px;
-    }
+  #title {
+    background-color: @second-color;
+    color: @main-color;
+    padding: 5px;
+  }
 }
 
 .section {

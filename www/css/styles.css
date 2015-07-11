@@ -163,6 +163,9 @@ title-bar .artist-name .artist-logo {
 .home .bottom-menu .button-wrapper:first-child {
   width: 36%;
 }
+.home .bottom-menu .button-wrapper:first-child .option-button:after {
+  display: none;
+}
 .home .bottom-menu .button-wrapper .option-button {
   font-size: 15px;
   padding: 20px 0;
@@ -170,7 +173,7 @@ title-bar .artist-name .artist-logo {
   color: white;
   text-align: center;
 }
-.home .bottom-menu .button-wrapper .option-button:first-child:after {
+.home .bottom-menu .button-wrapper .option-button:after {
   position: absolute;
   top: 5px;
   bottom: 5px;
