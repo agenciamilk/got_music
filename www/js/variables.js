@@ -97,7 +97,7 @@ var ITUNES_AFFILIATE_CODE = '1l3vuS7';
 var SONGKICK_ARTIST_ID = '7756389';
 
 // Trocar pela API Key do novo App criado no Songkick Developers
-var SONGKICK_API_KEY = 'LKwWsc81lEc7oDAG';
+var SONGKICK_API_KEY = 'GtDq783iP2sZSoy3';
 
 // DEMAND
 // Trocar por id do form de mensagens criada no Google Drive para pedir shows
