@@ -24,15 +24,18 @@ angular.module('gotMusicApp')
           };
 
           function adjustWrapperHeight() {
-            var nextSlide = $(this.slides[this.activeIndex]);
-            var newHeight = $('.content', nextSlide).outerHeight() +
-                            $('.title-wrapper', nextSlide).outerHeight();
+            var currentSlide = $(this.slides[this.activeIndex]);
+            var newHeight = $('.content', currentSlide).outerHeight() +
+                            $('.title-wrapper', currentSlide).outerHeight();
 
             $(this.wrapper[0]).height(newHeight);
           }
 
           params.onInit = function (swiper) {
             adjustWrapperHeight.apply(swiper);
+
+            // TODO: Implement a smarter content load detection
+            setInterval(function(){ adjustWrapperHeight.apply(swiper); }, 1000);
           };
 
           params.onSlideChangeStart = function (swiper) {
