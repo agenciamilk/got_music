@@ -55,6 +55,12 @@ navigation-tabs .menu-border-right {
 }
 navigation-tabs .button-wrapper {
   padding: 0 !important;
+  width: 32%;
+  float: left;
+  position: relative;
+}
+navigation-tabs .button-wrapper:first-child {
+  width: 36%;
 }
 navigation-tabs .button-wrapper .option-button {
   padding: 10px 0px;
@@ -64,7 +70,7 @@ navigation-tabs .button-wrapper .option-button {
   color: #888888;
   text-align: center;
   font-family: 'lato_bold';
-  font-size: 14px;
+  font-size: 13px;
 }
 navigation-tabs .button-wrapper .option-button:first-child {
   padding-left: 0;
@@ -78,22 +84,20 @@ navigation-tabs .button-wrapper .option-button.selected {
 navigation-tabs .button-wrapper .option-button.selected svg.menu-icon path {
   fill: black;
 }
+navigation-tabs .button-wrapper .option-button .menu-icon-wrapper {
+  width: 14px;
+  display: inline-block;
+  margin-right: 4px;
+}
 navigation-tabs .button-wrapper .option-button svg.menu-icon {
   width: auto;
   height: 14px;
-  margin-right: 5px;
   vertical-align: baseline;
   top: 2px;
   position: relative;
 }
 navigation-tabs .button-wrapper .option-button svg.menu-icon path {
   fill: #888888;
-}
-navigation-tabs .button-wrapper .option-button .option-button-first {
-  margin-left: 15px;
-}
-navigation-tabs .button-wrapper .option-button .option-button-last {
-  margin-right: 15px;
 }
 title-bar {
   position: fixed;
@@ -140,7 +144,7 @@ title-bar .artist-name .artist-logo {
   height: 100%;
   width: 100%;
   background-color: #FFF;
-  bottom: 56px;
+  bottom: 55px;
 }
 .home .bottom-menu {
   position: absolute;
@@ -152,15 +156,24 @@ title-bar .artist-name .artist-logo {
 }
 .home .bottom-menu .button-wrapper {
   padding: 0 !important;
+  width: 32%;
+  float: left;
+  position: relative;
+}
+.home .bottom-menu .button-wrapper:first-child {
+  width: 36%;
+}
+.home .bottom-menu .button-wrapper:first-child .option-button:after {
+  display: none;
 }
 .home .bottom-menu .button-wrapper .option-button {
-  font-size: 16px;
-  padding: 20px;
+  font-size: 15px;
+  padding: 20px 0;
   background-color: #22c6ba;
   color: white;
   text-align: center;
 }
-.home .bottom-menu .button-wrapper .option-button:first-child:after {
+.home .bottom-menu .button-wrapper .option-button:after {
   position: absolute;
   top: 5px;
   bottom: 5px;
@@ -168,12 +181,6 @@ title-bar .artist-name .artist-logo {
   content: "";
   width: 0;
   border-right: 1px solid #ffffff;
-}
-.home .bottom-menu .button-wrapper .first-option-button {
-  padding-left: 25px !important;
-}
-.home .bottom-menu .button-wrapper .last-option-button {
-  padding-right: 30px !important;
 }
 .item #title {
   background-color: #868686;
@@ -194,6 +201,12 @@ title-bar .artist-name .artist-logo {
   margin: 15px 5px;
   position: relative;
   z-index: 0;
+}
+.section .module .swiper-wrapper {
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -ms-transition-property: all;
+  transition-property: all;
 }
 .section .module .item {
   border-bottom-left-radius: 0px;
@@ -484,6 +497,7 @@ title-bar .artist-name .artist-logo {
 }
 .music #youtube .youtube-item .content .youtube-thumbnail {
   width: 100%;
+  min-height: 240px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
@@ -502,11 +516,6 @@ title-bar .artist-name .artist-logo {
   height: 100px;
   width: 100px;
   float: left;
-}
-.music #itunes .itunes-item .content .buy-album {
-  position: absolute;
-  right: 0;
-  bottom: -3px;
 }
 .music #itunes .itunes-item .content .itunes-content {
   margin-left: 110px;
@@ -531,6 +540,11 @@ title-bar .artist-name .artist-logo {
 .music #itunes .itunes-item .content .itunes-content .album-info .album-copyright {
   font-size: x-small;
   color: #888888;
+}
+.music #itunes .itunes-item .content .buy-album {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
 .video {
   position: fixed;
@@ -587,20 +601,26 @@ title-bar .artist-name .artist-logo {
 .shows #songkick .songkick-item .content {
   padding: 0 !important;
 }
+.shows #songkick .songkick-item .content .content-events {
+  overflow: auto;
+  clear: both;
+}
 .shows #songkick .songkick-item .content .songkick-event {
   padding: 0;
-}
-.shows #songkick .songkick-item .content .songkick-event .border-content {
-  border-left: 1px solid #ffffff;
-  position: absolute;
-  top: 25%;
-  bottom: 10%;
+  width: 50%;
+  float: left;
 }
 .shows #songkick .songkick-item .content .songkick-event .border-date {
   border-left: 1px solid #000000;
   position: absolute;
-  top: 4px;
+  top: 39px;
   height: 12px;
+}
+.shows #songkick .songkick-item .content .songkick-event .border-content {
+  border-left: 1px solid #ffffff;
+  position: absolute;
+  top: 65px;
+  bottom: 45px;
 }
 .shows #songkick .songkick-item .content .songkick-event .event-date {
   background-color: #ffffff;
@@ -608,7 +628,11 @@ title-bar .artist-name .artist-logo {
 }
 .shows #songkick .songkick-item .content .songkick-event .event-city {
   margin-top: 10px;
+  padding: 0 5px;
   font-weight: bold;
+}
+.shows #songkick .songkick-item .content .songkick-event .event-place {
+  padding: 0 5px;
 }
 .shows #songkick .songkick-item .content .songkick-event .event-btn {
   margin-top: 10px;
@@ -617,8 +641,7 @@ title-bar .artist-name .artist-logo {
   color: #000000;
 }
 .shows #songkick .songkick-item .songkick-logo-wrapper {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
+  margin-top: 10px;
 }
 .shows #songkick .songkick-item .songkick-logo-wrapper .songkick-logo {
   height: 20px;
