@@ -160,7 +160,13 @@ angular.module('gotMusicApp')
     };
 
     $scope.facebook.filter = function(post) {
-        return post.from.id === FACEBOOK_PAGE_ID && ((post.type == 'photo' && (post.status_type == 'added_photos' || post.status_type == 'shared_story')) || (post.type == 'link' && post.status_type == 'shared_story') || (post.type == 'video' && post.status_type == 'shared_story'));
+        return post.from &&
+            post.from.id === FACEBOOK_PAGE_ID &&
+            (
+                (post.type == 'photo' && (post.status_type == 'added_photos' || post.status_type == 'shared_story')) |
+                (post.type == 'link' && post.status_type == 'shared_story') ||
+                (post.type == 'video' && post.status_type == 'shared_story')
+            );
     };
 
     $scope.facebook.show_post = function(post, type) {
@@ -188,7 +194,7 @@ angular.module('gotMusicApp')
     // Twitter API
     $scope.twitter.open_twitter = function() {
 
-        var twitter_timeline = 'https://twitter.com/farfromalaska';
+        var twitter_timeline = 'https://twitter.com/abrahammateomus';
 
         var twitter_window = window.open(twitter_timeline, '_blank', 'location=yes');
     };

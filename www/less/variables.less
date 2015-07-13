@@ -5,7 +5,7 @@
 @option-button-background-color: rgba(0, 0, 0, 0.6);
 @option-button-text-color: #FFFFFF;
 
-@item-content-text-color: #FFFFFF;
+@item-content-text-color: #222;
 @item-content-radius: 0px;
 
 @twitter-username-text-color: #888888;
@@ -39,20 +39,20 @@
 @third-color: #F0F0F0;
 */
 
-@main-color: #000000;
+@main-color: #261d39;
 @second-color: #868686;
 @third-color: #FFFFFF;
 
-@artist-color: #22C6BA;
+@artist-color: #261d39;
 
-@bar-title-background-color: rgba(0, 0, 0, 0.8);
-@bar-body-background-color: rgba(0, 0, 0, 0.6);
+@bar-title-background-color: fadeout(@artist-color, 15%);
+@bar-body-background-color: fadeout(#fff, 10%);
 
 @item-margin: 5px;
 
 @menu-button-bg-color: #F0F0F0;
 @menu-button-color: #888;
-@menu-button-color-active: black;
+@menu-button-color-active: @artist-color;
 
 // Home Screen
 @home-menu-button-vertical-padding: 20px;
@@ -60,5 +60,5 @@
 @home-menu-font-size: 15px;
 @home-menu-border-margin: 5px;
 @home-menu-border-color: #FFFFFF;
-@home-menu-button-bg-color: @artist-color;
+@home-menu-button-bg-color: fadeout(@artist-color, 20%);
 @home-menu-button-color: white;

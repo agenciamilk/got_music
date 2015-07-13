@@ -38,7 +38,7 @@ var FACEBOOK_CLIENT_SECRET = '42daa0fca8a23a212c6c2708d8cd2244';
 
 // TWITTER
 // Trocar por nome de usuário do artista no Twitter
-var TWITTER_USERNAME = 'FarFromAlaska';
+var TWITTER_USERNAME = 'AbrahamMateoMus';
 
 // INSTAGRAM
 // Trocar por nome de usuário do artista no Instagram

@@ -15,15 +15,14 @@ body {
 }
 
 .background-home {
-    //src: @app-background-image;
     z-index: -1;
     position: fixed;
-    width: 100%;
-    bottom: @bottom-menu-height;
+    height: 100%;
+    width: auto;
+    top: 0;
     right: 0;
     left: 0;
 }
-
 
 navigation-tabs {
   z-index: 100;
@@ -110,40 +109,13 @@ title-bar {
         text-align: center;
 
         .artist-logo {
-            height: 25px;
-            margin-top: 10px;
+            height: 40px;
+            margin-top: 3px;
         }
     }
 }
 
 .home {
-  .home-logo {
-    position: absolute;
-    top: 50px;
-    width: 100%;
-
-    img {
-      width: 60%;
-      left: 0;
-      top: 0;
-      bottom: @bottom-menu-height;
-      right: 0;
-      margin: auto;
-      position: fixed
-    }
-  }
-
-  .home-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #FFF;
-    bottom: 2 * @home-menu-button-vertical-padding + @home-menu-bottom + @home-menu-font-size;
-  }
-
   .bottom-menu {
     position: absolute;
     bottom: @home-menu-bottom;
@@ -151,6 +123,7 @@ title-bar {
     width: 100%;
     overflow-x: hidden;
     height: @bottom-menu-height;
+    background-color: @home-menu-button-bg-color;
 
     .button-wrapper {
       padding: 0 !important;
@@ -166,7 +139,6 @@ title-bar {
       .option-button {
         font-size: @home-menu-font-size;
         padding: @home-menu-button-vertical-padding 0;
-        background-color: @home-menu-button-bg-color;
         color: @home-menu-button-color;
         text-align: center;
 
