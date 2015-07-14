@@ -125,7 +125,9 @@ angular.module('gotMusicApp')
     $http.get('https://graph.facebook.com/oauth/access_token?grant_type=client_credentials&client_id=' + FACEBOOK_CLIENT_ID + '&client_secret=' + FACEBOOK_CLIENT_SECRET)
         .success(function(e) {
             $scope.facebook.access_token = e;
-            $http.get('https://graph.facebook.com/v2.2/' + FACEBOOK_PAGE_ID + '/posts?' + $scope.facebook.access_token)
+            var fbFields = 'from,type,status_type,message,name,description,picture,source';
+
+            $http.get('https://graph.facebook.com/v2.4/' + FACEBOOK_PAGE_ID + '/posts?fields='+ fbFields + '&' + $scope.facebook.access_token)
             .success(function(e) {
                 $scope.facebook.items = [];
                 for (var i = 0; i < e.data.length; i++) {
