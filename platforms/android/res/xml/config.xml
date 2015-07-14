@@ -27,9 +27,9 @@
     <feature name="LaunchMyApp">
         <param name="android-package" value="nl.xservices.plugins.LaunchMyApp" />
     </feature>
-    <name>Far From Alaska</name>
+    <name>Abraham Mateo</name>
     <description>
-        Fique por dentro de todas as novidades da banda Far From Alaska
+        Fique por dentro de todas as novidades de Abraham Mateo
     </description>
     <author email="contact@gotmusicapp.com" href="http://www.gotmusicapp.com">
         Got Music
@@ -65,6 +65,7 @@
     <icon density="xhdpi" platform="android" src="res/icons/android/icon-96-xhdpi.png" />
     <icon density="xxhdpi" platform="android" src="res/icons/android/icon-144-xxhdpi.png" />
     <icon density="xxxhdpi" platform="android" src="res/icons/android/icon-192-xxxhdpi.png" />
+    <splash src="splash.png" />
     <splash height="480" platform="ios" src="res/screens/ios/screen-iphone-portrait.png" width="320" />
     <splash height="960" platform="ios" src="res/screens/ios/screen-iphone-portrait-2x.png" width="640" />
     <splash height="1136" platform="ios" src="res/screens/ios/screen-iphone-568h-2x.png" width="640" />
@@ -75,4 +76,12 @@
     <splash height="2208" platform="ios" src="res/screens/ios/screen-iphone-landscape-736h.png" width="1242" />
     <splash height="1242" platform="ios" src="res/screens/ios/screen-iphone-portrait-736h.png" width="2208" />
     <splash height="1334" platform="ios" src="res/screens/ios/screen-iphone-portrait-667h.png" width="750" />
+    <splash platform="android" src="res/screens/android/screen-ldpi-portrait.png" />
+    <splash density="land-ldpi" platform="android" src="res/screens/android/screen-ldpi-landscape.png" />
+    <splash density="mdpi" platform="android" src="res/screens/android/screen-mdpi-portrait.png" />
+    <splash density="land-mdpi" platform="android" src="res/screens/android/screen-mdpi-landscape.png" />
+    <splash density="hdpi" platform="android" src="res/screens/android/screen-hdpi-portrait.png" />
+    <splash density="land-hdpi" platform="android" src="res/screens/android/screen-hdpi-landscape.png" />
+    <splash density="xhdpi" platform="android" src="res/screens/android/screen-xhdpi-portrait.png" />
+    <splash density="land-xhdpi" platform="android" src="res/screens/android/screen-xhdpi-landscape.png" />
 </widget>

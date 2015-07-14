@@ -14,7 +14,7 @@
 @third-color: #F0F0F0;
 */
 body {
-  background-color: #22c6ba;
+  background-color: #261d39;
 }
 .background {
   z-index: -1;
@@ -27,8 +27,9 @@ body {
 .background-home {
   z-index: -1;
   position: fixed;
-  width: 100%;
-  bottom: 62px;
+  height: 100%;
+  width: auto;
+  top: 0;
   right: 0;
   left: 0;
 }
@@ -79,10 +80,10 @@ navigation-tabs .button-wrapper .option-button:last-child {
   padding-right: 0;
 }
 navigation-tabs .button-wrapper .option-button.selected {
-  color: black;
+  color: #261d39;
 }
 navigation-tabs .button-wrapper .option-button.selected svg.menu-icon path {
-  fill: black;
+  fill: #261d39;
 }
 navigation-tabs .button-wrapper .option-button .menu-icon-wrapper {
   width: 14px;
@@ -103,7 +104,7 @@ title-bar {
   position: fixed;
   top: 0;
   z-index: 100;
-  background-color: #000000;
+  background-color: #261d39;
   color: #868686;
   height: 64px;
   width: 100%;
@@ -119,32 +120,8 @@ title-bar .artist-name {
   text-align: center;
 }
 title-bar .artist-name .artist-logo {
-  height: 25px;
-  margin-top: 10px;
-}
-.home .home-logo {
-  position: absolute;
-  top: 50px;
-  width: 100%;
-}
-.home .home-logo img {
-  width: 60%;
-  left: 0;
-  top: 0;
-  bottom: 62px;
-  right: 0;
-  margin: auto;
-  position: fixed;
-}
-.home .home-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #FFF;
-  bottom: 55px;
+  height: 40px;
+  margin-top: 3px;
 }
 .home .bottom-menu {
   position: absolute;
@@ -153,6 +130,7 @@ title-bar .artist-name .artist-logo {
   width: 100%;
   overflow-x: hidden;
   height: 62px;
+  background-color: rgba(38, 29, 57, 0.8);
 }
 .home .bottom-menu .button-wrapper {
   padding: 0 !important;
@@ -169,7 +147,6 @@ title-bar .artist-name .artist-logo {
 .home .bottom-menu .button-wrapper .option-button {
   font-size: 15px;
   padding: 20px 0;
-  background-color: #22c6ba;
   color: white;
   text-align: center;
 }
@@ -184,7 +161,7 @@ title-bar .artist-name .artist-logo {
 }
 .item #title {
   background-color: #868686;
-  color: #000000;
+  color: #261d39;
   padding: 5px;
 }
 .section {
@@ -213,7 +190,7 @@ title-bar .artist-name .artist-logo {
   border-bottom-right-radius: 0px;
 }
 .section .module .item .title-wrapper {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(38, 29, 57, 0.85);
 }
 .section .module .item .title-wrapper .title {
   margin-left: 15px;
@@ -231,8 +208,8 @@ title-bar .artist-name .artist-logo {
 }
 .section .module .item .content {
   font-family: 'lato_regular';
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #222222;
   padding: 15px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
@@ -262,7 +239,7 @@ title-bar .artist-name .artist-logo {
 .news #message .message-item .content .message-action {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #000000;
+  color: #261d39;
   text-transform: uppercase;
   font-size: x-small;
   background-color: #ffffff;
@@ -304,7 +281,7 @@ title-bar .artist-name .artist-logo {
 }
 .news #facebook .facebook-item .content .facebook-content .facebook-status-video .youtube-video-title {
   background-color: #ffffff;
-  color: #000000;
+  color: #261d39;
   height: 30px;
   line-height: 30px;
   font-size: small;
@@ -325,7 +302,7 @@ title-bar .artist-name .artist-logo {
 .news #twitter .twitter-item .content .twitter-open-button {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #000000;
+  color: #261d39;
   text-transform: uppercase;
   font-size: x-small;
   background-color: #ffffff;
@@ -395,7 +372,7 @@ title-bar .artist-name .artist-logo {
 .news #instagram .instagram-item .content .instagram-content .instagram-header .instagram-relationship .following {
   border: 1px solid #ffffff;
   background-color: #ffffff;
-  color: #000000;
+  color: #261d39;
   text-transform: uppercase;
   padding: 3px 10px;
 }
@@ -506,7 +483,7 @@ title-bar .artist-name .artist-logo {
 }
 .music #youtube .youtube-item .content .youtube-video-title {
   background-color: #ffffff;
-  color: #000000;
+  color: #261d39;
   height: 30px;
   line-height: 30px;
   font-size: small;
@@ -596,7 +573,7 @@ title-bar .artist-name .artist-logo {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #ffffff;
-  color: #000000;
+  color: #261d39;
 }
 .shows #songkick .songkick-item .content {
   padding: 0 !important;
@@ -611,7 +588,7 @@ title-bar .artist-name .artist-logo {
   float: left;
 }
 .shows #songkick .songkick-item .content .songkick-event .border-date {
-  border-left: 1px solid #000000;
+  border-left: 1px solid #261d39;
   position: absolute;
   top: 39px;
   height: 12px;
@@ -624,7 +601,7 @@ title-bar .artist-name .artist-logo {
 }
 .shows #songkick .songkick-item .content .songkick-event .event-date {
   background-color: #ffffff;
-  color: #000000;
+  color: #261d39;
 }
 .shows #songkick .songkick-item .content .songkick-event .event-city {
   margin-top: 10px;
@@ -638,7 +615,7 @@ title-bar .artist-name .artist-logo {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #ffffff;
-  color: #000000;
+  color: #261d39;
 }
 .shows #songkick .songkick-item .songkick-logo-wrapper {
   margin-top: 10px;
@@ -661,7 +638,7 @@ title-bar .artist-name .artist-logo {
 }
 .shows #livestream .livestream-item .content .livestream-video-title {
   background-color: #ffffff;
-  color: #000000;
+  color: #261d39;
   height: 30px;
   line-height: 30px;
   font-size: small;
@@ -672,7 +649,7 @@ title-bar .artist-name .artist-logo {
   top: -100px;
   z-index: 200;
   background-color: #868686;
-  color: #000000;
+  color: #261d39;
   height: 50px;
   width: 100%;
   vertical-align: middle;
@@ -708,7 +685,7 @@ title-bar .artist-name .artist-logo {
   border-radius: 0px;
 }
 .modal-content .modal-header {
-  background-color: #000000;
+  background-color: #261d39;
   padding: 0px !important;
 }
 .modal-content .modal-header .modal-title {
@@ -743,13 +720,13 @@ title-bar .artist-name .artist-logo {
   box-shadow: none !important;
 }
 .modal-content .modal-body .form-control:focus {
-  border-color: #000000;
+  border-color: #261d39;
 }
 .modal-content .modal-body .location-input {
   background: url('../img/icons/gps.png') no-repeat scroll 5px 6px;
 }
 .modal-content .modal-body .btn-gotmusic {
-  background-color: #000000;
+  background-color: #261d39;
   color: #ffffff;
 }
 .loading-wrapper {
