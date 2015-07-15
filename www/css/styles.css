@@ -594,13 +594,13 @@ title-bar .artist-name .artist-logo {
   height: 12px;
 }
 .shows #songkick .songkick-item .content .songkick-event .border-content {
-  border-left: 1px solid #ffffff;
+  border-left: 1px solid #261d39;
   position: absolute;
   top: 65px;
   bottom: 45px;
 }
 .shows #songkick .songkick-item .content .songkick-event .event-date {
-  background-color: #ffffff;
+  background-color: #ccc;
   color: #261d39;
 }
 .shows #songkick .songkick-item .content .songkick-event .event-city {
