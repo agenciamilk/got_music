@@ -237,12 +237,11 @@ title-bar .artist-name .artist-logo {
   font-weight: bold;
 }
 .news #message .message-item .content .message-action {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: #261d39;
+  margin: 10px 0 10px -50px;
+  color: #ffffff;
   text-transform: uppercase;
   font-size: x-small;
-  background-color: #ffffff;
+  background-color: #261d39;
 }
 .news #facebook .facebook-item .content .facebook-profile {
   height: 50px;
@@ -302,10 +301,10 @@ title-bar .artist-name .artist-logo {
 .news #twitter .twitter-item .content .twitter-open-button {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #261d39;
+  color: #ffffff;
   text-transform: uppercase;
   font-size: x-small;
-  background-color: #ffffff;
+  background-color: #261d39;
 }
 .news #twitter .twitter-item .content .twitter-profile {
   height: 50px;
@@ -378,7 +377,7 @@ title-bar .artist-name .artist-logo {
 }
 .news #instagram .instagram-item .content .instagram-content .instagram-text {
   margin-top: 40px;
-  color: #ffffff;
+  color: #222222;
   overflow-y: hidden;
 }
 .news #instagram .instagram-item .content .instagram-content .instagram-actions {
@@ -572,8 +571,8 @@ title-bar .artist-name .artist-logo {
 .shows #demand .demand-item .content .demand-btn {
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #ffffff;
-  color: #261d39;
+  background-color: #261d39;
+  color: #ffffff;
 }
 .shows #songkick .songkick-item .content {
   padding: 0 !important;
@@ -594,13 +593,13 @@ title-bar .artist-name .artist-logo {
   height: 12px;
 }
 .shows #songkick .songkick-item .content .songkick-event .border-content {
-  border-left: 1px solid #ffffff;
+  border-left: 1px solid #261d39;
   position: absolute;
   top: 65px;
   bottom: 45px;
 }
 .shows #songkick .songkick-item .content .songkick-event .event-date {
-  background-color: #ffffff;
+  background-color: #ccc;
   color: #261d39;
 }
 .shows #songkick .songkick-item .content .songkick-event .event-city {
@@ -614,8 +613,8 @@ title-bar .artist-name .artist-logo {
 .shows #songkick .songkick-item .content .songkick-event .event-btn {
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #ffffff;
-  color: #261d39;
+  background-color: #261d39;
+  color: #ffffff;
 }
 .shows #songkick .songkick-item .songkick-logo-wrapper {
   margin-top: 10px;

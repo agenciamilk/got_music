@@ -237,12 +237,11 @@ title-bar .artist-name .artist-logo {
   font-weight: bold;
 }
 .news #message .message-item .content .message-action {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: #261d39;
+  margin: 10px 0 10px -50px;
+  color: #ffffff;
   text-transform: uppercase;
   font-size: x-small;
-  background-color: #ffffff;
+  background-color: #261d39;
 }
 .news #facebook .facebook-item .content .facebook-profile {
   height: 50px;
@@ -378,7 +377,7 @@ title-bar .artist-name .artist-logo {
 }
 .news #instagram .instagram-item .content .instagram-content .instagram-text {
   margin-top: 40px;
-  color: #ffffff;
+  color: #222222;
   overflow-y: hidden;
 }
 .news #instagram .instagram-item .content .instagram-content .instagram-actions {

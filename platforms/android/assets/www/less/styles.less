@@ -234,34 +234,36 @@ title-bar {
 }
 
 .news {
-    #message {
-        .message-item {
-            .content {
-                .message-image {
-                    height: 50px;
-                    width: 50px;
-                    border-radius: 50%;
-                    float: left;
-                }
-                .message-content {
-                    margin-left: 60px;
-                    .message-user {
-                        .message-screenname {
-                        font-weight: bold;
-                        }
-                    }
-                }
-                .message-action {
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                    color: @main-color;
-                    text-transform: uppercase;
-                    font-size: x-small;
-                    background-color: @third-color;
-                }
-            }
+  #message {
+    .message-item {
+      .content {
+        .message-image {
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          float: left;
         }
+
+        .message-content {
+          margin-left: 60px;
+
+          .message-user {
+            .message-screenname {
+              font-weight: bold;
+            }
+          }
+        }
+
+        .message-action {
+          margin: 10px 0 10px -50px;
+          color: @third-color;
+          text-transform: uppercase;
+          font-size: x-small;
+          background-color: @main-color;
+        }
+      }
     }
+  }
 
     #facebook {
         .facebook-item {
@@ -346,10 +348,10 @@ title-bar {
                     .twitter-open-button {
                         margin-top: 10px;
                         margin-bottom: 10px;
-                        color: @main-color;
+                        color: @third-color;
                         text-transform: uppercase;
                         font-size: x-small;
-                        background-color: @third-color;
+                        background-color: @main-color;
                     }
                 .twitter-profile {
                     height: 50px;
@@ -444,7 +446,7 @@ title-bar {
 
                     .instagram-text {
                         margin-top: 40px;
-                        color: @third-color;
+                        color: @item-content-text-color;
                         overflow-y: hidden;
                     }
 
@@ -698,8 +700,8 @@ title-bar {
         .demand-btn {
           margin-top: 10px;
           margin-bottom: 10px;
-          background-color: @third-color;
-          color: @main-color;
+          background-color: @main-color;
+          color: @third-color;
         }
       }
     }
@@ -728,14 +730,14 @@ title-bar {
             }
 
             .border-content {
-              border-left: 1px solid @third-color;
+              border-left: 1px solid @main-color;
               position: absolute;
               top: 65px;
               bottom: 45px;
             }
 
             .event-date {
-              background-color: @third-color;
+              background-color: #ccc;
               color: @main-color;
             }
 
@@ -752,8 +754,8 @@ title-bar {
             .event-btn {
               margin-top: 10px;
               margin-bottom: 10px;
-              background-color: @third-color;
-              color: @main-color;
+              background-color: @main-color;
+              color: @third-color;
             }
           }
         }
