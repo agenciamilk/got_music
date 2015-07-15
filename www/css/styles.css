@@ -302,10 +302,10 @@ title-bar .artist-name .artist-logo {
 .news #twitter .twitter-item .content .twitter-open-button {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #261d39;
+  color: #ffffff;
   text-transform: uppercase;
   font-size: x-small;
-  background-color: #ffffff;
+  background-color: #261d39;
 }
 .news #twitter .twitter-item .content .twitter-profile {
   height: 50px;
@@ -572,8 +572,8 @@ title-bar .artist-name .artist-logo {
 .shows #demand .demand-item .content .demand-btn {
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #ffffff;
-  color: #261d39;
+  background-color: #261d39;
+  color: #ffffff;
 }
 .shows #songkick .songkick-item .content {
   padding: 0 !important;
@@ -614,8 +614,8 @@ title-bar .artist-name .artist-logo {
 .shows #songkick .songkick-item .content .songkick-event .event-btn {
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #ffffff;
-  color: #261d39;
+  background-color: #261d39;
+  color: #ffffff;
 }
 .shows #songkick .songkick-item .songkick-logo-wrapper {
   margin-top: 10px;
