@@ -29,6 +29,10 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"LaunchMyApp\"><param name=\"android-package\" value=\"nl.xservices.plugins.LaunchMyApp\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
                         },
@@ -38,10 +42,6 @@
                         },
                         {
                             "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"LaunchMyApp\"><param name=\"android-package\" value=\"nl.xservices.plugins.LaunchMyApp\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -77,7 +77,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<receiver android:name=\"com.gamethrive.GcmBroadcastReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><category android:name=\"com.gotmusic.farfromalaska\" /></intent-filter></receiver>",
+                            "xml": "<receiver android:name=\"com.gamethrive.GcmBroadcastReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><category android:name=\"com.gotmusic.abraham_mateo\" /></intent-filter></receiver>",
                             "count": 1
                         },
                         {
@@ -93,7 +93,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<receiver android:name=\"com.gamethrive.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.gotmusic.farfromalaska\" /></intent-filter></receiver>",
+                            "xml": "<receiver android:name=\"com.gamethrive.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.gotmusic.abraham_mateo\" /></intent-filter></receiver>",
                             "count": 1
                         },
                         {
@@ -101,7 +101,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<receiver android:name=\"com.plugin.gcm.CordovaGCMBroadcastReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><action android:name=\"com.google.android.c2dm.intent.REGISTRATION\" /><category android:name=\"com.gotmusic.farfromalaska\" /></intent-filter></receiver>",
+                            "xml": "<receiver android:name=\"com.plugin.gcm.CordovaGCMBroadcastReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><action android:name=\"com.google.android.c2dm.intent.REGISTRATION\" /><category android:name=\"com.gotmusic.abraham_mateo\" /></intent-filter></receiver>",
                             "count": 1
                         },
                         {
@@ -127,11 +127,11 @@
                             "count": 2
                         },
                         {
-                            "xml": "<permission android:name=\"com.gotmusic.farfromalaska.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
+                            "xml": "<permission android:name=\"com.gotmusic.abraham_mateo.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
                             "count": 2
                         },
                         {
-                            "xml": "<uses-permission android:name=\"com.gotmusic.farfromalaska.permission.C2D_MESSAGE\" />",
+                            "xml": "<uses-permission android:name=\"com.gotmusic.abraham_mateo.permission.C2D_MESSAGE\" />",
                             "count": 2
                         },
                         {
@@ -139,11 +139,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<permission android:name=\"com.gotmusic.farfromalaska.permission.RECEIVE_ADM_MESSAGE\" android:protectionLevel=\"signature\" />",
+                            "xml": "<permission android:name=\"com.gotmusic.abraham_mateo.permission.RECEIVE_ADM_MESSAGE\" android:protectionLevel=\"signature\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"com.gotmusic.farfromalaska.permission.RECEIVE_ADM_MESSAGE\" />",
+                            "xml": "<uses-permission android:name=\"com.gotmusic.abraham_mateo.permission.RECEIVE_ADM_MESSAGE\" />",
                             "count": 1
                         },
                         {
@@ -157,7 +157,7 @@
                     ],
                     "/*/application/activity": [
                         {
-                            "xml": "<intent-filter><data android:scheme=\"gotmusicfarfromalaska\" /><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /><category android:name=\"android.intent.category.BROWSABLE\" /></intent-filter>",
+                            "xml": "<intent-filter><data android:scheme=\"gotmusicabrahammateo\" /><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /><category android:name=\"android.intent.category.BROWSABLE\" /></intent-filter>",
                             "count": 1
                         }
                     ]
@@ -167,46 +167,46 @@
     },
     "installed_plugins": {
         "android.support.v4": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "com.danielcwilson.plugins.googleanalytics": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "com.gamethrive.plugins.GameThrive": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "com.oauthio.plugins.oauthio": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
-        },
-        "org.apache.cordova.console": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
-        },
-        "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
-        },
-        "org.apache.cordova.geolocation": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
-        },
-        "org.apache.cordova.network-information": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
-        },
-        "org.apache.cordova.statusbar": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "nl.x-services.plugins.launchmyapp": {
-            "URL_SCHEME": "gotmusicfarfromalaska",
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "URL_SCHEME": "gotmusicabrahammateo",
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
+        },
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
+        },
+        "org.apache.cordova.geolocation": {
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
+        },
+        "org.apache.cordova.network-information": {
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
+        },
+        "org.apache.cordova.statusbar": {
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         }
     },
     "dependent_plugins": {
         "com.google.playservices": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "org.apache.cordova.inappbrowser": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         }
     }
 }

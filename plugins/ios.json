@@ -129,46 +129,46 @@
     },
     "installed_plugins": {
         "android.support.v4": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "com.danielcwilson.plugins.googleanalytics": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "com.gamethrive.plugins.GameThrive": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "com.google.playservices": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "com.oauthio.plugins.oauthio": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "nl.x-services.plugins.launchmyapp": {
             "URL_SCHEME": "fromfaralaska",
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "org.apache.cordova.console": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "org.apache.cordova.geolocation": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "org.apache.cordova.network-information": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         },
         "org.apache.cordova.statusbar": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         }
     },
     "dependent_plugins": {
         "org.apache.cordova.inappbrowser": {
-            "PACKAGE_NAME": "com.gotmusic.farfromalaska"
+            "PACKAGE_NAME": "com.gotmusic.abraham_mateo"
         }
     }
 }
