@@ -68,7 +68,7 @@ var DEEZER_API_ID = '161335';
 var DEEZER_PLAYLIST_ID = '1299935225';
 
 // Trocar pelo id do álbum desejado
-var DEEZER_ALBUM_ID = '9758022';
+var DEEZER_ALBUM_ID = '10592535';
 var DEEZER_CHANNEL_URL = 'http://vladimir.sh/playground/deezer_light/channel.html';
 
 // YOUTUBE
