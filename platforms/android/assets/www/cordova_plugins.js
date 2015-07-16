@@ -29,6 +29,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/nl.x-services.plugins.launchmyapp/www/android/LaunchMyApp.js",
+        "id": "nl.x-services.plugins.launchmyapp.LaunchMyApp",
+        "clobbers": [
+            "window.plugins.launchmyapp"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.device/www/device.js",
         "id": "org.apache.cordova.device.device",
         "clobbers": [
@@ -58,13 +65,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/nl.x-services.plugins.launchmyapp/www/android/LaunchMyApp.js",
-        "id": "nl.x-services.plugins.launchmyapp.LaunchMyApp",
-        "clobbers": [
-            "window.plugins.launchmyapp"
-        ]
-    },
-    {
         "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
         "id": "org.apache.cordova.inappbrowser.inappbrowser",
         "clobbers": [
@@ -80,12 +80,12 @@ module.exports.metadata =
     "com.gamethrive.plugins.GameThrive": "1.3.0",
     "com.oauthio.plugins.oauthio": "0.2.4",
     "com.phonegap.plugins.PushPlugin": "2.4.0",
+    "nl.x-services.plugins.launchmyapp": "3.2.2",
     "org.apache.cordova.console": "0.2.12",
     "org.apache.cordova.device": "0.3.0",
     "org.apache.cordova.geolocation": "0.3.12",
     "org.apache.cordova.network-information": "0.2.15",
     "org.apache.cordova.statusbar": "0.1.10",
-    "nl.x-services.plugins.launchmyapp": "3.2.2",
     "com.google.playservices": "21.0.0",
     "org.apache.cordova.inappbrowser": "0.6.0"
 }

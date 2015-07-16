@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.gotmusic.farfromalaska;
+package com.gotmusic.abraham_mateo;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
