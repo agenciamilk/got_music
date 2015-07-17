@@ -258,12 +258,12 @@ angular.module('gotMusicApp')
     $scope.youtube.play_video = function(video) {
         window.analytics.trackEvent('YouTube', 'Click', 'YouTube Play', 1);
         if (YOUTUBE_MODE_PLAYLIST) {
-            videoService.video_url = 'https://www.youtube.com/embed/' + video.snippet.resourceId.videoId + '/?showinfo=0&modestbranding=1&&autoplay=1&fs=0';
+            video_url = 'https://www.youtube.com/embed/' + video.snippet.resourceId.videoId + '/?showinfo=0&modestbranding=1&&autoplay=1&fs=0';
         } else if (YOUTUBE_MODE_VIDEO) {
-            videoService.video_url = 'https://www.youtube.com/embed/' + video.id + '/?showinfo=0&modestbranding=1&&autoplay=1&fs=0';
+            video_url = 'https://www.youtube.com/embed/' + video.id + '/?showinfo=0&modestbranding=1&&autoplay=1&fs=0';
         }
 
-        $location.path('/video');
+        window.open(video_url, '_system', '');
     };
 
     $scope.youtube.play_next = function() {
