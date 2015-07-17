@@ -299,8 +299,7 @@ title-bar .artist-name .artist-logo {
   font-weight: bold;
 }
 .news #twitter .twitter-item .content .twitter-open-button {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0 10px -50px;
   color: #ffffff;
   text-transform: uppercase;
   font-size: x-small;
