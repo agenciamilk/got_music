@@ -84,3 +84,10 @@ The `<artista>.apk` should be sent to Google Play.
 * Sendo validado, "Submit" seguindo os mesmos passos.
 * Gerar `.p12` para notificação iOS
     * No programa Key Chain Access, achar o certificado gerado de notificação e clicar com o direito do mouse para exportar e gerar o `.p12`. Lembrando que é preciso gerar um diferente para teste e outro para produção.
+
+
+### Observações
+
+#### Abraham Mateo
+
+Após build iOS no Cordova, no XCode, renomear o id do app para `com.gotmusic.abraham-mateo`
