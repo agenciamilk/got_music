@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!-- Trocar por com.gotmusic.{nome do artista} -->
-<widget id="com.gotmusic.abraham_mateo" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.gotmusic.abraham-mateo" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <!-- Trocar pelo nome do artista -->
     <name>Abraham Mateo</name>
     <!-- Descrição -->
