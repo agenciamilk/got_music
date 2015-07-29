@@ -42,6 +42,7 @@ Lembrando que para iOS, o provisioning profile de desenvolvimento tem que ter si
 
 ## Build and Release
 
+* Bump version in `config.xml`
 * Compile the CSS with `lessc www/less/styles.less > www/css/styles.css`
 
 
@@ -74,7 +75,7 @@ The `<artista>.apk` should be sent to Google Play.
 * Criar um Certificate para Push, seguindo o passo a passo da Apple.
 * Criar Provisioning Profile, selecionando o identificador criado para o app.
 * `cordova build ios --release`
-* No XCode, abrir o projeto de xcode gerado pelo comando anterior, localizado em `<projeto>/platforms/ios/*.xcodeproj`.
+* No XCode, abrir o projeto de xcode gerado pelo comando anterior, localizado em `platforms/ios/*.xcodeproj`.
 * `Product → Clean`
 * Na esquerda superior, selecionar o device "iOS Device"
 * `Product → Archive`
