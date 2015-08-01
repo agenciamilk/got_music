@@ -487,39 +487,42 @@ title-bar .artist-name .artist-logo {
   font-size: small;
   text-align: center;
 }
-.music #itunes .itunes-item .content .album-image {
+.music #store .content {
+  min-height: 165px;
+}
+.music #store .store-item .store-content {
+  margin-left: 110px;
+}
+.music #store .store-item .album-image {
   height: 100px;
   width: 100px;
   float: left;
 }
-.music #itunes .itunes-item .content .itunes-content {
-  margin-left: 110px;
-}
-.music #itunes .itunes-item .content .itunes-content .itunes-header .itunes-artist {
+.music #store .store-item .store-header .store-artist {
   font-weight: bold;
 }
-.music #itunes .itunes-item .content .itunes-content .itunes-header .itunes-album {
+.music #store .store-item .store-header .store-album {
   color: #888888;
   font-size: small;
 }
-.music #itunes .itunes-item .content .itunes-content .album-info {
+.music #store .store-item .album-info {
   margin-top: 15px;
 }
-.music #itunes .itunes-item .content .itunes-content .album-info .album-price {
+.music #store .store-item .album-info .album-price {
   font-weight: bold;
 }
-.music #itunes .itunes-item .content .itunes-content .album-info .album-release {
+.music #store .store-item .album-info .album-release {
   font-size: x-small;
   color: #888888;
 }
-.music #itunes .itunes-item .content .itunes-content .album-info .album-copyright {
-  font-size: x-small;
-  color: #888888;
-}
-.music #itunes .itunes-item .content .buy-album {
+.music #store .store-item .buy-album {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  left: 15px;
+  top: 155px;
+  width: 100px;
+}
+.music #store .store-item .buy-album img {
+  width: 100%;
 }
 .video {
   position: fixed;

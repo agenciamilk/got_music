@@ -543,7 +543,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Filipe Farias Teixeira (K3ZK338F73)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -570,7 +570,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Abraham Mateo";
-				PROVISIONING_PROFILE = "a541d177-b1e9-404e-b7a9-0947b462a0d9";
+				PROVISIONING_PROFILE = "62dba363-48d9-4505-be8d-703740ef3a00";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -606,7 +606,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Abraham Mateo";
-				PROVISIONING_PROFILE = "a541d177-b1e9-404e-b7a9-0947b462a0d9";
+				PROVISIONING_PROFILE = "62dba363-48d9-4505-be8d-703740ef3a00";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
