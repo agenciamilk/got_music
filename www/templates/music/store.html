@@ -1,7 +1,7 @@
-<div id="itunes" class="module">
-  <div class="swiper-container" swiper swiper-init-on="itunesLoad">
+<div id="store" class="module">
+  <div class="swiper-container" swiper swiper-init-on="storeLoad">
     <div class="swiper-wrapper">
-      <div class="itunes-item item swiper-slide" ng-repeat="album in itunes.items">
+      <div class="store-item item swiper-slide" ng-repeat="album in store.items">
         <div class="title-wrapper">
           <div class="title"><img src='img/icons/albuns.svg' class='title-icon'>Álbuns</div>
         </div>
@@ -9,10 +9,10 @@
         <div class="content">
           <img class="album-image" ng-src="{{album.artworkUrl100}}">
 
-          <div class="itunes-content">
-            <div class="itunes-header">
-              <div class="itunes-artist">{{album.artistName}}</div>
-              <div class="itunes-album">{{album.collectionName}}</div>
+          <div class="store-content">
+            <div class="store-header">
+              <div class="store-artist">{{album.artistName}}</div>
+              <div class="store-album">{{album.collectionName}}</div>
             </div>
 
             <div class="album-info">
@@ -22,8 +22,8 @@
             </div>
           </div>
 
-          <div class="buy-album">
-            <div style="display:inline-block;overflow:hidden;background:url(img/itunes_button_100.png) no-repeat;width:100px;height:36px;@media only screen{background-image:url(img/itunes_button_200.svg);}" ng-click="itunes.getAlbum(album)"></div>
+          <div class="buy-album" ng-click="store.getAlbum(album)">
+            <img ng-src="img/{{store.badgeImg(album)}}">
           </div>
         </div>
       </div>

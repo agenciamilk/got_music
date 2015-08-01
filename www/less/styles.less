@@ -589,57 +589,59 @@ title-bar {
     }
   }
 
-  #itunes {
-    .itunes-item {
-      .content {
-        .album-image {
-          height: 100px;
-          width: 100px;
-          float: left;
+  #store {
+    .content {
+      min-height: 165px;
+    }
+
+    .store-item {
+      .store-content {
+        margin-left: 110px;
+      }
+
+      .album-image {
+        height: 100px;
+        width: 100px;
+        float: left;
+      }
+
+      .store-header {
+        .store-artist {
+          font-weight: bold;
         }
 
-        .itunes-content {
-          margin-left: 110px;
+        .store-album {
+          color: @twitter-username-text-color;
+          font-size: small;
+        }
+      }
 
-          .itunes-header {
-            .itunes-artist {
-              font-weight: bold;
-            }
+      .album-info {
+        margin-top: 15px;
 
-            .itunes-album {
-              color: @twitter-username-text-color;
-              font-size: small;
-            }
-          }
-
-          .album-info {
-            margin-top: 15px;
-
-            .album-price {
-              font-weight: bold;
-            }
-
-            .album-release {
-              font-size: x-small;
-              color: @twitter-username-text-color;
-            }
-
-            .album-copyright {
-              .album-release;
-            }
-          }
+        .album-price {
+          font-weight: bold;
         }
 
-        .buy-album {
-          position: absolute;
-          right: 10px;
-          bottom: 10px;
+        .album-release {
+          font-size: x-small;
+          color: @twitter-username-text-color;
+        }
+      }
+
+      .buy-album {
+        position: absolute;
+        left: 15px;
+        top: 155px;
+        width: 100px;
+
+        img {
+          width: 100%;
         }
       }
     }
   }
 }
-
 
 .video {
     position:fixed;

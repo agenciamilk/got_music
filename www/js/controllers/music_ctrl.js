@@ -44,7 +44,7 @@ angular.module('gotMusicApp')
     // MODULES
     $scope.deezer = {};
     $scope.youtube = {};
-    $scope.itunes = {};
+    $scope.store = {};
 
     $('#loading-wrapper').hide();
 
@@ -283,20 +283,32 @@ angular.module('gotMusicApp')
     // ITUNES API
     $http.get('https://itunes.apple.com/lookup?&country=br&entity=album&id=' + ITUNES_USER_ID)
         .success(function(e) {
-            $scope.itunes.items = e.results.slice(1, e.results.length);
-            window.localStorage.setItem("ITUNES_FEED", JSON.stringify($scope.itunes.items));
-            $scope.$broadcast('itunesLoad');
-            $scope.itunesLoad = true;
+            $scope.store.items = e.results.slice(1, e.results.length);
+            window.localStorage.setItem("ITUNES_FEED", JSON.stringify($scope.store.items));
+            $scope.$broadcast('storeLoad');
+            $scope.storeLoad = true;
         }).error(function() {
             // TODO: Handle errors.
         });
 
-    $scope.itunes.getAlbum = function(album) {
-        if (IOS) {
-            window.open(album.collectionViewUrl + '&at=' + ITUNES_AFFILIATE_CODE, '_system');
-        } else if (ANDROID) {
-            navigator.app.loadUrl(album.collectionViewUrl + '&at=' + ITUNES_AFFILIATE_CODE, { openExternal: true });
+    $scope.store.badgeImg = function(album) {
+      if (ANDROID && GOOGLE_PLAY_ALBUMS[album.collectionId]) {
+        return 'google_play_badge.png';
+      } else {
+        return 'itunes_badge.png';
+      }
+    };
+
+    $scope.store.getAlbum = function(album) {
+        var url = album.collectionViewUrl + '&at=' + ITUNES_AFFILIATE_CODE;
+
+        if (ANDROID && GOOGLE_PLAY_ALBUMS[album.collectionId]) {
+          url = 'https://play.google.com/store/music/album/?id=' + GOOGLE_PLAY_ALBUMS[album.collectionId];
+          window.analytics.trackEvent('Google Play', 'Click', 'Google Play Buy Click', 1);
+        } else {
+          window.analytics.trackEvent('iTunes', 'Click', 'iTunes Buy Click', 1);
         }
-        window.analytics.trackEvent('iTunes', 'Click', 'iTunes Buy Click', 1);
+
+        window.open(url, '_system');
     };
 }]);

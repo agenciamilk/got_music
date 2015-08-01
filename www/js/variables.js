@@ -92,6 +92,16 @@ var YOUTUBE_API_KEY = 'AIzaSyCop4Q0M0elkGysvAyod8P6H0LYhCfJI0Q';
 var ITUNES_USER_ID = '340701347';
 var ITUNES_AFFILIATE_CODE = '1l3vuS7';
 
+// Note: Google Play has no API to fetch albums info such as iTunes has.
+//       Then we need to build a "iTunes -> Google" relashionship to create links
+//       to Google Play on Android devices.
+var GOOGLE_PLAY_ALBUMS = {
+  '1003793824': 'Bmeodbnjfc6higcw7pprm7ligba',
+  '714948971':  'Bee6nolpva5c53xthvtyrqksjpe',
+  '690537359':  'Bw64re76iw2eoaq5vphi2tgc4ey',
+  '642780173':  'Blv3kaammvx3jppna3kbf7lnln4'
+};
+
 // SONGKICK
 // Trocar pelo id do artista no Songkick
 var SONGKICK_ARTIST_ID = '7756389';
