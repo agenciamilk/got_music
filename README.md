@@ -11,7 +11,7 @@
 
 # Development
 
-* Update the `PATH`
+* Update the `PATH` 
 ```
 # ~/.bash_profile
 PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
