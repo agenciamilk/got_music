@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!-- Trocar por com.gotmusic.{nome do artista} -->
-<widget id="com.gotmusic.abraham_mateo" version="1.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.gotmusic.cheddars" version="1.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <!-- Trocar pelo nome do artista -->
-    <name>Abraham Mateo</name>
+    <name>Cheddars</name>
     <!-- Descrição -->
     <description>
-        Fique por dentro de todas as novidades de Abraham Mateo
+        Fique por dentro de todas as novidades da banda Cheddars
     </description>
     <author email="contact@gotmusicapp.com" href="http://www.gotmusicapp.com">
         Got Music
@@ -26,7 +26,7 @@
     <feature name="Custom URL scheme">
       <param name="id" value="nl.x-services.plugins.launchmyapp" />
       <param name="url" value="https://github.com/EddyVerbruggen/LaunchMyApp-PhoneGap-Plugin.git" />
-      <variable name="URL_SCHEME" value="gotmusicabrahammateo"/>
+      <variable name="URL_SCHEME" value="cheddars"/>
     </feature>
 
     <!-- Icons & Splashscreens -->

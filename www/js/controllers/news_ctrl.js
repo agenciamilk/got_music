@@ -196,7 +196,7 @@ angular.module('gotMusicApp')
     // Twitter API
     $scope.twitter.open_twitter = function() {
 
-        var twitter_timeline = 'https://twitter.com/abrahammateomus';
+        var twitter_timeline = ''; // twitter timeline of artist
 
         var twitter_window = window.open(twitter_timeline, '_blank', 'location=yes');
     };
