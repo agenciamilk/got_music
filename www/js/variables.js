@@ -3,7 +3,7 @@
 
 // ARTIST
 // Trocar pelo nome do artista
-var ARTIST_NAME = 'Abraham Mateo';
+var ARTIST_NAME = 'Il Volo';
 
 // APP
 // Trocar por 'gotmusic' + {nome do artista}
@@ -14,8 +14,8 @@ var LATITUDE;
 var LONGITUDE;
 
 // PUSH NOTIFICATION
-// Trocar por App ID do app criado no Game Thrive
-var GAMETHRIVE_APP_ID = '53fdb92e-28cb-11e5-be46-2f2303deda73';
+// Trocar por App ID do app criado no One Signal
+var ONESIGNAL_APP_ID = 'd20d7d4e-7453-11e5-af96-8b5d535b7c99';
 
 // Trocar pela ID do Projeto do novo App criado no Google Developers Console
 var GCM_SENDER_ID = '119063429101';

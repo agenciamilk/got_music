@@ -54,7 +54,7 @@ var app = {
         // Register for Push Notification
         var pushNotification = window.plugins.pushNotification;
 
-        window.plugins.GameThrive.init(GAMETHRIVE_APP_ID,
+        window.plugins.GameThrive.init(ONESIGNAL_APP_ID,
                                        {googleProjectNumber: GCM_SENDER_ID},
                                        function(e) {
                                             didReceiveRemoteNotificationCallBack(e);
@@ -145,7 +145,7 @@ function registerPushId(platform, key) {
 }
 
 function gamethrive_register(platform, key, state) {
-    $.post('https://gamethrive.com/api/v1/players', {app_id: GAMETHRIVE_APP_ID, device_type: (IOS ? 0 : (ANDROID ? 1 : 5)), identifier: key, tags: {"state" : state}}, function (data, status) {
+    $.post('https://gamethrive.com/api/v1/players', {app_id: ONESIGNAL_APP_ID, device_type: (IOS ? 0 : (ANDROID ? 1 : 5)), identifier: key, tags: {"state" : state}}, function (data, status) {
         if (data.success) {
             window.localStorage.setItem('PUSH_NOTIFICATION_REGISTERED', true);
             window.localStorage.setItem('PUSH_NOTIFICATION_REGID', key);
