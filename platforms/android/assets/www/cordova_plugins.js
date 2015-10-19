@@ -65,6 +65,11 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/org.jshybugger.cordova/www/jsHybuggerLoader.js",
+        "id": "org.jshybugger.cordova.jsHybuggerLoader",
+        "runs": true
+    },
+    {
         "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
         "id": "org.apache.cordova.inappbrowser.inappbrowser",
         "clobbers": [
@@ -86,6 +91,7 @@ module.exports.metadata =
     "org.apache.cordova.geolocation": "0.3.12",
     "org.apache.cordova.network-information": "0.2.15",
     "org.apache.cordova.statusbar": "0.1.10",
+    "org.jshybugger.cordova": "4.5.9",
     "com.google.playservices": "21.0.0",
     "org.apache.cordova.inappbrowser": "0.6.0"
 }

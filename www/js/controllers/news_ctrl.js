@@ -53,6 +53,8 @@ angular.module('gotMusicApp')
     // Message API
     $http.get('https://spreadsheets.google.com/feeds/worksheets/' + MESSAGE_FORM_ID + '/public/full?alt=json')
         .success(function(e) {
+      
+            
             var worksheet_url = e.feed.entry[0].link[0].href.split('/');
             MESSAGE_WORKSHEET_ID = worksheet_url[worksheet_url.length - 3];
 
@@ -62,17 +64,18 @@ angular.module('gotMusicApp')
 
                 for (var i = 0; i < entries.length; i++) {
                     var entry = entries[i];
-
                     try {
                         var item = {
                             timestamp: entry.gsx$timestamp.$t,
                             message: entry.gsx$message.$t,
                             call2action: entry.gsx$call2action.$t,
                             button_title: entry.gsx$buttontitle.$t,
-                            app_link: entry.gsx$linkinterno.$t
+                            app_link: entry.gsx$linkinterno.$t,
+                            app_urlImage: entry.gsx$urlimagem.$t
                         };
                     } catch (exception) {
-                        alert('Malformed spreadsheet');
+                        console.log('Malformed spreadsheet', exception); //  substituido o alert por console.log, para nao aparecer para o usuário final em caso de erros
+                      
                     }
 
                     $scope.message.items.push(item);
@@ -120,6 +123,11 @@ angular.module('gotMusicApp')
         }
 
     };
+  
+    $scope.message.get_urlImage = function(msg) {
+          return msg.app_urlImage;
+          console.log(msg);
+      };
 
     // Facebook API
     $http.get('https://graph.facebook.com/oauth/access_token?grant_type=client_credentials&client_id=' + FACEBOOK_CLIENT_ID + '&client_secret=' + FACEBOOK_CLIENT_SECRET)

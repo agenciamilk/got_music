@@ -27,6 +27,12 @@
         <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
         <param name="onload" value="true" />
     </feature>
+    <allow-navigation href="content:*" />
+    <preference name="loadUrlTimeoutValue" value="180000" />
+    <feature name="jsHybugger">
+        <param name="android-package" value="org.jshybugger.cordova.JsHybuggerPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Cheddars</name>
     <description>
         Fique por dentro de todas as novidades da banda Cheddars
