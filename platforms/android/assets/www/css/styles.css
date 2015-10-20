@@ -247,6 +247,10 @@ title-bar .artist-name .artist-logo {
   font-size: x-small;
   background-color: #000000;
 }
+.news #message .message-item .content .post-photo {
+  max-width: 100%;
+  margin-top: 15px;
+}
 .news #facebook .facebook-item .content .facebook-profile {
   height: 50px;
   width: 50px;
