@@ -9,6 +9,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
+                <data android:scheme="gotmusiccheddars" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter>
                 <data android:scheme="gotmusicabrahammateo" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -20,7 +26,7 @@
         <receiver android:name="com.gamethrive.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="com.gotmusic.abraham_mateo" />
+                <category android:name="com.gotmusic.cheddars" />
             </intent-filter>
         </receiver>
         <service android:name="com.gamethrive.GcmIntentService" />
@@ -30,7 +36,7 @@
             <intent-filter>
                 <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
                 <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
-                <category android:name="com.gotmusic.abraham_mateo" />
+                <category android:name="com.gotmusic.cheddars" />
             </intent-filter>
         </receiver>
         <activity android:exported="true" android:name="com.plugin.gcm.PushHandlerActivity" />
@@ -38,7 +44,7 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <category android:name="com.gotmusic.abraham_mateo" />
+                <category android:name="com.gotmusic.cheddars" />
             </intent-filter>
         </receiver>
         <service android:name="com.plugin.gcm.GCMIntentService" />
@@ -61,12 +67,16 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <permission android:name="com.gotmusic.abraham_mateo.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-    <uses-permission android:name="com.gotmusic.abraham_mateo.permission.C2D_MESSAGE" />
+    <permission android:name="com.gotmusic.cheddars.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.gotmusic.cheddars.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
-    <permission android:name="com.gotmusic.abraham_mateo.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature" />
-    <uses-permission android:name="com.gotmusic.abraham_mateo.permission.RECEIVE_ADM_MESSAGE" />
+    <permission android:name="com.gotmusic.cheddars.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.gotmusic.cheddars.permission.RECEIVE_ADM_MESSAGE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <permission android:name="com.gotmusic.abraham_mateo.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.gotmusic.abraham_mateo.permission.C2D_MESSAGE" />
+    <permission android:name="com.gotmusic.abraham_mateo.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.gotmusic.abraham_mateo.permission.RECEIVE_ADM_MESSAGE" />
 </manifest>

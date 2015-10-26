@@ -1,5 +1,5 @@
 angular.module('gotMusicApp')
-.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$interval', '$timeout', '$document', 'videoService', '$modal', function($scope, $log, $http, $location, $interval, $timeout, $document, videoService, $modal) {
+.controller('NewsCtrl', ['$scope', '$log', '$http', '$location', '$interval', '$timeout', '$document', 'videoService', '$modal', '$sce', function($scope, $log, $http, $location, $interval, $timeout, $document, videoService, $modal, $sce) {
     $scope.openModal = function() {
         $('#internet-modal-background').show();
         var modalInstance = $modal.open({
@@ -66,12 +66,14 @@ angular.module('gotMusicApp')
                     var entry = entries[i];
                     try {
                         var item = {
-                            timestamp: entry.gsx$timestamp.$t,
+                            timestamp: entry.gsx$submissiondate.$t,
                             message: entry.gsx$message.$t,
                             call2action: entry.gsx$call2action.$t,
                             button_title: entry.gsx$buttontitle.$t,
                             app_link: entry.gsx$linkinterno.$t,
-                            app_urlImage: entry.gsx$urlimagem.$t
+                            app_urlImage: entry.gsx$imagem.$t,
+                            app_urlVideo: entry.gsx$video.$t
+                            
                         };
                     } catch (exception) {
                         console.log('Malformed spreadsheet', exception); //  substituido o alert por console.log, para nao aparecer para o usuário final em caso de erros
@@ -125,15 +127,22 @@ angular.module('gotMusicApp')
     };
   
     $scope.message.get_urlImage = function(msg) {
-          return msg.app_urlImage;
-          console.log(msg);
-      };
+      return msg.app_urlImage;
+    };
+  
+    $scope.message.get_urlVideo = function(msg) {
+      var resp = msg.app_urlVideo;
+      
+      console.log("Url do video", resp);   
+      return $sce.trustAsResourceUrl(resp);
+        
+    };
 
     // Facebook API
     $http.get('https://graph.facebook.com/oauth/access_token?grant_type=client_credentials&client_id=' + FACEBOOK_CLIENT_ID + '&client_secret=' + FACEBOOK_CLIENT_SECRET)
         .success(function(e) {
             $scope.facebook.access_token = e;
-            var fbFields = 'from,type,status_type,message,name,description,picture,source';
+            var fbFields = 'from,type,78,message,name,description,picture,source';
 
             $http.get('https://graph.facebook.com/v2.4/' + FACEBOOK_PAGE_ID + '/posts?fields='+ fbFields + '&' + $scope.facebook.access_token)
             .success(function(e) {

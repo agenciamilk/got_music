@@ -251,6 +251,10 @@ title-bar .artist-name .artist-logo {
   max-width: 100%;
   margin-top: 15px;
 }
+.news #message .message-item .content .post-video {
+  max-width: 100%;
+  margin-top: 15px;
+}
 .news #facebook .facebook-item .content .facebook-profile {
   height: 50px;
   width: 50px;
