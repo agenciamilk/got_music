@@ -1,0 +1,147 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+.al-background {
+  background-image: url('../img/artist-bg.png'), url('../img/bg.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+.al-container {
+  position: relative;
+}
+.al-container > .container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.al-container > .container .gm-logo {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+.al-container > .container .artist-logo {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 100%;
+  max-width: 480px;
+}
+.form-group {
+  position: relative;
+  margin: 0 auto;
+  max-width: 494px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+.form-group .al-ct-icon {
+  width: 120px;
+  position: absolute;
+}
+.form-group .al-ct-icon .input-icon {
+  display: block;
+  margin: 0 auto;
+  margin-top: 22px;
+}
+.form-group .form-control {
+  height: 86px;
+  border-radius: 50px;
+  background: transparent;
+  border: 5px solid white !important;
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  font-size: 26px;
+  color: #ffffff;
+  padding-left: 130px;
+}
+.form-group .form-control:focus,
+.form-group .form-control:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.form-group ::-webkit-input-placeholder {
+  color: #ffffff;
+  font: 26px verdana, arial, sans-serif;
+}
+.form-group :-moz-placeholder {
+  color: #ffffff;
+  font: 26px verdana, arial, sans-serif;
+}
+.form-group ::-moz-placeholder {
+  color: #ffffff;
+  font: 26px verdana, arial, sans-serif;
+}
+.form-group :-ms-input-placeholder {
+  color: #ffffff;
+  font: 26px verdana, arial, sans-serif;
+}
+.btn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 52px;
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 488px;
+  border-radius: 50px;
+  height: 86px;
+  background: #000000;
+  color: #fbfdfd;
+  font: 400 36px Oswald;
+  text-transform: uppercase;
+  border: 0 none;
+}
+.btn:hover,
+.btn:focus {
+  background: #000000;
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+}
+@media (max-width: 768px) {
+  .gm-logo {
+    max-height: 44px;
+    margin-bottom: 25px;
+    margin-top: 45px;
+  }
+  .form-group .form-control {
+    height: 44px;
+    border: 3px solid white !important;
+    font-size: 14px;
+    color: #ffffff;
+    padding-left: 80px;
+  }
+  .form-group .al-ct-icon {
+    width: 80px;
+    position: absolute;
+  }
+  .form-group .al-ct-icon .input-icon {
+    height: 20px;
+    margin-top: 12px;
+  }
+  .form-group ::-webkit-input-placeholder {
+    color: #ffffff;
+    font: 14px verdana, arial, sans-serif;
+  }
+  .form-group :-moz-placeholder {
+    color: #ffffff;
+    font: 14px verdana, arial, sans-serif;
+  }
+  .form-group ::-moz-placeholder {
+    color: #ffffff;
+    font: 14px verdana, arial, sans-serif;
+  }
+  .form-group :-ms-input-placeholder {
+    color: #ffffff;
+    font: 14px verdana, arial, sans-serif;
+  }
+  .btn {
+    margin-top: 26px;
+    margin-bottom: 26px;
+    height: 44px;
+    background: #000000;
+    color: #fbfdfd;
+    font: 400 14px Oswald;
+  }
+}
