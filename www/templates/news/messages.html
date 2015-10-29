@@ -15,6 +15,7 @@
             </div>
 
             <div class="message-text">{{msg.message}}</div>
+            
           </div>
 
           <div class="text-center">
@@ -22,7 +23,17 @@
               {{message.get_button_title(msg)}}
             </div>
           </div>
-        </div>
+          
+          <img class="post-photo" src={{message.get_urlImage(msg)}} ng-show={{message.get_urlImage(msg)}} />
+          
+          <video class="post-video" width="100%" controls ng-show={{message.get_urlVideo(msg)}}>
+            <source ng-src={{message.get_urlVideo(msg)}}>           
+            Your browser does not support HTML5 video.
+          </video>
+          
+          
+          
+        </div> 
       </div>
     </div>
   </div>

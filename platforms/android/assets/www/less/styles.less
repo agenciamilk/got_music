@@ -26,59 +26,68 @@ body {
 
 
 navigation-tabs {
-    z-index: 100;
-    position: fixed;
-    top: @title-bar-height;
-    left: 0;
-    width: 100%;
-    border-bottom: 1px solid #333333;
+  z-index: 100;
+  position: fixed;
+  top: @title-bar-height;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #333333;
 
-    .menu-border-left {
-        border-left: 1px solid #868686;
-        position: absolute;
-        top: 15%;
-        bottom: 15%;
+  .menu-border-left {
+    border-left: 1px solid #868686;
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+  }
+
+  .menu-border-right {
+    .menu-border-left;
+    right: 0;
+  }
+
+  .button-wrapper {
+    padding: 0 !important;
+    width: 32%;
+    float: left;
+    position: relative;
+
+    &:first-child {
+      width: 36%;
     }
 
-    .menu-border-right {
-        .menu-border-left;
-        right: 0;
+    .option-button {
+      padding: 10px 0px;
+      height: @navigation-bar-height;
+      line-height: 28px;
+      background-color: @menu-button-bg-color;
+      color: @menu-button-color;
+      text-align: center;
+      font-family: 'lato_bold';
+      font-size: 13px;
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+
+      &.selected {
+        color: @menu-button-color-active;
+        svg.menu-icon { path { fill: @menu-button-color-active; } }
+      }
+
+      .menu-icon-wrapper {
+        width: 14px;
+        display: inline-block;
+        margin-right: 4px;
+      }
+
+      svg.menu-icon {
+        width: auto;
+        height: 14px;
+        vertical-align: baseline;
+        top: 2px;
+        position: relative;
+        path { fill: @menu-button-color; }
+      }
     }
-
-    .button-wrapper {
-        padding: 0 !important;
-
-        .option-button {
-            padding: 10px 0px;
-            height: @navigation-bar-height;
-            line-height: 28px;
-            background-color: @menu-button-bg-color;
-            color: @menu-button-color;
-            text-align: center;
-            font-family: 'lato_bold';
-            font-size: 14px;
-            &:first-child { padding-left: 0; }
-            &:last-child { padding-right: 0; }
-
-            &.selected {
-                color: @menu-button-color-active;
-                svg.menu-icon { path { fill: @menu-button-color-active; } }
-            }
-
-            svg.menu-icon {
-                width: auto;
-                height: 14px;
-                margin-right: 5px;
-                vertical-align: baseline;
-                top: 2px;
-                position: relative;
-                path { fill: @menu-button-color; }
-            }
-
-            .option-button-first { margin-left: 15px; }
-            .option-button-last { margin-right: 15px; }
-        }
-    }
+  }
 }
 
 title-bar {
@@ -108,77 +117,79 @@ title-bar {
 }
 
 .home {
-    .home-logo {
-        position: absolute;
-        top: 50px;
-        width: 100%;
-        img {
-            width: 60%;
-            left: 0;
-            top: 0;
-            bottom: @bottom-menu-height;
-            right: 0;
-            margin: auto;
-            position: fixed
+  .home-logo {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+
+    img {
+      width: 60%;
+      left: 0;
+      top: 0;
+      bottom: @bottom-menu-height;
+      right: 0;
+      margin: auto;
+      position: fixed
+    }
+  }
+
+  .home-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #FFF;
+    bottom: 2 * @home-menu-button-vertical-padding + @home-menu-bottom + @home-menu-font-size;
+  }
+
+  .bottom-menu {
+    position: absolute;
+    bottom: @home-menu-bottom;
+    left: 0;
+    width: 100%;
+    overflow-x: hidden;
+    height: @bottom-menu-height;
+
+    .button-wrapper {
+      padding: 0 !important;
+      width: 32%;
+      float: left;
+      position: relative;
+
+      &:first-child {
+        width: 36%;
+        .option-button:after { display: none }
+      }
+
+      .option-button {
+        font-size: @home-menu-font-size;
+        padding: @home-menu-button-vertical-padding 0;
+        background-color: @home-menu-button-bg-color;
+        color: @home-menu-button-color;
+        text-align: center;
+
+        &:after {
+          position: absolute;
+          top: @home-menu-border-margin;
+          bottom: @home-menu-border-margin;
+          left: 0;
+          content: "";
+          width: 0;
+          border-right: 1px solid @home-menu-border-color;
         }
+      }
     }
-    .home-img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 100%;
-        background-color: #FFF;
-        bottom: 2 * @home-menu-button-padding + @home-menu-bottom + @home-menu-font-size;
-    }
-
-    .bottom-menu {
-        position: absolute;
-        bottom: @home-menu-bottom;
-        left: 0;
-        width: 100%;
-        overflow-x: hidden;
-        height: @bottom-menu-height;
-
-        .button-wrapper {
-            padding: 0 !important;
-
-            .option-button {
-                font-size: @home-menu-font-size;
-                padding: @home-menu-button-padding;
-                background-color: @home-menu-button-bg-color;
-                color: @home-menu-button-color;
-                text-align: center;
-
-                &:first-child {
-                    &:after {
-                        position: absolute;
-                        top: @home-menu-border-margin;
-                        bottom: @home-menu-border-margin;
-                        left: 0;
-                        content: "";
-                        width: 0;
-                        border-right: 1px solid @home-menu-border-color;
-                    }
-                }
-            }
-            .first-option-button {
-                padding-left: 25px !important;
-            }
-            .last-option-button {
-                padding-right: 30px !important;
-            }
-        }
-    }
+  }
 }
 
 .item {
-    #title {
-        background-color: @second-color;
-        color: @main-color;
-        padding: 5px;
-    }
+  #title {
+    background-color: @second-color;
+    color: @main-color;
+    padding: 5px;
+  }
 }
 
 .section {
@@ -195,6 +206,13 @@ title-bar {
         margin: 15px @item-margin;
         position: relative;
         z-index: 0;
+
+        .swiper-wrapper {
+            -webkit-transition-property: all;
+            -moz-transition-property: all;
+            -ms-transition-property: all;
+            transition-property: all;
+        }
 
         .item {
             border-bottom-left-radius: @item-content-radius;
@@ -269,6 +287,14 @@ title-bar {
                     font-size: x-small;
                     background-color: @third-color;
                 }
+                .post-photo{
+                    width:100%;
+                    margin-top:15px;
+                }
+                .post-video{
+                    width:100%;
+                    margin-top:15px;
+                }            
             }
         }
     }
@@ -475,175 +501,178 @@ title-bar {
 }
 
 .music {
-    #deezer {
-        .loading-image {
-            display: block;
-            width: 55px;
-            margin: (-27px + 15px) 0 0 -27px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            z-index: 1;
-        }
-
-        #deezer-embed {
-            position: relative;
-        }
-
-        .deezer-item {
-            .embed {
-                padding: 0 !important;
-
-                iframe {
-                    padding-top: 6px;
-                    margin-left: -3px;
-                }
-            }
-
-            .content {
-                height: 120px !important;
-
-                .album-cover-wrapper {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    height: 150px;
-                }
-
-                .album-image {
-                    height: 120px;
-                    width: 120px;
-
-                    border-bottom-left-radius: @item-content-radius;
-                }
-
-                .btn-player {
-                    height: 50px;
-                    width: 50px;
-                    position: absolute;
-                    left: 35px;
-                    top: 35px;
-                    border-radius: 50%;
-                }
-                .col-xs-12 {
-                    padding-left: 0;
-                    border-bottom-left-radius: @item-content-radius;
-                }
-                .deezer-content {
-                    margin-left: 120px;
-                    .deezer-header {
-                        .deezer-track {
-                            font-weight: bold;
-                        }
-                        .deezer-artist {
-                            color: @twitter-username-text-color;
-                            font-size: small;
-                        }
-                    }
-
-
-                    .album-info {
-                        margin-top: 15px;
-                        .album-price {
-                            font-weight: bold;
-                        }
-
-                        .album-release {
-                            font-size: x-small;
-                            color: @twitter-username-text-color;
-                        }
-
-                        .album-copyright {
-                            .album-release;
-                        }
-                    }
-                }
-
-                .dzSlider {
-                    height: 20px;
-                    margin-top: 7px;
-                    background-color: #464646;
-                    border: #000000 solid 5px;
-                    .dzProgress {
-                        height: 10px;
-                        background-color: #FFFFFF;
-                    }
-                }
-            }
-        }
-
+  #deezer {
+    .loading-image {
+      display: block;
+      width: 55px;
+      margin: (-27px + 15px) 0 0 -27px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 1;
     }
 
-    #youtube {
-        .youtube-item {
-            .content {
-                padding: 0 !important;
-                .youtube-thumbnail {
-                    width: 100%;
-                    border-bottom-left-radius: @item-content-radius;
-                    border-bottom-right-radius: @item-content-radius;
-                    -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
-                    -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
-                    box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
-                }
-                .youtube-video-title {
-                    background-color: @third-color;
-                    color: @main-color;
-                    height: 30px;
-                    line-height: 30px;
-                    font-size: small;
-                    text-align: center;
-                }
-            }
-        }
+    #deezer-embed {
+      position: relative;
     }
 
+    .deezer-item {
+      .embed {
+        padding: 0 !important;
 
-    #itunes {
-        .itunes-item {
-            .content {
-                .album-image {
-                    height: 100px;
-                    width: 100px;
-                    float: left;
-                }
-                .buy-album {
-                    position: absolute;
-                    right: 0;
-                    bottom: -3px;
-                }
-                .itunes-content {
-                    margin-left: 110px;
-                    .itunes-header {
-                        .itunes-artist {
-                            font-weight: bold;
-                        }
-                        .itunes-album {
-                            color: @twitter-username-text-color;
-                            font-size: small;
-                        }
-                    }
-
-                    .album-info {
-                        margin-top: 15px;
-                        .album-price {
-                            font-weight: bold;
-                        }
-
-                        .album-release {
-                            font-size: x-small;
-                            color: @twitter-username-text-color;
-                        }
-
-                        .album-copyright {
-                            .album-release;
-                        }
-                    }
-                }
-            }
+        iframe {
+          padding-top: 6px;
+          margin-left: -3px;
         }
-    }
+      }
 
+      .content {
+        height: 120px !important;
+
+        .album-cover-wrapper {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 150px;
+        }
+
+        .album-image {
+          height: 120px;
+          width: 120px;
+
+          border-bottom-left-radius: @item-content-radius;
+        }
+
+        .btn-player {
+          height: 50px;
+          width: 50px;
+          position: absolute;
+          left: 35px;
+          top: 35px;
+          border-radius: 50%;
+        }
+        .col-xs-12 {
+          padding-left: 0;
+          border-bottom-left-radius: @item-content-radius;
+        }
+        .deezer-content {
+          margin-left: 120px;
+          .deezer-header {
+            .deezer-track {
+              font-weight: bold;
+            }
+            .deezer-artist {
+              color: @twitter-username-text-color;
+              font-size: small;
+            }
+          }
+
+
+          .album-info {
+            margin-top: 15px;
+            .album-price {
+              font-weight: bold;
+            }
+
+            .album-release {
+              font-size: x-small;
+              color: @twitter-username-text-color;
+            }
+
+            .album-copyright {
+              .album-release;
+            }
+          }
+        }
+
+        .dzSlider {
+          height: 20px;
+          margin-top: 7px;
+          background-color: #464646;
+          border: #000000 solid 5px;
+          .dzProgress {
+            height: 10px;
+            background-color: #FFFFFF;
+          }
+        }
+      }
+    }
+  }
+
+  #youtube {
+    .youtube-item {
+      .content {
+        padding: 0 !important;
+        .youtube-thumbnail {
+          width: 100%;
+          min-height: 240px;
+          border-bottom-left-radius: @item-content-radius;
+          border-bottom-right-radius: @item-content-radius;
+          -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+          -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+          box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+        }
+        .youtube-video-title {
+          background-color: @third-color;
+          color: @main-color;
+          height: 30px;
+          line-height: 30px;
+          font-size: small;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  #itunes {
+    .itunes-item {
+      .content {
+        .album-image {
+          height: 100px;
+          width: 100px;
+          float: left;
+        }
+
+        .itunes-content {
+          margin-left: 110px;
+
+          .itunes-header {
+            .itunes-artist {
+              font-weight: bold;
+            }
+
+            .itunes-album {
+              color: @twitter-username-text-color;
+              font-size: small;
+            }
+          }
+
+          .album-info {
+            margin-top: 15px;
+
+            .album-price {
+              font-weight: bold;
+            }
+
+            .album-release {
+              font-size: x-small;
+              color: @twitter-username-text-color;
+            }
+
+            .album-copyright {
+              .album-release;
+            }
+          }
+        }
+
+        .buy-album {
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+        }
+      }
+    }
+  }
 }
 
 
@@ -690,95 +719,117 @@ title-bar {
 }
 
 .shows {
-    #demand {
-        .demand-item {
-            .content {
-                .demand-text {
-                    margin-top: 10px;
-                    .artist-name {
-                        font-weight: bolder;
-                        font-family: 'lato_bold';
-                    }
-                }
-                .demand-btn {
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                    background-color: @third-color;
-                    color: @main-color;
-                }
-            }
+  #demand {
+    .demand-item {
+      .content {
+        .demand-text {
+          margin-top: 10px;
+
+          .artist-name {
+            font-weight: bolder;
+            font-family: 'lato_bold';
+          }
         }
+
+        .demand-btn {
+          margin-top: 10px;
+          margin-bottom: 10px;
+          background-color: @third-color;
+          color: @main-color;
+        }
+      }
     }
+  }
+
     #songkick {
-        .songkick-item {
-            .content {
-                padding: 0 !important;
-                .songkick-event {
-                    padding: 0;
-                    .border-content {
-                        border-left: 1px solid @third-color;
-                        position: absolute;
-                        top: 25%;
-                        bottom: 10%;
-                    }
-                    .border-date {
-                        border-left: 1px solid @main-color;
-                        position: absolute;
-                        top: 4px;
-                        height: 12px;
-                    }
-                    .event-date {
-                        background-color: @third-color;
-                        color: @main-color;
-                    }
-                    .event-city {
-                        margin-top: 10px;
-                        font-weight: bold;
-                    }
-                    .event-btn {
-                        margin-top: 10px;
-                        margin-bottom: 10px;
-                        background-color: @third-color;
-                        color: @main-color;
-                    }
-                }
+      .songkick-item {
+        .content {
+          padding: 0 !important;
+
+          .content-events {
+            overflow: auto;
+            clear: both;
+          }
+
+          .songkick-event {
+            padding: 0;
+            width: 50%;
+            float: left;
+
+            .border-date {
+              border-left: 1px solid @main-color;
+              position: absolute;
+              top: 39px;
+              height: 12px;
             }
-            .songkick-logo-wrapper {
-                background-color: @bar-body-background-color;
-                color: @third-color;
-                .songkick-logo{
-                    height: 20px;
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                }
+
+            .border-content {
+              border-left: 1px solid @third-color;
+              position: absolute;
+              top: 65px;
+              bottom: 45px;
             }
+
+            .event-date {
+              background-color: @third-color;
+              color: @main-color;
+            }
+
+            .event-city {
+              margin-top: 10px;
+              padding: 0 5px;
+              font-weight: bold;
+            }
+
+            .event-place {
+              padding: 0 5px;
+            }
+
+            .event-btn {
+              margin-top: 10px;
+              margin-bottom: 10px;
+              background-color: @third-color;
+              color: @main-color;
+            }
+          }
         }
 
+        .songkick-logo-wrapper {
+          margin-top: 10px;
+          .songkick-logo {
+            height: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+          }
+        }
+      }
     }
+
     #livestream {
-        .livestream-item {
-            .content {
-                padding: 0 !important;
-                .livestream-thumbnail {
-                    width: 100%;
-                    border-bottom-left-radius: @item-content-radius;
-                    border-bottom-right-radius: @item-content-radius;
-                    -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
-                    -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
-                    box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
-                }
-                .livestream-video-title {
-                    background-color: @third-color;
-                    color: @main-color;
-                    height: 30px;
-                    line-height: 30px;
-                    font-size: small;
-                    text-align: center;
-                }
-            }
-        }
-    }
+      .livestream-item {
+        .content {
+          padding: 0 !important;
 
+          .livestream-thumbnail {
+            width: 100%;
+            border-bottom-left-radius: @item-content-radius;
+            border-bottom-right-radius: @item-content-radius;
+            -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+            -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+            box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.5);
+          }
+
+          .livestream-video-title {
+            background-color: @third-color;
+            color: @main-color;
+            height: 30px;
+            line-height: 30px;
+            font-size: small;
+            text-align: center;
+          }
+        }
+      }
+    }
 }
 
 // NOTIFICATION
