@@ -22,7 +22,7 @@ var GCM_SENDER_ID = '119063429101';
 
 // MESSAGE
 // Trocar por id da planilha de mensagens (respostas) criada no Google Drive
-var MESSAGE_FORM_ID = '1O-QMKcTRFSHzMXUDfpk2ey5wrYBPjpCBMPHRN29vfm4';
+var MESSAGE_FORM_ID = '1orqijSkzm1Kf-MxLncZ3ZbBp_bDTHROHtpbD18ddIAw';
 var MESSAGE_WORKSHEET_ID;
 
 // FACEBOOK

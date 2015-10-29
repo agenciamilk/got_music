@@ -67,8 +67,8 @@ navigation-tabs .button-wrapper .option-button {
   padding: 10px 0px;
   height: 45px;
   line-height: 28px;
-  background-color: #f0f0f0;
-  color: #888888;
+  background-color: #F0F0F0;
+  color: #888;
   text-align: center;
   font-family: 'lato_bold';
   font-size: 13px;
@@ -98,7 +98,7 @@ navigation-tabs .button-wrapper .option-button svg.menu-icon {
   position: relative;
 }
 navigation-tabs .button-wrapper .option-button svg.menu-icon path {
-  fill: #888888;
+  fill: #888;
 }
 title-bar {
   position: fixed;
@@ -157,7 +157,7 @@ title-bar .artist-name .artist-logo {
   left: 0;
   content: "";
   width: 0;
-  border-right: 1px solid #ffffff;
+  border-right: 1px solid #FFFFFF;
 }
 .item #title {
   background-color: #868686;
@@ -195,7 +195,7 @@ title-bar .artist-name .artist-logo {
 .section .module .item .title-wrapper .title {
   margin-left: 15px;
   font-family: 'lato_bold';
-  color: #ffffff;
+  color: #FFFFFF;
   padding: 5px;
   font-size: 18px;
 }
@@ -209,7 +209,7 @@ title-bar .artist-name .artist-logo {
 .section .module .item .content {
   font-family: 'lato_regular';
   background-color: rgba(255, 255, 255, 0.9);
-  color: #222222;
+  color: #222;
   padding: 15px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
@@ -238,10 +238,18 @@ title-bar .artist-name .artist-logo {
 }
 .news #message .message-item .content .message-action {
   margin: 10px 0 10px -50px;
-  color: #ffffff;
+  color: #FFFFFF;
   text-transform: uppercase;
   font-size: x-small;
   background-color: #261d39;
+}
+.news #message .message-item .content .post-photo {
+  width: 100%;
+  margin-top: 15px;
+}
+.news #message .message-item .content .post-video {
+  width: 100%;
+  margin-top: 15px;
 }
 .news #facebook .facebook-item .content .facebook-profile {
   height: 50px;
@@ -279,7 +287,7 @@ title-bar .artist-name .artist-logo {
   box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
 .news #facebook .facebook-item .content .facebook-content .facebook-status-video .youtube-video-title {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   color: #261d39;
   height: 30px;
   line-height: 30px;
@@ -300,7 +308,7 @@ title-bar .artist-name .artist-logo {
 }
 .news #twitter .twitter-item .content .twitter-open-button {
   margin: 10px 0 10px -50px;
-  color: #ffffff;
+  color: #FFFFFF;
   text-transform: uppercase;
   font-size: x-small;
   background-color: #261d39;
@@ -362,21 +370,21 @@ title-bar .artist-name .artist-logo {
   top: 5px;
 }
 .news #instagram .instagram-item .content .instagram-content .instagram-header .instagram-relationship .follow {
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
   padding: 3px 10px;
   text-transform: uppercase;
 }
 .news #instagram .instagram-item .content .instagram-content .instagram-header .instagram-relationship .following {
-  border: 1px solid #ffffff;
-  background-color: #ffffff;
+  border: 1px solid #FFFFFF;
+  background-color: #FFFFFF;
   color: #261d39;
   text-transform: uppercase;
   padding: 3px 10px;
 }
 .news #instagram .instagram-item .content .instagram-content .instagram-text {
   margin-top: 40px;
-  color: #222222;
+  color: #222;
   overflow-y: hidden;
 }
 .news #instagram .instagram-item .content .instagram-content .instagram-actions {
@@ -480,7 +488,7 @@ title-bar .artist-name .artist-logo {
   box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
 .music #youtube .youtube-item .content .youtube-video-title {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   color: #261d39;
   height: 30px;
   line-height: 30px;
@@ -574,7 +582,7 @@ title-bar .artist-name .artist-logo {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #261d39;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .shows #songkick .songkick-item .content {
   padding: 0 !important;
@@ -616,7 +624,7 @@ title-bar .artist-name .artist-logo {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #261d39;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .shows #songkick .songkick-item .songkick-logo-wrapper {
   margin-top: 10px;
@@ -638,7 +646,7 @@ title-bar .artist-name .artist-logo {
   box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
 .shows #livestream .livestream-item .content .livestream-video-title {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   color: #261d39;
   height: 30px;
   line-height: 30px;
@@ -692,7 +700,7 @@ title-bar .artist-name .artist-logo {
 .modal-content .modal-header .modal-title {
   margin-left: 15px;
   font-family: 'lato_bold';
-  color: #ffffff;
+  color: #FFFFFF;
   padding: 5px;
   font-size: 18px;
 }
@@ -728,7 +736,7 @@ title-bar .artist-name .artist-logo {
 }
 .modal-content .modal-body .btn-gotmusic {
   background-color: #261d39;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .loading-wrapper {
   background-color: rgba(0, 0, 0, 0.8);

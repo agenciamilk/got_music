@@ -65,14 +65,18 @@ angular.module('gotMusicApp')
 
                     try {
                         var item = {
-                            timestamp: entry.gsx$timestamp.$t,
+                            timestamp: entry.gsx$submissiondate.$t,
                             message: entry.gsx$message.$t,
                             call2action: entry.gsx$call2action.$t,
                             button_title: entry.gsx$buttontitle.$t,
-                            app_link: entry.gsx$linkinterno.$t
+                            app_link: entry.gsx$linkinterno.$t,
+                            app_urlImage: entry.gsx$imagem.$t,
+                            app_urlVideo: entry.gsx$video.$t
+                            
                         };
                     } catch (exception) {
-                        alert('Malformed spreadsheet');
+                        console.log('Malformed spreadsheet', exception); //  substituido o alert por console.log, para nao aparecer para o usuário final em caso de erros
+                      
                     }
 
                     $scope.message.items.push(item);
@@ -118,6 +122,18 @@ angular.module('gotMusicApp')
                 navigator.app.loadUrl(msg.call2action, { openExternal: true });
             }
         }
+
+    };
+  
+    $scope.message.get_urlImage = function(msg) {
+      return msg.app_urlImage;
+    };
+
+    $scope.message.get_urlVideo = function(msg) {
+      var resp = msg.app_urlVideo;
+
+      console.log("Url do video", resp);   
+      return $sce.trustAsResourceUrl(resp);
 
     };
 
