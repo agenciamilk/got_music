@@ -150,6 +150,14 @@
     border-radius: 3px 3px;
 }
 
+.form-product-custom_price {
+    text-align: right;
+    width: 30px;
+    border: 1px solid gray;
+    margin: 0 2px;
+    padding: 2px 4px
+}
+
 .hover-product-item:hover{
     background:#f5f5f5;
     color:#000;
