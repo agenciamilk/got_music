@@ -189,6 +189,7 @@ var JotForm = {
             type_control = field.up('li').readAttribute('data-type');
         });
 
+        var alreadyEncrypted = [];
         $$('.form-textbox, .form-textarea, .form-radio, .form-checkbox, .form-dropdown > option').each(function(field){
 
             // Really? Why? Are they assumed empty? - Alp
@@ -200,9 +201,16 @@ var JotForm = {
                     return;
                 }
 
-                //handle duplication of textareas, by forcefully encrypting the hidden previous sibling
-                var encryptedAnswer = JotEncrypted.encrypt(field.value);
+                //prevent double encryption (especially of textareas)
+                if (alreadyEncrypted.indexOf(field.name) !== -1) {
+                    return;
+                }
 
+                var encryptedAnswer = JotEncrypted.encrypt(field.value);
+                //add to encrypted list
+                alreadyEncrypted.push(field.name);
+
+                //handle duplication of textareas, by forcefully encrypting the hidden previous sibling
                 if (fieldType == "control_textarea") {
                     var allFields = $$('[name="'+field.name+'"]');
                     for (x=0; x < allFields.length ; x++) {
@@ -343,6 +351,10 @@ var JotForm = {
 
                 if ($$('input[name="simple_fpc"]').length > 0) {
                     this.payment = $$('input[name="simple_fpc"]')[0].getAttribute('data-payment_type');
+                }
+
+                if (!!$$('.form-product-custom_price').length) {
+                    this.handleSubscriptionPrice();
                 }
 
                 if (this.payment === "paypalpro") {
@@ -4727,6 +4739,64 @@ var JotForm = {
             $('total-text').innerHTML = text.totalTotal + ':';
         }
     },
+
+    handleSubscriptionPrice: function () {
+        // safari fix (input focus bug)
+        if (navigator.userAgent.toLowerCase().indexOf('safari/') > -1) {
+            $$('.form-product-custom_price').each(function (inp) {
+                // form-product-custom_price
+                inp.onclick = function (e) {
+                    e.preventDefault();
+                };
+            })
+        }
+        var inputs = $$('input[data-price-source]');
+        if (inputs.length < 1) {
+            return;
+        }
+        var priceSources = []; 
+        var events = {};
+        inputs.each(function (inp) {
+            var sourceId = inp.getAttribute('data-price-source');
+            var source = $('input_' + sourceId);
+            
+            if (!source) {
+                return;
+            }
+
+            if (!events[sourceId]) {
+                events[sourceId] = [];
+            }
+
+            var getVal = function () {
+                var val = source.value;
+                if (typeof val !== 'number') {
+                    val = val.replace(/[^0-9\.]/gi, "");
+                }
+                return !isNaN(val) && val > 0 ? val : 0;
+            }
+            // collect source fields
+            priceSources.push(source);
+            
+            // collect events
+            events[sourceId].push(function() {
+                inp.value = getVal();
+            });
+        });
+
+        // attach events to source fields
+        priceSources.each(function (source) {
+            var id = source.id.replace('input_', '');
+            source.onkeyup = function () {
+                events[id].each(function (evt) {
+                    evt();
+                });
+                JotForm.countTotal(); // re-count total
+            };
+            
+        });
+    },
+
     /*
      * Handles payment donations
      */
@@ -5107,8 +5177,15 @@ var JotForm = {
         var decimal = JotForm.currencyFormat.decimal; // number of decimal places to use
         var flatShipping = 0;
         var products = 0;
+        var subscriptionCustomPrice = false;
 
         $H(prices).each(function (pair) {
+
+            if (pair.value.price == "custom") {
+                subscriptionCustomPrice = pair.key;
+                return;
+            }
+
             var isSetupFee = pair.value.recurring ? true : false; // is there a setup fee for this subscription?
             var isStripe = typeof Stripe === "function";    // is this a stripe payment field
             total = parseFloat(total);                  // total for the whole payment field
@@ -5385,6 +5462,11 @@ var JotForm = {
             shippingTotal = shippingTotal > reduce ? shippingTotal - reduce : 0;
             total = total - (oldShippingTotal - shippingTotal);
         }
+
+        if (subscriptionCustomPrice && $(subscriptionCustomPrice).checked) {
+            total = $(subscriptionCustomPrice + '_custom_price').getValue();
+        }
+
         // assign total to global var;
         this.paymentTotal = Number(total);
         // for PaypalPro only
@@ -5446,6 +5528,14 @@ var JotForm = {
             $(pair.key).observe('click', function () {
                 JotForm.countTotal(prices);
             });
+
+            // if this is a subscription with custom pricing
+            if (pair.value.price == "custom") {
+                $(pair.key + '_custom_price').observe('keyup', function () {
+                    JotForm.countTotal(prices);
+                });
+            }
+
             // if tax is present
             if (pair.value.tax) {
                 var surcharge = pair.value.tax.surcharge;
@@ -6519,9 +6609,9 @@ var JotForm = {
                     (46 == event.which) || (45 == event.which) || (43 == event.which) || // ., -, +
                     isControlKey) { // Opera assigns values for control keys.
 
-                    if(event.which != 8 && 
+                    if(event.which != 8 && event.which != 0 && event.which != 13 &&
                         (parseInt(this.value.length) >= parseInt(item.readAttribute('maxlength')) ||
-                        (event.which != 0 && event.which != 13 && (event.which < 45 || event.which > 57)))) {
+                        (event.which < 45 || event.which > 57))) {
                         event.preventDefault();
                     } else {
                         return;
@@ -8686,6 +8776,17 @@ var JotForm = {
         $('progressTotal').update(totalFields);
 
         updateProgress();
+    },
+
+    setupRichArea: function(qid) {
+        if(!(!Prototype.Browser.IE9 && !Prototype.Browser.IE10 && Prototype.Browser.IE)) {
+            if(!JotForm.isVisible(qid)) {
+                $('id_'+qid).up('.form-section') && $('id_'+qid).up('.form-section').show();
+                JotForm.showField(qid);
+            }
+            new nicEditor({iconsPath : location.protocol + '//www.jotform.com/images/nicEditorIcons.gif?v2'}).panelInstance('input_'+qid);
+            JotForm.updateAreaFromRich(qid);
+        }
     },
 
     updateAreaFromRich: function (id) {
