@@ -59,6 +59,7 @@
   font-size: 26px;
   color: #ffffff;
   padding-left: 130px;
+  -webkit-appearance:none;
 }
 .form-group .form-control:focus,
 .form-group .form-control:hover {
@@ -118,6 +119,14 @@
   font: 400 30px 'Myriad Pro';
   margin-bottom: 35px;
   margin-top: 35px;
+}
+.media-label2 {
+  display: block;
+  width: 100%;
+  color: #fcfefe;
+  font: 400 18px 'Myriad Pro';
+  margin-bottom: -10px!important;
+  margin-top: 25px;
 }
 .form-input {
   display: block!important;

@@ -248,11 +248,11 @@ title-bar .artist-name .artist-logo {
   background-color: #000000;
 }
 .news #message .message-item .content .post-photo {
-  max-width: 100%;
+  width: 100%;
   margin-top: 15px;
 }
 .news #message .message-item .content .post-video {
-  max-width: 100%;
+  width: 100%;
   margin-top: 15px;
 }
 .news #facebook .facebook-item .content .facebook-profile {

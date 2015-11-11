@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Got Music - Abraham Mateo"
+AuthUserFile  /home3/brunoc/public_html/gotmusicapp.com/abraham/.htpasswd
+Require valid-user
