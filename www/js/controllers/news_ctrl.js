@@ -62,6 +62,8 @@ angular.module('gotMusicApp')
 
                 for (var i = 0; i < entries.length; i++) {
                     var entry = entries[i];
+                  console.log(entry);
+                  console.log('teste');
 
                     try {
                         var item = {
@@ -80,6 +82,7 @@ angular.module('gotMusicApp')
                     }
 
                     $scope.message.items.push(item);
+                  
                 }
 
                 $scope.message.items.reverse();
@@ -131,7 +134,9 @@ angular.module('gotMusicApp')
   
     $scope.message.get_urlVideo = function(msg) {
       var resp = msg.app_urlVideo;
+      console.log($sce.trustAsResourceUrl(resp));
       return $sce.trustAsResourceUrl(resp);
+      
         
     };  
 
