@@ -46,7 +46,7 @@ var app = {
         VERSION = device.version;
 
         // Google Analytics
-        window.analytics.startTrackerWithId('UA-61028835-1');
+        window.analytics.startTrackerWithId('UA-71794890-2');
 
         // Geolocation
         navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError);
