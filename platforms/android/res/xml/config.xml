@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.gotmusic.abraham_mateo" version="1.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.gotmusic.farfromalaska" version="1.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <feature name="UniversalAnalytics">
         <param name="android-package" value="com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin" />
@@ -27,9 +27,9 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
-    <name>Abraham Mateo</name>
+    <name>Far From Alaska</name>
     <description>
-        Fique por dentro de todas as novidades de Abraham Mateo
+        Fique por dentro de todas as novidades da banda Far From Alaska
     </description>
     <author email="contact@gotmusicapp.com" href="http://www.gotmusicapp.com">
         Got Music

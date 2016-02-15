@@ -72,11 +72,11 @@ angular.module('gotMusicApp')
                             app_link: entry.gsx$linkinterno.$t,
                             app_urlImage: entry.gsx$imagem.$t,
                             app_urlVideo: entry.gsx$video.$t
-                            
+
                         };
                     } catch (exception) {
                         console.log('Malformed spreadsheet', exception); //  substituido o alert por console.log, para nao aparecer para o usuário final em caso de erros
-                      
+
                     }
 
                     $scope.message.items.push(item);
@@ -124,7 +124,7 @@ angular.module('gotMusicApp')
         }
 
     };
-  
+
     $scope.message.get_urlImage = function(msg) {
       return msg.app_urlImage;
     };
@@ -132,7 +132,7 @@ angular.module('gotMusicApp')
     $scope.message.get_urlVideo = function(msg) {
       var resp = msg.app_urlVideo;
 
-      console.log("Url do video", resp);   
+      console.log("Url do video", resp);
       return $sce.trustAsResourceUrl(resp);
 
     };
@@ -212,7 +212,7 @@ angular.module('gotMusicApp')
     // Twitter API
     $scope.twitter.open_twitter = function() {
 
-        var twitter_timeline = 'https://twitter.com/abrahammateomus';
+        var twitter_timeline = 'https://twitter.com/farfromalaska';
 
         var twitter_window = window.open(twitter_timeline, '_blank', 'location=yes');
     };
