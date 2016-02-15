@@ -44,7 +44,6 @@
             <ng-view></ng-view>
         </div>
 
-
         <!-- Push Notification Registration Form -->
         <form action="push-form-url" method="POST" id="registration-form" target="hidden_iframe" onsubmit="submitted=true;" style="display:none;">
             <input type="text" name="platform-input-name" value="" class="ss-q-short" id="platform-input-id" dir="auto" aria-label="platform  " title="">
@@ -84,5 +83,22 @@
         <script type="text/javascript" src="js/controllers/shows_ctrl.js"></script>
 
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+
+        <!-- Piwik -->
+        <script type="text/javascript">
+          var _paq = _paq || [];
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//www.andrearaujoweb.com/piwik/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', 3]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <noscript><p><img src="//www.andrearaujoweb.com/piwik/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+        <!-- End Piwik Code -->
+
     </body>
 </html>
