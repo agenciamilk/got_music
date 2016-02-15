@@ -120,7 +120,7 @@ title-bar .artist-name {
   text-align: center;
 }
 title-bar .artist-name .artist-logo {
-  height: 40px;
+  max-width: 70%;
   margin-top: 3px;
 }
 .home .bottom-menu {
